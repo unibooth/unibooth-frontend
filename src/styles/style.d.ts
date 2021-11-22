@@ -7,6 +7,10 @@ declare module 'styled-components' {
       mainBlue: string;
       pointYellow: string;
       pointRed: string;
+      orange: string;
+      mint: string;
+      purple: string;
+      yellow: string;
       black900: string;
       black800: string;
       black700: string;
