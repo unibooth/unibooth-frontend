@@ -1,10 +1,20 @@
 import type { NextPage } from 'next';
-import React from 'react';
-
+import React, {useEffect} from 'react';
 import Layout from '@components/Layout';
+import MapD from './MapComponent/NaverMap';
+
+
+
+
+
+
 
 const Map: NextPage = () => {
-  return <Layout title="지도">dd</Layout>;
+  return (
+  <Layout title="지도">
+
+    <MapD/>
+  </Layout>);
 };
 
 export default Map;
