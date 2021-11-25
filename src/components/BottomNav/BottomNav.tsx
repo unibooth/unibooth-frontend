@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import HomeIcon from '@assets/home_line.svg';
-import MyPageIcon from '@assets/person_outline.svg';
-import RankingIcon from '@assets/ranking_line.svg';
-import SearchIcon from '@assets/search_line.svg';
+import {
+  BellOutlined,
+  CommentOutlined,
+  EnvironmentOutlined,
+  HomeOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 
 import * as S from './styles';
 
@@ -14,29 +17,35 @@ const BottomNav = () => {
     <S.BottomNav className="container">
       <Link href="/home" passHref>
         <a className={`nav-link ${router.asPath === '/home' ? 'active' : ''}`}>
-          <HomeIcon className="svg-path" />
+          <HomeOutlined className="svg-path" />
           <span>홈</span>
         </a>
       </Link>
 
-      <Link href="/search" passHref>
-        <a className={`nav-link ${router.asPath === '/search' ? 'active' : ''}`}>
-          <SearchIcon className="svg-complicated" />
-          <span>오마카세 찾기</span>
+      <Link href="/notification" passHref>
+        <a className={`nav-link ${router.asPath === '/notification' ? 'active' : ''}`}>
+          <BellOutlined className="svg-complicated" />
+          <span>알림</span>
         </a>
       </Link>
 
-      <Link href="/ranking" passHref>
-        <a className={`nav-link ${router.asPath === '/ranking' ? 'active' : ''}`}>
-          <RankingIcon className="svg-paths" />
-          <span>랭킹</span>
+      <Link href="/map" passHref>
+        <a className={`nav-link ${router.asPath === '/map' ? 'active' : ''}`}>
+          <EnvironmentOutlined className="svg-paths" />
+          <span>지도</span>
         </a>
       </Link>
 
+      <Link href="/chat" passHref>
+        <a className={`nav-link ${router.asPath === '/chat' ? 'active' : ''}`}>
+          <CommentOutlined className="svg-paths" />
+          <span>채팅</span>
+        </a>
+      </Link>
       <Link href="/mypage" passHref>
         <a className={`nav-link ${router.asPath === '/mypage' ? 'active' : ''}`}>
-          <MyPageIcon className="svg-paths" />
-          <span>MY 오모</span>
+          <UserOutlined className="svg-paths" />
+          <span>MY</span>
         </a>
       </Link>
     </S.BottomNav>

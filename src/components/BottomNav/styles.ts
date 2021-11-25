@@ -28,23 +28,23 @@ export const BottomNav = styled.nav`
 
     &.active {
       span {
-        color: ${({ theme }) => theme.colors.mainBlue};
+        color: ${({ theme }) => theme.colors.purple};
       }
       svg {
         opacity: 1;
         &.svg-path path {
-          stroke: ${({ theme }) => theme.colors.mainBlue};
+          stroke: ${({ theme }) => theme.colors.purple};
         }
         &.svg-paths path {
-          fill: ${({ theme }) => theme.colors.mainBlue};
+          fill: ${({ theme }) => theme.colors.purple};
         }
         &.svg-complicated {
           path,
           rect {
-            fill: ${({ theme }) => theme.colors.mainBlue};
+            fill: ${({ theme }) => theme.colors.purple};
           }
           circle {
-            stroke: ${({ theme }) => theme.colors.mainBlue};
+            stroke: ${({ theme }) => theme.colors.purple};
           }
         }
       }

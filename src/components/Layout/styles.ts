@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import PlainPrevIcon from '@assets/prev.svg';
+import { LeftOutlined } from '@ant-design/icons';
 
 export const Layout = styled.div`
   position: relative;
@@ -29,7 +29,7 @@ export const Button = styled.button`
   font-family: 'Noto Sans KR', sans-serif;
 `;
 
-export const PrevIcon = styled(PlainPrevIcon)`
+export const PrevIcon = styled(LeftOutlined)`
   position: absolute;
   top: 2rem;
   left: 1rem;

@@ -1,5 +1,5 @@
 import BottomNav from '@components/BottomNav';
-import { MainHeader } from '@components/Header';
+import Header from '@components/Header';
 
 import * as S from './styles';
 
@@ -13,7 +13,7 @@ interface Props {
 const Layout = (props: Props) => {
   return (
     <S.Layout>
-      {!props.noHeader && <MainHeader title={props.title} align="flex-start" />}
+      {!props.noHeader && <Header title={props.title} />}
       <S.Main>{props.children}</S.Main>
       <BottomNav />
     </S.Layout>

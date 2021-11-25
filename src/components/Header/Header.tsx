@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import Prev from '@assets/prev.svg';
+import { LeftOutlined } from '@ant-design/icons';
 
 import * as S from './styles';
 
@@ -14,7 +14,7 @@ const Header = ({ title }: HeaderProps) => {
   return (
     <S.Header className="container">
       <S.PrevButton onClick={() => router.back()}>
-        <Prev />
+        <LeftOutlined />
       </S.PrevButton>
       {title && <S.Title>{title}</S.Title>}
     </S.Header>
