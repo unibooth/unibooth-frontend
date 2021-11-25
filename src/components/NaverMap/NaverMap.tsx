@@ -22,15 +22,18 @@ const NaverMap = () => {
       icon: {
         content: `
         <div 
-          style="width: 40%; 
-                hegith: 30%;  
+          style="
+                width: 40%; 
+                height: 40%;  
                 border-radius: 10px; 
+                border: solid 1px;
                 background-color: white; 
                 margin-left: 10px;
+                text-align: center;
                 align-content: center;">
           
         <img alt="" src="` + IMAGE_PATH + `" 
-            style="width: 80%; height: 80%; border-radius: 10px"/>
+            style="width: 80%; height: 80%; border-radius: 10px; display: block; margin: auto"/>
         </div>
       `
           
