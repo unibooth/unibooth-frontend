@@ -1,32 +1,51 @@
-import { Dropdown, Menu } from 'antd';
+import { Tabs } from 'antd';
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import styled from 'styled-components';
 
-import { DownOutlined } from '@ant-design/icons';
-import Layout from '@components/Layout';
+import { HomeLayout } from '@components/Layout';
 
 const Home: NextPage = () => {
-  const menu = (
-    <Menu>
-      <Menu.Item key="0">
-        <a href="https://www.antgroup.com">1st menu item</a>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <a href="https://www.aliyun.com">2nd menu item</a>
-      </Menu.Item>
-      <Menu.Item key="3">3rd menu item</Menu.Item>
-    </Menu>
-  );
-
   return (
-    <Layout title="홈">
-      <Dropdown overlay={menu} trigger={['click']}>
-        <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-          중앙대 <DownOutlined />
-        </a>
-      </Dropdown>
-    </Layout>
+    <HomeLayout title="홈">
+      <div>
+        <BoothWrapper>
+          <Booth>
+            <Image src="/images/home1.png" width="343" height="514" />
+          </Booth>
+          <Booth>
+            <Image src="/images/home2.png" width="343" height="514" />
+          </Booth>
+          <Booth>
+            <Image src="/images/home3.png" width="343" height="514" />
+          </Booth>
+          <Booth>
+            <Image src="/images/home4.png" width="343" height="514" />
+          </Booth>
+          <Booth>
+            <Image src="/images/home5.png" width="343" height="514" />
+          </Booth>
+        </BoothWrapper>
+      </div>
+    </HomeLayout>
   );
 };
 
 export default Home;
+
+const BoothWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 48px;
+  padding-top: 20px;
+`;
+
+const Booth = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* width: 100vw; */
+`;

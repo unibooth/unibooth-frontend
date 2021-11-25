@@ -7,14 +7,33 @@ interface HeaderProps {
 
 export const Header = styled.header<HeaderProps>`
   position: relative;
-  height: 67px;
+  height: 90px;
   display: flex;
+  flex-direction: column;
   justify-content: ${({ align }) => align ?? 'center'};
-  border-bottom: ${({ borderBottom }) =>
-    borderBottom ? `1px solid rgba(196, 196, 196, 0.2)` : 'none'};
+  border-bottom: 0.5px solid #d5d7dd;
   align-items: center;
 `;
 
+export const Tabs = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+`;
+
+export const ActiveTab = styled.div`
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  padding: 0 2px 10px 2px;
+  margin-right: 24px;
+  border-bottom: 2px solid #ff6433;
+`;
+
+export const DeActiveTab = styled(ActiveTab)`
+  color: #d5d7dd;
+  border: none;
+`;
 export const MyPageHeader = styled(Header)`
   display: flex;
   justify-content: space-between;
@@ -75,4 +94,20 @@ export const SearchButton = styled(PrevButton)`
   margin: 0;
   padding: 0;
   ${({ theme }) => theme.fonts.contents2};
+`;
+
+export const SpaceBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  h1 {
+    display: flex;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    align-items: center;
+    height: 50px;
+  }
 `;

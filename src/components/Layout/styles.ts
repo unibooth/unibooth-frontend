@@ -34,3 +34,4 @@ export const PrevIcon = styled(LeftOutlined)`
   top: 2rem;
   left: 1rem;
 `;
+
