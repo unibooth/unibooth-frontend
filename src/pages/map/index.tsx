@@ -6,10 +6,10 @@ import NaverMap from '@components/NaverMap/NaverMap';
 
 const Map: NextPage = () => {
   return (
-  <Layout title="지도">
-    <NaverMap/>
+    <Layout noHeader={true}>
+      <NaverMap/>
  
-  </Layout>);
+    </Layout>);
 };
 
 export default Map;
