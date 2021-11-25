@@ -33,7 +33,12 @@ const NaverMap = () => {
                 align-content: center;">
           
         <img alt="" src="` + IMAGE_PATH + `" 
-            style="width: 80%; height: 80%; border-radius: 10px; display: block; margin: auto"/>
+            style="
+              width: 80%; 
+              height: 80%; 
+              border-radius: 10px; 
+           
+              margin: 0 auto"/>
         </div>
       `
           
@@ -55,9 +60,6 @@ const NaverMap = () => {
 
   return (
     <>
-      <Head>
-        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8rgu5jqpbb"></script>
-      </Head>
       <div id="map" style={mapStyle}></div>
     </>
   );
