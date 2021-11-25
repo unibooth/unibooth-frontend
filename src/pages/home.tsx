@@ -1,11 +1,14 @@
 import { Tabs } from 'antd';
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 import { HomeLayout } from '@components/Layout';
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
   return (
     <HomeLayout title="홈">
       <div>
@@ -39,7 +42,7 @@ const BoothWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 48px;
-  padding-top: 20px;
+  padding-top: 32px;
 `;
 
 const Booth = styled.div`
@@ -47,5 +50,4 @@ const Booth = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* width: 100vw; */
 `;

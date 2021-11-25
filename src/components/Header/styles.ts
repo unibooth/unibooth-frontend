@@ -11,7 +11,7 @@ export const Header = styled.header<HeaderProps>`
   display: flex;
   flex-direction: column;
   justify-content: ${({ align }) => align ?? 'center'};
-  border-bottom: 0.5px solid #d5d7dd;
+  /* border-bottom: 0.5px solid #d5d7dd; */
   align-items: center;
 `;
 
