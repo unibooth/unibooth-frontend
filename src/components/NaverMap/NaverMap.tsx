@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import Head from 'next/head';
-import ex from '../../../assets/img/map/01.jpg';
 
-const MapD = () => {
+const NaverMap = () => {
 
   const initMap = () => {
     const map = new naver.maps.Map("map", {
@@ -27,14 +26,14 @@ const MapD = () => {
                 hegith: 30%;  
                 border-radius: 10px; 
                 background-color: white; 
-                align-content: start;">
+                margin-left: 10px;
+                align-content: center;">
           
         <img alt="" src="` + IMAGE_PATH + `" 
             style="width: 80%; height: 80%; border-radius: 10px"/>
         </div>
       `
           
-      
       },
     });
 
@@ -52,12 +51,12 @@ const MapD = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Head>
         <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8rgu5jqpbb"></script>
       </Head>
       <div id="map" style={mapStyle}></div>
-    </React.Fragment>
+    </>
   );
 };
-export default MapD;
+export default NaverMap;
