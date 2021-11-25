@@ -1,21 +1,13 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import React from 'react';
 
 import { Layout } from '@components/Layout';
 
 const MyPage: NextPage = () => {
-  const router = useRouter();
-
   return (
     <Layout title="마이페이지">
-      <Image
-        src="/images/mypage.jpg"
-        width="375"
-        height="812"
-        onClick={() => router.push('/mypage/certificate')}
-      />
+      <Image src="/images/mypage-certificate.jpg" width="375" height="812" />
     </Layout>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef} from "react";
 import Head from 'next/head';
 import ActionSheet from 'actionsheet-react';
-
+import { BoothListLayout } from "./styles";
 
 const NaverMap = () => {
     const ref = useRef();
@@ -35,6 +35,20 @@ const NaverMap = () => {
         {
           id: 3,
           image: '/image/04.jpg',
+          title: '식품공학과의 달달한 마카롱',
+          category: '체험 부스',
+          boothNum: 15,
+        },
+        {
+          id: 4,
+          image: '/image/05.jpg',
+          title: '실사판 배틀그라운드',
+          category: '체험 부스',
+          boothNum: 13,
+        },
+        {
+          id: 5,
+          image: '/image/06.jpg',
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
           boothNum: 15,
@@ -150,9 +164,11 @@ const NaverMap = () => {
           ref={ref} 
           bgStyle={{background: 'rgba(0, 0, 0, 0.00)'}} 
           onClose={()=> setBottomBoothCard(false)}
-        
+          touchEnable={true}
           sheetStyle={{
-            height: '43%', width: '100%', marginBottom: 64
+            height: '43%', width: '100%', marginBottom: 64,
+            overflowY: 'scroll'
+     
           }}>
             <div style={{
                 borderWidth: 1,
@@ -164,6 +180,7 @@ const NaverMap = () => {
               }}>
               <div style={{
                 borderWidth: 1,
+                marginBottom: 42,
                 fontSize: 24,
                 fontWeight: '600',
                 width: '90%'
@@ -173,14 +190,14 @@ const NaverMap = () => {
       
               {dummyBoothData.map(booth => {
                 return (
-                  <div style={{
-                    width: '100%',
-                    borderWidth: 1
-                    
-                  }}>
-                    <img src={booth.image} style={{borderRadius: 8, width: 44}}/>
-                    {booth.title}
-                  </div>
+                  <BoothListLayout>
+                    <img src={booth.image} style={{borderRadius: 8, width: 44, height: 44}}/>
+                    <div style={{marginLeft: 16}}>
+                      <div style={{fontWeight: '600', marginBottom: 4, marginTop: 4}}>{booth.title}</div>
+                      <span style={{color: '#8833FF', fontSize: 12}}>{booth.category} ・ </span>
+                      <span style={{color: '#818798', fontSize: 12}}> 부스 번호 {booth.boothNum}</span>
+                    </div>
+                  </BoothListLayout>
                 );
             })}
         </div>

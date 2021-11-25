@@ -1,5 +1,5 @@
 import BottomNav from '@components/BottomNav';
-import Header from '@components/Header';
+import { HomeHeader } from '@components/Header';
 
 import * as S from './styles';
 
@@ -10,14 +10,14 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout = (props: Props) => {
+const HomeLayout = (props: Props) => {
   return (
     <S.Layout>
-      {/* {!props.noHeader && <Header title={props.title} />} */}
+      <HomeHeader />
       <S.Main>{props.children}</S.Main>
       <BottomNav />
     </S.Layout>
   );
 };
 
-export default Layout;
+export default HomeLayout;

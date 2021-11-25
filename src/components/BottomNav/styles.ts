@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const BottomNav = styled.nav`
-  height: 64px;
+  height: 48px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -21,30 +21,30 @@ export const BottomNav = styled.nav`
     }
 
     span {
-      color: ${({ theme }) => theme.colors.black500};
+      color: #818698;
       ${({ theme }) => theme.fonts.contents3};
       margin-top: 3px;
     }
 
     &.active {
       span {
-        color: ${({ theme }) => theme.colors.purple};
+        color: black;
       }
       svg {
         opacity: 1;
         &.svg-path path {
-          stroke: ${({ theme }) => theme.colors.purple};
+          stroke: black;
         }
         &.svg-paths path {
-          fill: ${({ theme }) => theme.colors.purple};
+          fill: black;
         }
         &.svg-complicated {
           path,
           rect {
-            fill: ${({ theme }) => theme.colors.purple};
+            fill: black;
           }
           circle {
-            stroke: ${({ theme }) => theme.colors.purple};
+            stroke: black;
           }
         }
       }
