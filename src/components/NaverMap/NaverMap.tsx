@@ -13,42 +13,42 @@ const NaverMap = () => {
     const dummyBoothData= [
         {
           id: 0,
-          image: '/image/01.jpg',
+          image: '/images/01.jpg',
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
           boothNum: 4,
         },
         {
           id: 1,
-          image: '/image/02.jpg',
+          image: '/images/02.jpg',
           title: '다트 자신 있는 사람 모여라',
           category: '체험 부스',
           boothNum: 20,
         },
         {
           id: 2,
-          image: '/image/03.jpg',
+          image: '/images/03.jpg',
           title: '실사판 배틀그라운드',
           category: '체험 부스',
           boothNum: 13,
         },
         {
           id: 3,
-          image: '/image/04.jpg',
+          image: '/images/04.jpg',
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
           boothNum: 15,
         },
         {
           id: 4,
-          image: '/image/05.jpg',
+          image: '/images/05.jpg',
           title: '실사판 배틀그라운드',
           category: '체험 부스',
           boothNum: 13,
         },
         {
           id: 5,
-          image: '/image/06.jpg',
+          image: '/images/06.jpg',
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
           boothNum: 15,
@@ -70,19 +70,19 @@ const NaverMap = () => {
     });
     const LIKE_ICON = '/icon/ic-map-like.svg';
     const IMAGE_PATH = [
-      '/image/01.jpg',
-      '/image/02.jpg',
-      '/image/03.jpg',
-      '/image/04.jpg',
-      '/image/05.jpg',
-      '/image/06.jpg',
-      '/image/07.jpg',
-      '/image/08.jpg',
-      '/image/09.jpg',
-      '/image/10.jpg',
-      '/image/11.jpg',
-      '/image/12.jpg',
-      '/image/13.jpg',
+      '/images/01.jpg',
+      '/images/02.jpg',
+      '/images/03.jpg',
+      '/images/04.jpg',
+      '/images/05.jpg',
+      '/images/06.jpg',
+      '/images/07.jpg',
+      '/images/08.jpg',
+      '/images/09.jpg',
+      '/images/10.jpg',
+      '/images/11.jpg',
+      '/images/12.jpg',
+      '/images/13.jpg',
     ];
 
     const latLng = [
@@ -166,8 +166,9 @@ const NaverMap = () => {
           onClose={()=> setBottomBoothCard(false)}
           touchEnable={true}
           sheetStyle={{
-            height: '43%', width: '100%', marginBottom: 64,
-            overflowY: 'scroll'
+            height: '43%', width: '100%', marginBottom: 48,
+            overflowY: 'scroll',
+        
      
           }}>
             <div style={{
