@@ -13,7 +13,7 @@ interface Props {
 const Layout = (props: Props) => {
   return (
     <S.Layout>
-      {!props.noHeader && <Header title={props.title} />}
+      {/* {!props.noHeader && <Header title={props.title} />} */}
       <S.Main>{props.children}</S.Main>
       <BottomNav />
     </S.Layout>

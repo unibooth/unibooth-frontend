@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     <HomeLayout title="홈">
       <div>
         <BoothWrapper>
-          <Booth>
+          <Booth onClick={() => router.push('/booth')}>
             <Image src="/images/home1.png" width="343" height="514" />
           </Booth>
           <Booth>
