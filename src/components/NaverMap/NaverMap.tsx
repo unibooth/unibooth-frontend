@@ -2,13 +2,11 @@ import React, { useEffect, useState, useRef} from "react";
 import Head from 'next/head';
 import ActionSheet from 'actionsheet-react';
 import { BoothListLayout } from "./styles";
-
+import { BoothListOpenButton } from "./styles";
 const NaverMap = () => {
     const ref = useRef();
     const [bottomBoothCard, setBottomBoothCard] = useState(true);
-    const handleOpen = () => {
-      ref.current.open();
-    };
+
 
     const dummyBoothData= [
         {
@@ -17,6 +15,8 @@ const NaverMap = () => {
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
           boothNum: 4,
+          like: false,
+          likeCount: 52
         },
         {
           id: 1,
@@ -24,6 +24,9 @@ const NaverMap = () => {
           title: '다트 자신 있는 사람 모여라',
           category: '체험 부스',
           boothNum: 20,
+          like: true,
+          likeCount: 49
+
         },
         {
           id: 2,
@@ -31,6 +34,8 @@ const NaverMap = () => {
           title: '실사판 배틀그라운드',
           category: '체험 부스',
           boothNum: 13,
+          like: false,
+          likeCount: 48
         },
         {
           id: 3,
@@ -38,6 +43,8 @@ const NaverMap = () => {
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
           boothNum: 15,
+          like: true,
+          likeCount: 30
         },
         {
           id: 4,
@@ -45,6 +52,8 @@ const NaverMap = () => {
           title: '실사판 배틀그라운드',
           category: '체험 부스',
           boothNum: 13,
+          like: true,
+          likeCount: 25
         },
         {
           id: 5,
@@ -52,6 +61,8 @@ const NaverMap = () => {
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
           boothNum: 15,
+          like: true,
+          likeCount: 128
         }
     ];
 
@@ -144,10 +155,14 @@ const NaverMap = () => {
       handleOpen();
 
   };
+  const handleOpen = () => {
+    ref.current.open();
+  };
 
   useEffect(() => {
     initMap();
-    handleOpen();
+    if(bottomBoothCard)
+      handleOpen();
   }, []);
 
   const mapStyle = {
@@ -168,8 +183,6 @@ const NaverMap = () => {
           sheetStyle={{
             height: '43%', width: '100%', marginBottom: 48,
             overflowY: 'scroll',
-        
-     
           }}>
             <div style={{
                 borderWidth: 1,
@@ -193,17 +206,37 @@ const NaverMap = () => {
                 return (
                   <BoothListLayout>
                     <img src={booth.image} style={{borderRadius: 8, width: 44, height: 44}}/>
-                    <div style={{marginLeft: 16}}>
-                      <div style={{fontWeight: '600', marginBottom: 4, marginTop: 4}}>{booth.title}</div>
-                      <span style={{color: '#8833FF', fontSize: 12}}>{booth.category} ・ </span>
-                      <span style={{color: '#818798', fontSize: 12}}> 부스 번호 {booth.boothNum}</span>
+                    <div style={{marginLeft: 16, width: '75%', position: 'relative'}}>
+                      <div style={{fontWeight: '600', marginBottom: 4, marginTop: 4, justifyContent: 'center'}}>
+                        {booth.title}
+                        {!booth.like ? 
+                        <img src="/icon/like-default.svg" style={{width: 20, height: 18.35, position: 'absolute', right: 0}}/> :
+                        <img src="/icon/like-activated.svg" style={{width: 20, height: 18.35, position: 'absolute', right: 0}}/>
+                      }
+                      </div>
+                      <div style={{fontSize: 12, marginTop: 8}}>
+                        <span style={{color: '#8833FF'}}>{booth.category} ・ </span>
+                        <span style={{color: '#818798'}}> 부스 번호 {booth.boothNum}</span>
+                        <span style={{color: '#818798', position: 'absolute', right:3}}> {booth.likeCount}</span>
+                      </div>
+  
                     </div>
                   </BoothListLayout>
                 );
             })}
         </div>
         </ActionSheet> 
-        : null}
+        :
+        
+        <BoothListOpenButton>
+          <span style={{marginRight: 10, fontSize: 16, fontWeight: '600'}}>펼치기</span>
+          <img src="/icon/ic-arrow-top.svg"/>
+     
+        </BoothListOpenButton>
+        
+
+
+        }
 
 
 

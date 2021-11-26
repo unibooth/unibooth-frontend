@@ -12,3 +12,17 @@ export const BoothListLayout = styled.div`
 `;
 
 
+export const BoothListOpenButton = styled.button`
+    width :118px;
+    height: 48px;
+    position: absolute;
+    bottom: 8vh;
+    background: white;
+    z-index: 1000;
+    border-radius: 24px;
+    border-color: white;
+
+
+`;
+
+
