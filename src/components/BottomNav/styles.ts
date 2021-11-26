@@ -5,7 +5,7 @@ export const BottomNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #ebebeb;
+  border-top: 0.5px solid #F1F2F4;
 
   .nav-link {
     ${({ theme }) => theme.fonts.contents3};
