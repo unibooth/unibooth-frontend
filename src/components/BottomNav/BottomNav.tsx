@@ -14,7 +14,7 @@ import * as S from './styles';
 const BottomNav = () => {
   const router = useRouter();
   return (
-    <S.BottomNav className="container">
+    <S.BottomNav className="container" style={{zIndex: 1002, background: 'white'}}>
       <Link href="/home" passHref>
         <a className={`nav-link ${router.asPath === '/home' ? 'active' : ''}`}>
           <HomeOutlined className="svg-path" style={{ fontSize: '18px' }} />
