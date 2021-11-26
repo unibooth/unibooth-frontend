@@ -26,7 +26,7 @@ const Stamp: NextPage = () => {
         <Input onChange={onChange} value={text} type="text" placeholder="스탬프 코드 입력" />
       </div>
 
-      <Button disabled={usable} onClick={() => router.push('/map')}>
+      <Button disabled={usable} activate={usable} onClick={() => router.push('/map')}>
         완료
       </Button>
     </Layout>
@@ -36,7 +36,7 @@ const Stamp: NextPage = () => {
 export default Stamp;
 
 const Button = styled.button`
-  background: #ff6433;
+  background: ${props => props.activate ? '#D5D7DD' : '#ff6433'};
   position: absolute;
   left: 0%;
   bottom: 0%;
