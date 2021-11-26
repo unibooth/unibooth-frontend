@@ -195,13 +195,13 @@ const NaverMap = () => {
 
       console.log('클릭!' + id);
       
-
         setCurrentBooth(id);
         setOpenStampCollect(true);
       
 
       
   };
+  
   const handleOpen = () => {
     if(ref.current) {
       setBottomTabType(1);
