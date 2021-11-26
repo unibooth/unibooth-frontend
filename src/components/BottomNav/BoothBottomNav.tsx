@@ -1,43 +1,43 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
-import {
-  BellOutlined,
-  CommentOutlined,
-  EnvironmentOutlined,
-  HomeOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
 import Comment from '@assets/comment.svg';
 import Heart from '@assets/heart.svg';
+import HeartLike from '@assets/heart_like.svg';
 import Share from '@assets/share.svg';
 
 import * as S from './styles';
 
 const BoothBottomNav = () => {
   const router = useRouter();
+  const [like, setLike] = useState(48);
+  const [isLike, setIsLike] = useState(false);
+
+  const clickHandler = () => {
+    setLike(isLike === true ? like - 1 : like + 1);
+    setIsLike((prev) => !prev);
+  };
+
   return (
     <S.BottomNav className="container">
-      <Link href="/home" passHref>
-        <a className={`nav-link ${router.asPath === '/home' ? 'active' : ''}`}>
+      <a className={`nav-link`} onClick={clickHandler}>
+        {isLike ? (
+          <HeartLike className="svg-path" style={{ fontSize: '18px' }} />
+        ) : (
           <Heart className="svg-path" style={{ fontSize: '18px' }} />
-          <span>48</span>
-        </a>
-      </Link>
+        )}
+        <span>{like}</span>
+      </a>
+      <a className={`nav-link`}>
+        <Comment className="svg-complicated" style={{ fontSize: '18px' }} />
+        <span>12</span>
+      </a>
 
-      <Link href="/notification" passHref>
-        <a className={`nav-link ${router.asPath === '/notification' ? 'active' : ''}`}>
-          <Comment className="svg-complicated" style={{ fontSize: '18px' }} />
-          <span>12</span>
-        </a>
-      </Link>
-
-      <Link href="/map" passHref>
-        <a className={`nav-link ${router.asPath === '/map' ? 'active' : ''}`}>
-          <Share className="svg-paths" style={{ fontSize: '18px' }} />
-          <span>3</span>
-        </a>
-      </Link>
+      <a className={`nav-link`}>
+        <Share className="svg-paths" style={{ fontSize: '18px' }} />
+        <span>3</span>
+      </a>
       <S.Button>문의하기</S.Button>
     </S.BottomNav>
   );
