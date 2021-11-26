@@ -51,3 +51,15 @@ export const BottomNav = styled.nav`
     }
   }
 `;
+
+export const Button = styled.button`
+  background: #ff6433;
+  border-radius: 8px;
+  border: none;
+  width: 163px;
+  height: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+`;

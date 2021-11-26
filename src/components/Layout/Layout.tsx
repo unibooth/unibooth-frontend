@@ -4,7 +4,7 @@ import Header from '@components/Header';
 import * as S from './styles';
 
 interface Props {
-  title: string;
+  title?: string;
   align?: string;
   noHeader?: boolean;
   children: React.ReactNode;

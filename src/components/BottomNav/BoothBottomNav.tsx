@@ -11,10 +11,10 @@ import {
 
 import * as S from './styles';
 
-const BottomNav = () => {
+const BoothBottomNav = () => {
   const router = useRouter();
   return (
-    <S.BottomNav className="container" style={{zIndex: 1002, background: 'white'}}>
+    <S.BottomNav className="container">
       <Link href="/home" passHref>
         <a className={`nav-link ${router.asPath === '/home' ? 'active' : ''}`}>
           <HomeOutlined className="svg-path" style={{ fontSize: '18px' }} />
@@ -35,21 +35,9 @@ const BottomNav = () => {
           <span>지도</span>
         </a>
       </Link>
-
-      <Link href="/chat" passHref>
-        <a className={`nav-link ${router.asPath === '/chat' ? 'active' : ''}`}>
-          <CommentOutlined className="svg-paths" style={{ fontSize: '18px' }} />
-          <span>채팅</span>
-        </a>
-      </Link>
-      <Link href="/mypage" passHref>
-        <a className={`nav-link ${router.asPath === '/mypage' ? 'active' : ''}`}>
-          <UserOutlined className="svg-paths" style={{ fontSize: '18px' }} />
-          <span>MY</span>
-        </a>
-      </Link>
+      <S.Button>문의하기</S.Button>
     </S.BottomNav>
   );
 };
 
-export default BottomNav;
+export default BoothBottomNav;
