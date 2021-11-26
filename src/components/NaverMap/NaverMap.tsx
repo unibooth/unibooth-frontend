@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 import ActionSheet, { ActionSheetRef } from 'actionsheet-react';
 import { BoothListLayout } from "./styles";
 import { BoothListOpenButton } from "./styles";
@@ -22,7 +23,7 @@ let marker;
 
 let events: any = [];
 const NaverMap = () => {
-
+  const router = useRouter();
   const ref = useRef<ActionSheetRef>();
   const [bottomTabType, setBottomTabType] = useState<number>(1);
   const [firstRender, setFirstRender] = useState(false);
@@ -295,7 +296,7 @@ const NaverMap = () => {
             </div>
           </div>
         </BoothListLayout>
-        <button style={{ alignSelf: 'center', width: 141, height: 48, borderRadius: 8, border: 'none', background: '#FF6433', color: 'white', fontSize: 16, fontWeight: '600' }}>
+        <button onClick={() => router.push('/map/stamp')} style={{ alignSelf: 'center', width: 141, height: 48, borderRadius: 8, border: 'none', background: '#FF6433', color: 'white', fontSize: 16, fontWeight: '600' }}>
           스탬프 수집
         </button>
 
