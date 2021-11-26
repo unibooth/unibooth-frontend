@@ -13,8 +13,13 @@ const Stamp: NextPage = () => {
 
   const onChange = (e: any) => {
     setText(e.target.value);
+    console.log(e.target.value);
     if (e.target.value > 0) {
       setUsable(false);
+    }
+
+    if (e.target.value === "") {
+      setUsable(true);
     }
   };
 
