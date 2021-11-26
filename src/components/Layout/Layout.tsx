@@ -7,15 +7,16 @@ interface Props {
   title?: string;
   align?: string;
   noHeader?: boolean;
+  noBottom?: boolean;
   children: React.ReactNode;
 }
 
 const Layout = (props: Props) => {
   return (
     <S.Layout>
-      {/* {!props.noHeader && <Header title={props.title} />} */}
+      {!props.noHeader && <Header title={props.title} />}
       <S.Main>{props.children}</S.Main>
-      <BottomNav />
+      {!props.noBottom && <BottomNav />}
     </S.Layout>
   );
 };

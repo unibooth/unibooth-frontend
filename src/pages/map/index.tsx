@@ -6,7 +6,7 @@ import NaverMap from '@components/NaverMap/NaverMap';
 
 const Map: NextPage = () => {
   return (
-    <Layout>
+    <Layout noHeader>
       <NaverMap />
     </Layout>
   );

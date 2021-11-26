@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const BottomNav = styled.nav`
-  height: 48px;
+  height: 60px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #ebebeb;
+  border-top: 0.5px solid #f1f2f4;
 
   .nav-link {
     ${({ theme }) => theme.fonts.contents3};
@@ -22,7 +22,7 @@ export const BottomNav = styled.nav`
 
     span {
       color: #818698;
-      ${({ theme }) => theme.fonts.contents3};
+      font-size: 10px;
       margin-top: 3px;
     }
 
@@ -57,7 +57,7 @@ export const Button = styled.button`
   border-radius: 8px;
   border: none;
   width: 163px;
-  height: 40px;
+  height: 48px;
   color: white;
   font-weight: 600;
   font-size: 16px;

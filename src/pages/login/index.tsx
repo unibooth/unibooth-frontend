@@ -1,14 +1,27 @@
+import Image from 'Next/Image';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
+import styled from 'styled-components';
+
+import Splash from '@assets/splash.svg';
 
 const Login: NextPage = () => {
   return (
-    <div>
-      로그인
-      <Link href="/home">홈으로 가는 임시 링크</Link>
-    </div>
+    <Wrapper>
+      <Link href="/home">
+        <Splash style={{ width: '59.25px' }} />
+      </Link>
+    </Wrapper>
   );
 };
 
 export default Login;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 812px;
+`;

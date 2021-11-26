@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
+import Image from 'Next/Image';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -9,7 +9,7 @@ const MyPage: NextPage = () => {
   const router = useRouter();
 
   return (
-    <Layout title="마이페이지">
+    <Layout title="마이페이지" noHeader>
       <Image
         src="/images/mypage.jpg"
         width="375"
