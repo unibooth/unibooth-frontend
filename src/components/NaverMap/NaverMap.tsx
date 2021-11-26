@@ -1,5 +1,4 @@
 import ActionSheet from 'actionsheet-react';
-import Head from 'next/head';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { BoothListLayout } from './styles';
