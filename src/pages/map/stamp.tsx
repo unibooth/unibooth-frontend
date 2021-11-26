@@ -26,7 +26,7 @@ const Stamp: NextPage = () => {
         <Input onChange={onChange} value={text} type="text" placeholder="스탬프 코드 입력" />
       </div>
 
-      <Button disabled={usable} onClick={() => router.back()}>
+      <Button disabled={usable} onClick={() => router.push('/map')}>
         완료
       </Button>
     </Layout>
