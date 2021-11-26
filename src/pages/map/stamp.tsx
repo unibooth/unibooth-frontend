@@ -1,10 +1,13 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Layout } from '@components/Layout';
 
 const Stamp: NextPage = () => {
+  const router = useRouter();
   const [text, setText] = useState('');
   const [usable, setUsable] = useState(true);
 
@@ -22,7 +25,10 @@ const Stamp: NextPage = () => {
         <BoothName>부스명 20. 일러스트레이터 한나입니다</BoothName>
         <Input onChange={onChange} value={text} type="text" placeholder="스탬프 코드 입력" />
       </div>
-      <Button disabled={usable}>완료</Button>
+
+      <Button disabled={usable} onClick={() => router.back()}>
+        완료
+      </Button>
     </Layout>
   );
 };
