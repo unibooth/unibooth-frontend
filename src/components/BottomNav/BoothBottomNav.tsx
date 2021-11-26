@@ -8,6 +8,9 @@ import {
   HomeOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import Comment from '@assets/comment.svg';
+import Heart from '@assets/heart.svg';
+import Share from '@assets/share.svg';
 
 import * as S from './styles';
 
@@ -17,22 +20,22 @@ const BoothBottomNav = () => {
     <S.BottomNav className="container">
       <Link href="/home" passHref>
         <a className={`nav-link ${router.asPath === '/home' ? 'active' : ''}`}>
-          <HomeOutlined className="svg-path" style={{ fontSize: '18px' }} />
-          <span>홈</span>
+          <Heart className="svg-path" style={{ fontSize: '18px' }} />
+          <span>48</span>
         </a>
       </Link>
 
       <Link href="/notification" passHref>
         <a className={`nav-link ${router.asPath === '/notification' ? 'active' : ''}`}>
-          <BellOutlined className="svg-complicated" style={{ fontSize: '18px' }} />
-          <span>알림</span>
+          <Comment className="svg-complicated" style={{ fontSize: '18px' }} />
+          <span>12</span>
         </a>
       </Link>
 
       <Link href="/map" passHref>
         <a className={`nav-link ${router.asPath === '/map' ? 'active' : ''}`}>
-          <EnvironmentOutlined className="svg-paths" style={{ fontSize: '18px' }} />
-          <span>지도</span>
+          <Share className="svg-paths" style={{ fontSize: '18px' }} />
+          <span>3</span>
         </a>
       </Link>
       <S.Button>문의하기</S.Button>
