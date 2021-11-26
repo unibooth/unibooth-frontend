@@ -23,6 +23,7 @@ const NaverMap = () => {
     const [stampCollectEnable, setStampCollectEnable] = useState(false);
     const [stampView, setStampView] = useState(false);
 
+    const [currentBooth, setCurrentBooth] = useState();
     const LIKE_ICON = '/icon/ic-map-like.svg';
 
     type Booth = {
@@ -200,13 +201,8 @@ const NaverMap = () => {
   const onClickMarker = (index:number) => {
       console.log(index);
       if(stampCollectEnable) {
-
-         
-           setStampView(!stampView);
-       
-        console.log(index);
-     
-    }
+          setCurrentBooth(markers[index].id);
+      }
   };
   const handleOpen = () => {
     if(ref.current) {
