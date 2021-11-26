@@ -14,17 +14,16 @@ import Beer from '@assets/beer.svg';
 import LeftArrow from '@assets/left-arrow.svg';
 import { TopBarLayout } from './styles';
 import { TopBarOpenButton } from './styles';
-import { withTheme } from 'styled-components';
+import { StampLayout } from './styles';
 
 
 const NaverMap = () => {
     const ref = useRef<ActionSheetRef>();
-    const [boothListOpen, setBoothListOpen] = useState(false);
-    const [stampCollectEnable, setStampCollectEnable] = useState(false);
-    const [stampView, setStampView] = useState(false);
-
+    const [bottomTabType, setBottomTabType] = useState<number>(1);
+    const [firstRender, setFirstRender] = useState(false);
+    const [currentBooth, setCurrentBooth] = useState<number>(10);
     const LIKE_ICON = '/icon/ic-map-like.svg';
-
+    const [openStampCollect, setOpenStampCollect] = useState(false);
     type Booth = {
       id: number,
       image: string,
@@ -52,7 +51,7 @@ const NaverMap = () => {
     ])
     const [dummyBoothData, setDummyBoothData]= useState([
         {
-          id: 0,
+          id: 10,
           image: '/images/01.jpg',
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
@@ -62,7 +61,7 @@ const NaverMap = () => {
           location: [37.504337, 126.95618],
         },
         {
-          id: 1,
+          id: 9,
           image: '/images/02.jpg',
           title: '다트 자신 있는 사람 모여라',
           category: '체험 부스',
@@ -72,7 +71,7 @@ const NaverMap = () => {
           location: [37.504316, 126.956234],
         },
         {
-          id: 2,
+          id: 8,
           image: '/images/03.jpg',
           title: '실사판 배틀그라운드',
           category: '체험 부스',
@@ -82,7 +81,7 @@ const NaverMap = () => {
           location: [37.50441, 126.955891],
         },
         {
-          id: 3,
+          id: 7,
           image: '/images/04.jpg',
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
@@ -92,7 +91,7 @@ const NaverMap = () => {
           location: [37.504337, 126.95618]
         },
         {
-          id: 4,
+          id: 6,
           image: '/images/05.jpg',
           title: '실사판 배틀그라운드',
           category: '체험 부스',
@@ -102,7 +101,7 @@ const NaverMap = () => {
           location:  [37.504434, 126.955913],
         },
         {
-          id: 5,
+          id: 14,
           image: '/images/06.jpg',
           title: '식품공학과의 달달한 마카롱',
           category: '체험 부스',
@@ -113,12 +112,10 @@ const NaverMap = () => {
         }
     ]);
 
-
   
   let map: any;
   let markers:any = [];
   const drawMarker = (map: any) => {
-
 
     dummyBoothData.map(booth => {
       let marker = new naver.maps.Marker({
@@ -178,7 +175,7 @@ const NaverMap = () => {
     });
 
     for(let i=0; i<dummyBoothData.length; i++){
-      naver.maps.Event.addListener(markers[i].marker, 'click', ()=> onClickMarker(i));
+      naver.maps.Event.addListener(markers[i].marker, 'click', function() {onClickMarker(markers[i].id)});
     }
   }
 
@@ -192,55 +189,33 @@ const NaverMap = () => {
     });
 
     drawMarker(map);
-
-
-
   };
 
-  const onClickMarker = (index:number) => {
-      console.log(index);
-      if(stampCollectEnable) {
+  const onClickMarker = (id:number) => {
 
-         
-           setStampView(!stampView);
-       
-        console.log(index);
-     
-    }
+      console.log('클릭!' + id);
+      
+
+        setCurrentBooth(id);
+        setOpenStampCollect(true);
+      
+
+      
   };
   const handleOpen = () => {
     if(ref.current) {
-      setBoothListOpen(false);
+      setBottomTabType(1);
       ref.current.open();
     }
   };
 
-  const hanldeClose = () => {
+  const handleClose = () => {
     if(ref.current) {
-      setBoothListOpen(true);
+      setBottomTabType(0);
       ref.current.close();
     }
   };
   const heartPress = (booth: Booth) => {
-
-    markers.map((mak:any) => { 
-      
-      mak.id === booth.id ? mak.marker.setIcon({
-      content: 
-        `
-        <img alt="" src="` +
-            booth.image +
-            `" 
-            style="
-              width: 50px; 
-              height: 50px; 
-              border-radius: 10px; 
-              border: solid 3px;
-              border-color: white;
-              "/>`
-   
-        
-    }): null});
 
     if(!booth.like) {
         setDummyBoothData(
@@ -265,10 +240,45 @@ const NaverMap = () => {
       drawMarker(map);
   };
 
+  const clickHandler = () => {
+    handleClose();
+    setBottomTabType(2);
+  };
+
   useEffect(() => {
     initMap();
-    handleOpen();
+    console.log("type:" + bottomTabType);
+    if(!firstRender) {
+      setFirstRender(true);
+      handleOpen();
+    }
   }, []);
+
+  const StampCollectComponent = () => {
+    console.log(currentBooth);
+    let boothData = dummyBoothData.filter(booth => booth.id === currentBooth);
+    return (
+      <StampLayout>
+            <BoothListLayout>
+                    <img src={boothData[0].image} style={{borderRadius: 8, width:'11vw', height: '11vw'}}/>
+                    <div style={{marginLeft: 16, width: '75%', position: 'relative'}}>
+                      <div style={{fontWeight: '600', marginBottom: 4, marginTop: 4, justifyContent: 'center'}}>
+                        {boothData[0].title}
+      
+                      </div>
+                      <div style={{fontSize: 12, marginTop: 8}}>
+                        <span style={{color: '#8833FF'}}>{boothData[0].category} ・ </span>
+                        <span style={{color: '#818798'}}> 부스 번호 {boothData[0].boothNum}</span>
+                      </div>
+                    </div>
+          </BoothListLayout>
+          <button style={{alignSelf: 'center',width: 141, height: 48, borderRadius: 8, border:'none', background: '#FF6433', color: 'white', fontSize: 16, fontWeight: '600' }}>
+            스탬프 수집
+          </button>
+
+      </StampLayout>
+    );
+  }
 
   return (
     <>
@@ -278,23 +288,18 @@ const NaverMap = () => {
           height: '100%',
           position: 'relative',
         }}>
-        {stampView ?
-        <div style={{zIndex: 1002,position: 'absolute', width: '91%', height: 128, left: 16, bottom:64, background: 'white', borderRadius: 16}}>
 
-
-        </div> :
+        {openStampCollect ? 
+        <StampCollectComponent/>
+     :
         null
         }
 
 
-
-        {!stampCollectEnable  ?
+        {bottomTabType != 2 ?
         <TopBarLayout>
             <div style={{flex:1}}> 
-              <CategoryButton onClick={()=> {
-                setStampCollectEnable(true);
-                hanldeClose();
-              }}>
+              <CategoryButton onClick={clickHandler}>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}> 
                   <Stamp style={{alignSelf: 'center'}}/>
                   <span style={{marginLeft: 7.5}}>스탬프</span>
@@ -322,7 +327,7 @@ const NaverMap = () => {
         </TopBarLayout>  :
         <div style={{position: 'absolute', zIndex: 1000, width: '100%'}}>
           
-            <TopBarOpenButton onClick={()=> {setStampCollectEnable(false); setStampView(false); }}>
+            <TopBarOpenButton onClick={()=> {setBottomTabType(0); setOpenStampCollect(false);}}>
               <LeftArrow/>
             </TopBarOpenButton>
             <div style={{width: '100%', height: '10%', zIndex: 1001, marginTop: 12, marginLeft: 21, display: 'flex'}}>
@@ -343,7 +348,7 @@ const NaverMap = () => {
               background: 'rgba(0, 0, 0, 0.00)',
             }} 
             closeOnBgTap={true}
-            onClose={()=> setBoothListOpen(true)} 
+            onClose={()=> setBottomTabType(0)} 
             touchEnable={true}
             sheetStyle={{
               zIndex: 1001,
@@ -399,7 +404,7 @@ const NaverMap = () => {
         </div>
         </ActionSheet> 
         
-        {boothListOpen && !stampView ? 
+        {bottomTabType === 0 && !openStampCollect ? 
         <BoothListOpenButton onClick={()=> {
           handleOpen();
           }}>

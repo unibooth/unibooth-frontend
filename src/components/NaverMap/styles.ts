@@ -94,3 +94,23 @@ export const TopBarOpenButton = styled.button`
   animation-duration: 0.5s;
   animation-name: ${slideRight};
 `;
+
+export const StampLayout = styled.div`
+   position: absolute;
+   z-index: 1003;
+   display: flex;
+   flex-direction: column;
+   width: 85%;
+   height: 128px;
+
+  left: 3%;
+   bottom: 64px;
+   background: white;
+   border-radius: 16px;
+   padding-left: 16px;
+   padding-right: 16px;
+   padding-top: 12px;
+   padding-bottom: 12px;
+   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  
+`;
