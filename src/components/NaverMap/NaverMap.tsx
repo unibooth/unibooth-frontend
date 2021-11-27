@@ -379,7 +379,6 @@ const NaverMap = () => {
           sheetStyle={{
             zIndex: 1001,
             height: '43%', width: '100%', paddingBottom: 30,
-
             boxShadow: '0px -8px 16px rgba(0, 0, 0, 0.1)'
           }}>
 
@@ -398,7 +397,6 @@ const NaverMap = () => {
             <div
               style={{
                 borderWidth: 1,
-
                 fontSize: 24,
                 fontWeight: '600',
                 width: '90%',
