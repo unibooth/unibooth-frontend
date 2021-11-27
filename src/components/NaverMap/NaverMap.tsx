@@ -16,6 +16,8 @@ import LeftArrow from '@assets/left-arrow.svg';
 import { TopBarLayout } from './styles';
 import { TopBarOpenButton } from './styles';
 import { StampLayout } from './styles';
+import Sort from '@assets/sort.svg';
+import Current from '@assets/current.svg';
 
 let map: any;
 let markers: any = [];
@@ -45,14 +47,18 @@ const NaverMap = () => {
   }
   const [myBoothStamp, setBoothStamp] = useState([
     {
-      boothId: 0,
+      boothId: 10,
     },
     {
-      boothId: 1
+      boothId: 9
     },
     {
-      boothId: 2
+      boothId: 8
     },
+    {
+      boothId: 7
+    },
+
 
   ])
   const [dummyBoothData, setDummyBoothData] = useState([
@@ -106,16 +112,7 @@ const NaverMap = () => {
       likeCount: 25,
       location: [37.504434, 126.955913],
     },
-    {
-      id: 14,
-      image: '/images/06.jpg',
-      title: '식품공학과의 달달한 마카롱',
-      category: '체험 부스',
-      boothNum: 15,
-      like: true,
-      likeCount: 128,
-      location: [37.504381, 126.955757],
-    }
+
   ]);
 
 
@@ -283,7 +280,7 @@ const NaverMap = () => {
     let boothData = dummyBoothData.filter(booth => booth.id === currentBooth);
     return (
       <StampLayout>
-        <BoothListLayout>
+        <BoothListLayout style={{ border: 'none' }}>
           <img src={boothData[0].image} style={{ borderRadius: 8, width: '11vw', height: '11vw' }} />
           <div style={{ marginLeft: 16, width: '75%', position: 'relative' }}>
             <div style={{ fontWeight: '600', marginBottom: 4, marginTop: 4, justifyContent: 'center' }}>
@@ -323,25 +320,25 @@ const NaverMap = () => {
         {bottomTabType != 2 ?
           <TopBarLayout>
             <div style={{ flex: 1 }}>
-              <CategoryButton onClick={clickHandler}>
+              <CategoryButton onClick={clickHandler} style={{ marginLeft: 16, width: 98 }}>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                   <Stamp style={{ alignSelf: 'center' }} />
                   <span style={{ marginLeft: 7.5 }}>스탬프</span>
                 </div>
               </CategoryButton>
-              <CategoryButton>
+              <CategoryButton style={{ width: 84 }}>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                   <Market style={{ alignSelf: 'center' }} />
                   <span style={{ marginLeft: 7.5 }}>마켓</span>
                 </div>
               </CategoryButton>
-              <CategoryButton>
+              <CategoryButton style={{ width: 84 }}>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                   <Play style={{ alignSelf: 'center' }} />
                   <span style={{ marginLeft: 7.5 }}>체험</span>
                 </div>
               </CategoryButton>
-              <CategoryButton>
+              <CategoryButton style={{ width: 84 }}>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                   <Beer style={{ alignSelf: 'center' }} />
                   <span style={{ marginLeft: 7.5 }}>술집</span>
@@ -382,9 +379,11 @@ const NaverMap = () => {
           sheetStyle={{
             zIndex: 1001,
             height: '43%', width: '100%', paddingBottom: 30,
-            overflowY: 'scroll',
+
             boxShadow: '0px -8px 16px rgba(0, 0, 0, 0.1)'
           }}>
+
+
           <HandleStick style={{ position: 'absolute', left: '50%', right: '50%', top: '3%', transform: 'translate(-50%, -50%)' }} />
           <div style={{
             borderWidth: 1,
@@ -393,19 +392,29 @@ const NaverMap = () => {
             marginLeft: 16,
             marginRight: 16,
             width: '90%',
+
           }}
           >
             <div
               style={{
                 borderWidth: 1,
-                marginBottom: 42,
+
                 fontSize: 24,
                 fontWeight: '600',
                 width: '90%',
               }}
             >
               중앙대
+
             </div>
+            <div style={{ marginTop: 12.5, marginBottom: 20.5, display: 'flex', flexDirection: 'row' }}>
+              <Sort />
+              <div style={{
+                marginLeft: 6.25, fontSize: 12, color: '#818798'
+              }}>찜 많은 순</div>
+            </div>
+
+
 
             {dummyBoothData.map((booth, index) => {
               return (

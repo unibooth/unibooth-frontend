@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.16.4",
     "@svgr/webpack": "^5.5.0",
     "@types/navermaps": "^3.0.10",
+    "@types/react-modal": "^3.13.1",
     "actionsheet-react": "^1.0.14",
     "antd": "^4.17.1",
     "eslint-config-prettier": "^8.3.0",

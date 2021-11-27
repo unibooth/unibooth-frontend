@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const slideUp = keyframes`
   from {
@@ -47,10 +47,9 @@ export const BoothListOpenButton = styled.button`
 
 `;
 
-export const CategoryButton = 
-styled.button`
+export const CategoryButton =
+  styled.button`
     overflow: hidden;
-    width: 98px;
     height: 36px;
     margin-left: 4px;
     margin-right: 4px;
@@ -64,8 +63,7 @@ styled.button`
 `;
 
 export const TopBarLayout = styled.div`
-  margin-left: 16px;
-  margin-right: 16px;
+
   width: 100%;
   height: 50px;
   margin-top: 8px;
@@ -75,7 +73,7 @@ export const TopBarLayout = styled.div`
   position: absolute;
   flex-direction: row;
   top: 0px;
-  z-index: 1000;
+  z-index: 2000;
   white-space: nowrap;
   scroll-bar-color: rgba(0,0,0, 0.0);
   animation-duration: 0.5s;
