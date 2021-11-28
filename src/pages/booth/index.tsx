@@ -51,8 +51,8 @@ const Booth = () => {
         <Header2 className="container">
           {' '}
           <Link href="/home" passHref>
-            <a>
-              <LeftArrow />
+            <a >
+              <LeftArrow/>
             </a>
           </Link>
           <div>

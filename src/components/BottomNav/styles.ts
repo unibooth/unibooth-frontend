@@ -17,11 +17,11 @@ export const BottomNav = styled.nav`
     color: #000;
 
     svg {
-      opacity: 0.5;
+      opacity: 1;
     }
 
     span {
-      color: #818698;
+      color: #818798;
       font-size: 10px;
       margin-top: 3px;
     }
@@ -33,6 +33,7 @@ export const BottomNav = styled.nav`
       svg {
         opacity: 1;
         &.svg-path path {
+          
           stroke: black;
         }
         &.svg-paths path {
