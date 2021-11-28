@@ -69,9 +69,7 @@ const BoothName = styled.div`
   margin-top: 16px;
 `;
 
-const Input = styled.input.attrs({
-  placeholderTextColor: 'red',
-})`
+const Input = styled.input`
   all: unset;
   border: none;
   margin-top: 100px;
@@ -81,10 +79,14 @@ const Input = styled.input.attrs({
   line-height: 28px;
   width: 100%;
 
-  &::placeholer {
+  ::placeholer,
+  ::-webkit-input-placeholder {
     color: #d5d7dd !important;
     font-weight: 600;
     font-size: 24px;
     line-height: 28px;
+  }
+  :-ms-input-placeholder {
+     color: red;
   }
 `;
