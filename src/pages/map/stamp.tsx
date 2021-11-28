@@ -18,7 +18,7 @@ const Stamp: NextPage = () => {
       setUsable(false);
     }
 
-    if (e.target.value === "") {
+    if (e.target.value === '') {
       setUsable(true);
     }
   };
@@ -26,8 +26,8 @@ const Stamp: NextPage = () => {
   return (
     <Layout title="스탬프 수집" noBottom>
       <div className="container">
-        <Title>스탬프코드를 입력하세요</Title>
-        <BoothName>부스 번호 20. 다트 자신 있는 사람 모여라</BoothName>
+        <Title>스탬프 코드를 입력하세요</Title>
+        <BoothName>일러스트레이터 한나입니다</BoothName>
         <Input onChange={onChange} value={text} type="text" placeholder="스탬프 코드 입력" />
       </div>
 
@@ -41,7 +41,7 @@ const Stamp: NextPage = () => {
 export default Stamp;
 
 const Button = styled.button`
-  background: ${props => props.activate ? '#D5D7DD' : '#ff6433'};
+  background: ${(props) => (props.activate ? '#D5D7DD' : '#ff6433')};
   position: absolute;
   left: 0%;
   bottom: 0%;
@@ -69,7 +69,9 @@ const BoothName = styled.div`
   margin-top: 16px;
 `;
 
-const Input = styled.input`
+const Input = styled.input.attrs({
+  placeholderTextColor: 'red',
+})`
   all: unset;
   border: none;
   margin-top: 100px;
@@ -79,8 +81,8 @@ const Input = styled.input`
   line-height: 28px;
   width: 100%;
 
-  ::placeholer {
-    color: #d5d7dd;
+  &::placeholer {
+    color: #d5d7dd !important;
     font-weight: 600;
     font-size: 24px;
     line-height: 28px;
