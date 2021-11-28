@@ -14,7 +14,7 @@ const Stamp: NextPage = () => {
   const onChange = (e: any) => {
     setText(e.target.value);
     console.log(e.target.value);
-    if (e.target.value > 0) {
+    if (e.target.value.length > 0) {
       setUsable(false);
     }
 
@@ -27,7 +27,7 @@ const Stamp: NextPage = () => {
     <Layout title="스탬프 수집" noBottom>
       <div className="container">
         <Title>스탬프코드를 입력하세요</Title>
-        <BoothName>부스명 20. 일러스트레이터 한나입니다</BoothName>
+        <BoothName>부스 번호 20. 다트 자신 있는 사람 모여라</BoothName>
         <Input onChange={onChange} value={text} type="text" placeholder="스탬프 코드 입력" />
       </div>
 
