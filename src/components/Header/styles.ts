@@ -7,7 +7,7 @@ interface HeaderProps {
 
 export const Header = styled.header<HeaderProps>`
   position: relative;
-  height: 90px;
+  height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: ${({ align }) => align ?? 'center'};

@@ -27,7 +27,7 @@ const Stamp: NextPage = () => {
     <Layout title="스탬프 수집" noBottom>
       <div className="container">
         <Title>스탬프 코드를 입력하세요</Title>
-        <BoothName>일러스트레이터 한나입니다</BoothName>
+        <BoothName>15. 일러스트레이터 한나입니다</BoothName>
         <Input onChange={onChange} value={text} type="text" placeholder="스탬프 코드 입력" />
       </div>
 
