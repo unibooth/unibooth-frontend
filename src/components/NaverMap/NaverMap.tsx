@@ -18,6 +18,10 @@ import { TopBarOpenButton } from './styles';
 import { StampLayout } from './styles';
 import Sort from '@assets/sort.svg';
 import Current from '@assets/current.svg';
+import styled from 'styled-components';
+import Unicorn from '@assets/unicorn.svg'
+import Right from '@assets/right-arrow.svg';
+
 
 let map: any;
 let markers: any = [];
@@ -25,6 +29,7 @@ let marker;
 
 let events: any = [];
 const NaverMap = () => {
+  const [modal, setModal] = useState(false);
   const router = useRouter();
   const ref = useRef<ActionSheetRef>();
   const [bottomTabType, setBottomTabType] = useState<number>(1);
@@ -362,7 +367,7 @@ const NaverMap = () => {
                   <span style={{ marginLeft: 7.5 }}>마켓</span>
                 </div>
               </CategoryButton>
-              <CategoryButton style={{ width: 84 }}>
+              <CategoryButton style={{ width: 84 }} onClick={()=> setModal(true)}>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                   <Play style={{ alignSelf: 'center' }} />
                   <span style={{ marginLeft: 7.5 }}>체험</span>
@@ -406,10 +411,12 @@ const NaverMap = () => {
           closeOnBgTap={true}
           onClose={() => setBottomTabType(0)}
           touchEnable={true}
+          sheetTransition= 'transform 0.1 ease-in-out'
           sheetStyle={{
             zIndex: 1001,
             height: '88%', width: '100%', paddingBottom: 45,
-            boxShadow: '0px -8px 16px rgba(0, 0, 0, 0.1)'
+            boxShadow: '0px -8px 16px rgba(0, 0, 0, 0.1)',
+   
           }}>
 
 
@@ -488,9 +495,63 @@ const NaverMap = () => {
           null}
 
 
-
       </div>
+
+
+      {modal ? 
+        <Modal onClick={() => setModal(false)}>
+          <div style={{
+            background: 'white',
+            width: 290,
+            height:460,
+            borderRadius: 24,
+            padding:24,
+            display: 'flex',
+            flexDirection: 'column',
+            boxShadow: '0px 24px 38px rgba(0, 0, 0, 0.14), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2)'
+            
+          }}>
+          <div style={{fontSize:24, fontWeight: '600', }}>축하해요! </div>
+          <div style={{fontSize:24, fontWeight: '600', marginTop: 7}}>1,000포인트를 받았어요</div> 
+          <div style={{marginTop:17 ,fontSize:16, fontWeight: '600', color: '#818798', marginBottom: 24}}>다른 학교의 스탬프도 모아보세요.</div>
+          <Unicorn/>
+
+          <button style={{
+            marginTop: 24,
+            background: '#FF6433',
+            borderRadius: 8,
+            fontSize: 16,
+            width: 141,
+            height: 48,
+            color: 'white',
+            border: 'none',
+            textAlign: 'center',
+            alignSelf: 'center'
+          }}>확인</button>
+
+          <div style={{color: '#818798', textAlign: 'center', fontSize: 14, fontWeight: '600', marginTop: 24}}>
+            <span style={{marginRight: 14}}>마이페이지로</span> 
+            <Right/>
+          </div>
+          
+          </div>
+        </Modal>
+        : null
+      }
     </>
   );
 };
 export default NaverMap;
+
+
+export const Modal = styled.div`
+  position: absolute;
+  top: 0;
+  z-index: 2000;
+  width: 375px;
+  height: 812px;
+  background: rgba(0, 0, 0, 0.32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
