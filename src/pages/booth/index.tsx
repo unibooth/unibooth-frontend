@@ -32,14 +32,6 @@ const Booth = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [clickTag, setClickTag] = useState(false);
 
-  useLayoutEffect(() => {
-    // if (layoutRef.current) {
-    //   layoutRef.current.addEventListener('scroll', handleScroll);
-    //   console.log('sdf')
-    //   return () => layoutRef.current.removeEventListener('scroll', handleScroll);
-    // }
-  }, []);
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -48,13 +40,6 @@ const Booth = () => {
     console.log('scroll event', window.scrollY);
     setScrollPosition(window.scrollY);
   };
-  // useEffect(() => {
-  //   const updateScroll = () => {
-  //     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-  //   };
-  //   window.addEventListener('scroll', updateScroll);
-  //   console.log(scrollPosition);
-  // });
 
   const clickHandler = () => {
     setClickTag((prev) => !prev);
@@ -96,6 +81,7 @@ const Booth = () => {
         <Image src="/images/booth-4.png" width="375" height="253.378" />
         <div style={{ position: 'relative', left: 0, top: 0 }}>
           <Image src="/images/booth-5.png" width="375" height="281" onClick={clickHandler} />
+          <Tag style={{ position: 'absolute', left: '16px', bottom: '16px' }} />
           {clickTag && (
             <div
               style={{
