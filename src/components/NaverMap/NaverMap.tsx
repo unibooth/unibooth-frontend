@@ -18,6 +18,10 @@ import { TopBarOpenButton } from './styles';
 import { StampLayout } from './styles';
 import Sort from '@assets/sort.svg';
 import Current from '@assets/current.svg';
+import styled from 'styled-components';
+import Unicorn from '@assets/unicorn.svg'
+import Right from '@assets/right-arrow.svg';
+
 
 let map: any;
 let markers: any = [];
@@ -25,6 +29,7 @@ let marker;
 
 let events: any = [];
 const NaverMap = () => {
+  const [modal, setModal] = useState(false);
   const router = useRouter();
   const ref = useRef<ActionSheetRef>();
   const [bottomTabType, setBottomTabType] = useState<number>(1);
@@ -70,7 +75,7 @@ const NaverMap = () => {
       boothNum: 4,
       like: false,
       likeCount: 52,
-      location: [37.504337, 126.95618],
+      location: [37.504719,126.955069],
     },
     {
       id: 9,
@@ -80,7 +85,7 @@ const NaverMap = () => {
       boothNum: 20,
       like: false,
       likeCount: 49,
-      location: [37.504316, 126.956234],
+      location: [37.504619, 126.955006],
     },
     {
       id: 8,
@@ -90,29 +95,59 @@ const NaverMap = () => {
       boothNum: 13,
       like: false,
       likeCount: 48,
-      location: [37.50441, 126.955891],
+      location: [37.504671, 126.955207],
     },
     {
       id: 7,
       image: '/images/04.jpg',
-      title: '식품공학과의 달달한 마카롱',
+      title: '일러스트레이터 한나입니다',
       category: '체험 부스',
       boothNum: 15,
       like: true,
-      likeCount: 30,
-      location: [37.504337, 126.95618]
+      likeCount: 48,
+      location: [37.504553, 126.955148]
     },
     {
       id: 6,
       image: '/images/05.jpg',
-      title: '실사판 배틀그라운드',
-      category: '체험 부스',
-      boothNum: 13,
-      like: true,
-      likeCount: 25,
-      location: [37.504434, 126.955913],
+      title: '바리바리 바리스타',
+      category: '마켓 부스',
+      boothNum: 22,
+      like: false,
+      likeCount: 29,
+      location: [37.504616, 126.955341],
     },
 
+    {
+      id: 8,
+      image: '/images/06.jpg',
+      title: '중대 참 달고나',
+      category: '체험 부스',
+      boothNum: 3,
+      like: false,
+      likeCount: 24,
+      location: [37.504465, 126.955365],
+    },
+    {
+      id: 9,
+      image: '/images/07.jpg',
+      title: '주류 셀프 신개념 포차',
+      category: '술집',
+      boothNum: 6,
+      like: false,
+      likeCount: 17,
+      location: [37.504527, 126.955270],
+    },
+    {
+      id: 10,
+      image: '/images/08.jpg',
+      title: '회식하기 좋은 중앙대 술집',
+      category: '술집',
+      boothNum: 19,
+      like: false,
+      likeCount: 12,
+      location: [37.504756, 126.954996],
+    },
   ]);
 
 
@@ -179,8 +214,8 @@ const NaverMap = () => {
 
   const initMap = () => {
     map = new naver.maps.Map('map', {
-      center: new naver.maps.LatLng(37.504391, 126.955831),
-      minZoom: 19,
+      center: new naver.maps.LatLng(37.504603, 126.955206),
+      minZoom: 20,
       scaleControl: false,
       logoControl: false,
       mapDataControl: false,
@@ -332,7 +367,7 @@ const NaverMap = () => {
                   <span style={{ marginLeft: 7.5 }}>마켓</span>
                 </div>
               </CategoryButton>
-              <CategoryButton style={{ width: 84 }}>
+              <CategoryButton style={{ width: 84 }} onClick={()=> setModal(true)}>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                   <Play style={{ alignSelf: 'center' }} />
                   <span style={{ marginLeft: 7.5 }}>체험</span>
@@ -376,10 +411,12 @@ const NaverMap = () => {
           closeOnBgTap={true}
           onClose={() => setBottomTabType(0)}
           touchEnable={true}
+          sheetTransition= 'transform 0.1 ease-in-out'
           sheetStyle={{
             zIndex: 1001,
-            height: '43%', width: '100%', paddingBottom: 30,
-            boxShadow: '0px -8px 16px rgba(0, 0, 0, 0.1)'
+            height: '88%', width: '100%', paddingBottom: 45,
+            boxShadow: '0px -8px 16px rgba(0, 0, 0, 0.1)',
+   
           }}>
 
 
@@ -427,8 +464,15 @@ const NaverMap = () => {
                       }
                     </div>
                     <div style={{ fontSize: 12, marginTop: 8 }}>
-                      <span style={{ color: '#8833FF' }}>{booth.category} ・ </span>
-                      <span style={{ color: '#818798' }}> 부스 번호 {booth.boothNum}</span>
+                  
+                      <span style={{ color: booth.category === '체험 부스' ? '#8833FF' 
+                        : booth.category === '마켓 부스' ? '#5CC7D6' : '#E6D019'
+                    }}>{booth.category}</span> 
+
+                    {booth.category !== '술집' ? 
+                      <span style={{ color: '#818798' }}> ・ 부스 번호 {booth.boothNum}</span>
+                      : null
+                  }
                       <span style={{ color: '#818798', position: 'absolute', right: 3 }}> {booth.likeCount}</span>
                     </div>
 
@@ -451,9 +495,63 @@ const NaverMap = () => {
           null}
 
 
-
       </div>
+
+
+      {modal ? 
+        <Modal onClick={() => setModal(false)}>
+          <div style={{
+            background: 'white',
+            width: 290,
+            height:460,
+            borderRadius: 24,
+            padding:24,
+            display: 'flex',
+            flexDirection: 'column',
+            boxShadow: '0px 24px 38px rgba(0, 0, 0, 0.14), 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 11px 15px rgba(0, 0, 0, 0.2)'
+            
+          }}>
+          <div style={{fontSize:24, fontWeight: '600', }}>축하해요! </div>
+          <div style={{fontSize:24, fontWeight: '600', marginTop: 7}}>1,000포인트를 받았어요</div> 
+          <div style={{marginTop:17 ,fontSize:16, fontWeight: '600', color: '#818798', marginBottom: 24}}>다른 학교의 스탬프도 모아보세요.</div>
+          <Unicorn/>
+
+          <button style={{
+            marginTop: 24,
+            background: '#FF6433',
+            borderRadius: 8,
+            fontSize: 16,
+            width: 141,
+            height: 48,
+            color: 'white',
+            border: 'none',
+            textAlign: 'center',
+            alignSelf: 'center'
+          }}>확인</button>
+
+          <div style={{color: '#818798', textAlign: 'center', fontSize: 14, fontWeight: '600', marginTop: 24}}>
+            <span style={{marginRight: 14}}>마이페이지로</span> 
+            <Right/>
+          </div>
+          
+          </div>
+        </Modal>
+        : null
+      }
     </>
   );
 };
 export default NaverMap;
+
+
+export const Modal = styled.div`
+  position: absolute;
+  top: 0;
+  z-index: 2000;
+  width: 375px;
+  height: 812px;
+  background: rgba(0, 0, 0, 0.32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

@@ -69,7 +69,7 @@ export const TopBarLayout = styled.div`
   margin-top: 8px;
   background: rgba(0, 0, 0, 0.0);
   display: flex;
-  overflow-x: scroll;
+
   position: absolute;
   flex-direction: row;
   top: 0px;

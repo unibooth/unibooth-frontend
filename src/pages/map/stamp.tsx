@@ -14,7 +14,7 @@ const Stamp: NextPage = () => {
   const onChange = (e: any) => {
     setText(e.target.value);
     console.log(e.target.value);
-    if (e.target.value > 0) {
+    if (e.target.value.length > 0) {
       setUsable(false);
     }
 
