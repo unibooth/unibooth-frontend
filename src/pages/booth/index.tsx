@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Dot3 from '@assets/dot3.svg';
 import LeftArrow from '@assets/left-arrow.svg';
@@ -13,6 +13,15 @@ import Tag1 from '@assets/tag1.svg';
 import Tag2 from '@assets/tag2.svg';
 import { BoothBottomNav } from '@components/BottomNav';
 
+const slideUp = keyframes`
+from {
+  transform: translateY(3vh);
+}
+to {
+  transform: translateY(0px);
+
+}
+`;
 const isServer = typeof window === 'undefined';
 
 const Booth = () => {
@@ -88,7 +97,13 @@ const Booth = () => {
         <div style={{ position: 'relative', left: 0, top: 0 }}>
           <Image src="/images/booth-5.png" width="375" height="281" onClick={clickHandler} />
           {clickTag && (
-            <div style={{ transition: 'opacity 1s ease-in-out' }}>
+            <div
+              style={{
+                transition: 'opacity 1s ease-in-out',
+                animationDuration: '0.5s',
+                animationName: '${slideUp}',
+              }}
+            >
               <Tag style={{ position: 'absolute', left: '16px', bottom: '16px' }} />
               <Tag1 style={{ position: 'absolute', left: '25%', top: '10%' }} />
               <Tag2 style={{ position: 'absolute', left: '56%', top: '40%' }} />
@@ -144,4 +159,6 @@ const Main = styled.main`
 const TagsWrapper = styled.div`
   /* position: absolute; */
   z-index: 10;
+  animation-duration: 0.5s;
+  animation-name: ${slideUp};
 `;
