@@ -1,9 +1,41 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import { getBackdropDistanceStyle } from './backdrop.helpers';
-import { BackdropProps } from './backdrop.types';
+import { getBackdropDistanceStyle, getBackdropWrapperBgColor } from './backdrop.helpers';
+import { BackdropProps, bdrAttach2PaperBorderRadius } from './backdrop.types';
 
-import styles from './backdrop.module.scss';
+const StyledWrapper = styled.div<
+  Pick<BackdropProps, 'isOpen' | 'attach' | 'zIndex' | 'hasOverlay' | 'additionalDistance'>
+>`
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  position: fixed;
+  z-index: ${({ zIndex }) => zIndex};
+  ${({ isOpen, attach, additionalDistance }) =>
+    getBackdropDistanceStyle(isOpen, attach, additionalDistance)}
+  width: 100vw;
+  height: calc(100% - ${({ additionalDistance }) => additionalDistance}px);
+  background-color: ${({ isOpen, hasOverlay }) => getBackdropWrapperBgColor(isOpen, hasOverlay)};
+  outline: 0;
+  overflow-y: auto;
+  webkit-overflow-scrolling: touch;
+  transition: all 0.3s ease-out;
+`;
+
+const StyledOverlay = styled.div`
+  flex: 1;
+  background-color: transparent;
+`;
+
+const StyledPaper = styled.div<Pick<BackdropProps, 'attach' | 'round'>>`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border-radius: ${({ attach, round }) => (round ? bdrAttach2PaperBorderRadius(attach) : 0)};
+  background-color: #fff;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.08);
+`;
 
 export default function Backdrop(props: BackdropProps) {
   const propsWithDefault: BackdropProps = {
@@ -15,39 +47,17 @@ export default function Backdrop(props: BackdropProps) {
     ...props,
   };
 
-  const {
-    isOpen,
-    hasOverlay,
-    additionalDistance,
-    attach,
-    onClose,
-    paperStyle,
-    children,
-    round,
-    zIndex,
-    style,
-  } = propsWithDefault;
+  const { isOpen, attach, onClose, paperStyle, children, round } = propsWithDefault;
 
   return (
-    <div
-      className={styles.wrapper}
-      {...propsWithDefault}
-      style={{
-        zIndex,
-        height: `calc(100% - ${additionalDistance}px`,
-        ...getBackdropDistanceStyle(isOpen, attach, additionalDistance),
-        ...style,
-      }}
-      data-is-open={isOpen}
-      data-has-overlay={hasOverlay}
-    >
-      {attach === 'bottom' && <div className={styles.overlay} onClick={onClose} />}
+    <StyledWrapper {...propsWithDefault}>
+      {attach === 'bottom' && <StyledOverlay onClick={onClose} />}
       {isOpen && (
-        <div className={styles.paper} data-round={round} data-attach={attach} style={paperStyle}>
+        <StyledPaper attach={attach} round={round} style={paperStyle}>
           {children}
-        </div>
+        </StyledPaper>
       )}
-      {attach === 'top' && <div className={styles.overlay} onClick={onClose} />}
-    </div>
+      {attach === 'top' && <StyledOverlay onClick={onClose} />}
+    </StyledWrapper>
   );
 }

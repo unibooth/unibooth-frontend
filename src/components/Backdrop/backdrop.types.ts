@@ -1,5 +1,7 @@
 const backdropAttaches = ['bottom', 'top'] as const;
 export type BackdropAttach = typeof backdropAttaches[number];
+export const bdrAttach2PaperBorderRadius = (attach: BackdropAttach) =>
+  attach === 'bottom' ? '8px 8px 0 0' : '0 0 8px 8px';
 
 export type BackdropProps = {
   isOpen: boolean;
@@ -19,6 +21,7 @@ export type BackdropProps = {
    * @default 0*/
   additionalDistance?: number;
 
+  className?: string;
   style?: React.CSSProperties;
   paperStyle?: React.CSSProperties;
 };
