@@ -36,7 +36,7 @@ const Wrapper = styled.a<{ backgroundImageUrl: string }>`
   flex-direction: column;
   justify-content: flex-end;
 
-  width: calc(100% - 48px);
+  width: 100%;
   height: 514px;
   padding: 24px;
   margin-bottom: 48px;
