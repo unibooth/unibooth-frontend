@@ -42,5 +42,5 @@ const ListWrapper = styled.main`
   display: flex;
   flex-direction: column;
 
-  padding: 32px 16px 80px;
+  padding: 32px 16px 200px;
 `;
