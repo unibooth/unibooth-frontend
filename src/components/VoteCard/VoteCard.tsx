@@ -13,7 +13,7 @@ interface IBoothCard {
   like: number;
   comments: string[];
 }
-const BoothCard = ({ id, type, title, img, like, comments }: IBoothCard) => {
+const VoteCard = ({ id, type, title, img, like, comments }: IBoothCard) => {
   const router = useRouter();
   return (
     <CardWrapper img={img}>
@@ -40,7 +40,7 @@ const BoothCard = ({ id, type, title, img, like, comments }: IBoothCard) => {
   );
 };
 
-export default BoothCard;
+export default VoteCard;
 
 type ImageType = {
   img: string;
