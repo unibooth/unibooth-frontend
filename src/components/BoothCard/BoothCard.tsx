@@ -1,103 +1,117 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-import CommentBooth from '@assets/comment-booth.svg';
-import Like from '@assets/like.svg';
+import HeartIcon from '@assets/heart.svg';
+import CommentIcon from '@assets/comment.svg';
+import { Booth } from '@interfaces';
 
-interface IBoothCard {
-  id: number;
-  type: string;
-  title: string;
-  img: string;
-  like: number;
-  comments: string[];
-}
-const BoothCard = ({ id, type, title, img, like, comments }: IBoothCard) => {
-  const router = useRouter();
+export default function BoothCard({ id, name, imageUrl, likeCount, comments }: Booth) {
   return (
-    <CardWrapper img={img}>
-      <ContentWrapper>
-        <TopWrapper>
-          <Title>{title}</Title>
+    <Link href={`/booth/${id}`} passHref>
+      <Wrapper backgroundImageUrl={imageUrl}>
+        <Header>
+          <Name>{name}</Name>
           <LikeWrapper>
-            <Like />
-            <div>{like}</div>
+            <HeartIcon width={26} height={25} style={{ marginBottom: 8 }} fill="#fff" />
+            <LikeCount>{likeCount}</LikeCount>
           </LikeWrapper>
-        </TopWrapper>
-        <CommentWrapper>
-          <Comment>
-            <CommentBooth />
-            <span className="text">{comments[0]}</span>
-          </Comment>
-          <Comment>
-            <CommentBooth />
-            <span className="text">{comments[1]}</span>
-          </Comment>
-        </CommentWrapper>
-      </ContentWrapper>
-    </CardWrapper>
+        </Header>
+        {comments.length > 0 && (
+          <CommentsWrapper>
+            {comments.slice(0, 2).map((comment) => (
+              <CommentRow>
+                <CommentIcon width={15} height={15} style={{ marginRight: 10 }} fill="#fff" />
+                <CommentContent>{comment.content}</CommentContent>
+              </CommentRow>
+            ))}
+          </CommentsWrapper>
+        )}
+      </Wrapper>
+    </Link>
   );
-};
+}
 
-export default BoothCard;
-
-type ImageType = {
-  img: string;
-};
-
-const Title = styled.div`
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 43px;
-  color: white;
-  width: 247px;
-  height: 86px;
-`;
-const CardWrapper = styled.div<ImageType>`
-  background-image: url(${(props) => props.img});
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
-  mix-blend-mode: normal;
-  border-radius: 16px;
-  margin: 24px 16px;
-  width: 343px;
-  height: 513px;
-`;
-
-const TopWrapper = styled.div`
+const Wrapper = styled.a<{ backgroundImageUrl: string }>`
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 100%;
+  height: 514px;
+  padding: 24px;
+  margin-bottom: 48px;
+  border-radius: 16px;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%),
+    url('${(props) => props.backgroundImageUrl}');
+  background-size: cover;
+  mix-blend-mode: normal;
+
+  text-decoration: none;
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: space-between;
+
+  width: 100%;
+  padding-bottom: 12px;
+`;
+
+const Name = styled.h3`
+  width: 247px;
+
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 44px;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 const LikeWrapper = styled.div`
-  color: white;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 4px 0;
+`;
+
+const LikeCount = styled.p`
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
-const ContentWrapper = styled.div`
+const CommentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 342px 24px 24px 24px;
-`;
 
-const CommentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  gap: 3px;
-`;
-
-const Comment = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  line-height: 22px;
-  color: white;
   width: 100%;
-  height: 22px;
-  .text {
-    margin-left: 2px;
+
+  & > :not(:last-child) {
+    margin-bottom: 4px;
   }
+`;
+
+const CommentRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+`;
+
+const CommentContent = styled.p`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.colors.white};
+
+  width: 268px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;

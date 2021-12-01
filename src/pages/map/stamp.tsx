@@ -40,7 +40,7 @@ const Stamp: NextPage = () => {
 
 export default Stamp;
 
-const Button = styled.button`
+const Button = styled.button<{ activate: boolean }>`
   background: ${(props) => (props.activate ? '#D5D7DD' : '#ff6433')};
   position: absolute;
   left: 0%;
@@ -87,6 +87,6 @@ const Input = styled.input`
     line-height: 28px;
   }
   :-ms-input-placeholder {
-     color: red;
+    color: red;
   }
 `;
