@@ -14,14 +14,13 @@ const COLLAPSED_HEIGHT = 88;
 export type HomeHeaderProps = {
   tab: number;
   onTabChange: (tab: number) => void;
+  onOpenUnivBackdrop: () => void;
+  univ: string;
 };
 
 export default function HomeHeader(props: HomeHeaderProps) {
   const scrollY = useScrollY();
   const isExpanded = scrollY === 0;
-
-  const router = useRouter();
-  const univName = router.query.univName ?? '중앙대';
 
   return (
     <>
@@ -36,8 +35,8 @@ export default function HomeHeader(props: HomeHeaderProps) {
         <Header isExpanded={isExpanded}>
           <Col>
             {isExpanded && <Heading>부스를 찾아볼까요?</Heading>}
-            <UnivRow>
-              <Heading>{univName}</Heading>
+            <UnivRow onClick={props.onOpenUnivBackdrop}>
+              <Heading>{props.univ}</Heading>
               <ChevronDownIcon width={24} height={24} style={{ marginLeft: 8 }} fill="#222" />
             </UnivRow>
           </Col>

@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
 type SectionProps = {
+  size?: 'small' | 'large';
+
   title: string;
+  description?: string;
+
   children: React.ReactNode;
 };
 
-export default function Section({ title, children }: SectionProps) {
+export default function Section({ title, description, children, size = 'large' }: SectionProps) {
   return (
     <Wrapper>
-      <Title>{title}</Title>
+      <Title style={{ fontSize: size === 'large' ? '20px' : '16px' }}>{title}</Title>
+      {description != null && <Description>{description}</Description>}
       {children}
     </Wrapper>
   );
@@ -20,12 +25,20 @@ const Wrapper = styled.div`
 
   width: 100%;
   padding: 16px;
+  padding-bottom: 0;
   border-bottom: 8px solid #f1f2f4;
 `;
 
 const Title = styled.h3`
   font-weight: 600;
-  font-size: 16px;
   line-height: 24px;
   margin-bottom: 10px;
+`;
+
+const Description = styled.p`
+  font-size: 14px;
+  line-height: 18px;
+  color: #818798;
+
+  margin-bottom: 4px;
 `;

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import HomeHeader from '@components/HomeHeader';
+import UnivBackdrop from '@components/UnivBackdrop';
 import BoothCard from '@components/BoothCard';
 import BottomNav from '@components/BottomNav';
 import { Layout } from '@components/Layout/styles';
@@ -12,6 +13,8 @@ import { shuffle } from '@helpers';
 export default function HomePage() {
   const [currentTab, setCurrentTab] = useState(0);
   const [booths, setBooths] = useState(BOOTH_DATA);
+  const [isBackdropOpen, setIsBackdropOpen] = useState(false);
+  const [currentUniv, setCurrentUniv] = useState('중앙대');
 
   useEffect(() => {
     setBooths(
@@ -27,7 +30,21 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <HomeHeader tab={currentTab} onTabChange={setCurrentTab} />
+      <HomeHeader
+        tab={currentTab}
+        onTabChange={setCurrentTab}
+        onOpenUnivBackdrop={() => {
+          setIsBackdropOpen(true);
+        }}
+        univ={currentUniv}
+      />
+      <UnivBackdrop
+        isOpen={isBackdropOpen}
+        onClose={() => {
+          setIsBackdropOpen(false);
+          setCurrentUniv('서울 전 대학');
+        }}
+      />
       <ListWrapper>
         {booths.map((booth) => (
           <BoothCard key={booth.id} {...booth} />
