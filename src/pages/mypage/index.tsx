@@ -11,9 +11,9 @@ const MyPage: NextPage = () => {
   return (
     <Layout title="마이페이지" noHeader>
       <Image
-        src="/images/mypage.jpg"
+        src="/images/mypage-certificate.jpg"
         width="750"
-        height="1523"
+        height="1525"
         onClick={() => router.push('/mypage/certificate')}
       />
     </Layout>

@@ -35,7 +35,7 @@ const Booth = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  });
+  }, []);
   const handleScroll = () => {
     console.log('scroll event', window.scrollY);
     setScrollPosition(window.scrollY);
