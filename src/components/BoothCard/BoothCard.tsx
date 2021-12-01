@@ -1,34 +1,37 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
 import HeartIcon from '@assets/heart.svg';
 import CommentIcon from '@assets/comment.svg';
 import { Booth } from '@interfaces';
 
-export default function BoothCard({ name, imageUrl, likeCount, comments }: Booth) {
+export default function BoothCard({ id, name, imageUrl, likeCount, comments }: Booth) {
   return (
-    <Wrapper backgroundImageUrl={imageUrl}>
-      <Header>
-        <Name>{name}</Name>
-        <LikeWrapper>
-          <HeartIcon width={26} height={25} style={{ marginBottom: 8 }} fill="#fff" />
-          <LikeCount>{likeCount}</LikeCount>
-        </LikeWrapper>
-      </Header>
-      {comments.length > 0 && (
-        <CommentsWrapper>
-          {comments.slice(0, 2).map((comment) => (
-            <CommentRow>
-              <CommentIcon width={15} height={15} style={{ marginRight: 10 }} fill="#fff" />
-              <CommentContent>{comment.content}</CommentContent>
-            </CommentRow>
-          ))}
-        </CommentsWrapper>
-      )}
-    </Wrapper>
+    <Link href={`/booth/${id}`} passHref>
+      <Wrapper backgroundImageUrl={imageUrl}>
+        <Header>
+          <Name>{name}</Name>
+          <LikeWrapper>
+            <HeartIcon width={26} height={25} style={{ marginBottom: 8 }} fill="#fff" />
+            <LikeCount>{likeCount}</LikeCount>
+          </LikeWrapper>
+        </Header>
+        {comments.length > 0 && (
+          <CommentsWrapper>
+            {comments.slice(0, 2).map((comment) => (
+              <CommentRow>
+                <CommentIcon width={15} height={15} style={{ marginRight: 10 }} fill="#fff" />
+                <CommentContent>{comment.content}</CommentContent>
+              </CommentRow>
+            ))}
+          </CommentsWrapper>
+        )}
+      </Wrapper>
+    </Link>
   );
 }
 
-const Wrapper = styled.div<{ backgroundImageUrl: string }>`
+const Wrapper = styled.a<{ backgroundImageUrl: string }>`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -36,12 +39,15 @@ const Wrapper = styled.div<{ backgroundImageUrl: string }>`
   width: calc(100% - 48px);
   height: 514px;
   padding: 24px;
+  margin-bottom: 48px;
   border-radius: 16px;
 
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%),
     url('${(props) => props.backgroundImageUrl}');
   background-size: cover;
   mix-blend-mode: normal;
+
+  text-decoration: none;
 `;
 
 const Header = styled.div`
