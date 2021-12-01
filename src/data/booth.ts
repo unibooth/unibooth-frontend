@@ -10,7 +10,7 @@ export const BOOTH_DATA: Booth[] = [
     id: 1,
     type: '마켓',
     name: '일러스트레이터 한나입니다.',
-    imageUrl: '/images/home1.png',
+    imageUrl: '/images/04.jpg',
     location: '20번',
     date: '2021. 11. 22 월 - 11. 23 화',
 
