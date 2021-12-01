@@ -19,10 +19,6 @@ const GlobalStyle = createGlobalStyle`
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color:rgba(255,255,255,0);
   }
-
-  .container {
-    padding: 0 20px;
-  }
 `;
 
 export default GlobalStyle;

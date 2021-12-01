@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
 export const BottomNav = styled.nav`
+  position: fixed;
+  bottom: 0;
+
+  width: calc(100% - 40px);
   height: 60px;
+  padding: 0 20px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +39,6 @@ export const BottomNav = styled.nav`
       svg {
         opacity: 1;
         &.svg-path path {
-          
           stroke: black;
         }
         &.svg-paths path {

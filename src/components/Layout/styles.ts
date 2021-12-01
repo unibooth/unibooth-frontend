@@ -8,7 +8,6 @@ export const Layout = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  overflow: hidden;
 `;
 
 export const Main = styled.main`
@@ -34,4 +33,3 @@ export const PrevIcon = styled(LeftOutlined)`
   top: 2rem;
   left: 1rem;
 `;
-
