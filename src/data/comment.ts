@@ -20,4 +20,11 @@ export const COMMENT_DATA: Comment[] = [
     user: getById(1, USER_DATA),
     boothId: 1,
   },
+  {
+    id: 3,
+    createdAt: new Date(),
+    content: '마지막 수업 끝나면 달려갑니다 예약 받아주세요 ㅎㅎ',
+    user: getById(1, USER_DATA),
+    boothId: 2,
+  },
 ];
