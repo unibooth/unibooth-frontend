@@ -19,7 +19,7 @@ export default function BoothCard({ id, name, imageUrl, likeCount, comments }: B
         {comments.length > 0 && (
           <CommentsWrapper>
             {comments.slice(0, 2).map((comment) => (
-              <CommentRow>
+              <CommentRow key={comment.id}>
                 <CommentIcon width={15} height={15} style={{ marginRight: 10 }} fill="#fff" />
                 <CommentContent>{comment.content}</CommentContent>
               </CommentRow>
