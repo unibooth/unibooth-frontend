@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import SchoolIcon from '@assets/school.svg';
-
 import { Booth } from '@interfaces';
 
 export default function BoothComment({ comments }: Pick<Booth, 'comments'>) {
@@ -9,6 +8,7 @@ export default function BoothComment({ comments }: Pick<Booth, 'comments'>) {
     <Wrapper>
       {comments.slice(0, 2).map((comment) => (
         <div
+          key={comment.id}
           style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '16px' }}
         >
           <p style={{ color: '#222', fontSize: '14px', lineHeight: '22px' }}>

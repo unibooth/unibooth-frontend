@@ -91,6 +91,18 @@ export const TopBarOpenButton = styled.button`
   animation-duration: 0.5s;
   animation-name: ${slideRight};
 `;
+export const TopBarQuestionButton = styled.button`
+  width: 36px;
+  height: 36px;
+  border: none;
+  margin-left: 16px;
+  margin-top: 8px;
+  border-radius: 30px;
+  background: white;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  animation-duration: 0.5s;
+  animation-name: ${slideRight};
+`;
 
 export const StampCollectWrapper = styled.div`
   position: absolute;

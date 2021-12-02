@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-import HeartIcon from '@assets/heart.svg';
 import CommentIcon from '@assets/comment.svg';
+import HeartIcon from '@assets/heart.svg';
 import ShareIcon from '@assets/share.svg';
-
 import { Booth } from '@interfaces';
 
 type BoothFooterProps = Pick<Booth, 'likeCount' | 'shareCount'> & {
@@ -21,6 +20,7 @@ export default function BoothFooter({ likeCount, commentCount, shareCount }: Boo
     <Wrapper>
       {buttons.map(({ Icon, count }) => (
         <div
+          key={count}
           style={{ display: 'flex', flexDirection: 'column', width: '36px', alignItems: 'center' }}
         >
           <Icon width={24} height={24} fill="#222" style={{ marginBottom: '2px' }} />

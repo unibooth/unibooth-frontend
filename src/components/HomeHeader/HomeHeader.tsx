@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import CalendarIcon from '@assets/calendar.svg';
 import ChevronDownIcon from '@assets/chevron-down.svg';
 import SearchIcon from '@assets/search.svg';
-
 import { useScrollY } from '@hooks';
 
 const EXPANDED_HEIGHT = 220;
@@ -49,6 +48,7 @@ export default function HomeHeader(props: HomeHeaderProps) {
         <TabRow>
           {['전체', '마켓', '체험', '술집'].map((label, index) => (
             <TabButton
+              key={index}
               isSelected={props.tab === index}
               onClick={() => {
                 props.onTabChange(index);

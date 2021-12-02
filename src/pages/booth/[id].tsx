@@ -1,12 +1,11 @@
-import Head from 'next/head';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
-import { Layout } from '@components/Layout/styles';
-import BoothHeader from '@components/BoothHeader';
-import BoothDetail from '@components/BoothDetail';
 import BoothComment from '@components/BoothComment';
+import BoothDetail from '@components/BoothDetail';
 import BoothFooter from '@components/BoothFooter';
-
+import BoothHeader from '@components/BoothHeader';
+import { Layout } from '@components/Layout/styles';
 import { BOOTH_DATA } from '@data';
 import { getById } from '@helpers';
 
@@ -16,15 +15,15 @@ export default function BoothDetailPage({ id }: { id: number }) {
   return (
     <>
       <Head>
-        <title>{booth.name} - 유니부스</title>
+        <title>{booth?.name} - 유니부스</title>
       </Head>
       <Layout>
         <BoothHeader />
         <main>
           <BoothDetail {...booth} />
-          <BoothComment comments={booth.comments} />
+          <BoothComment comments={booth?.comments} />
         </main>
-        <BoothFooter {...booth} commentCount={booth.comments.length} />
+        <BoothFooter {...booth} commentCount={booth?.comments.length} />
       </Layout>
     </>
   );

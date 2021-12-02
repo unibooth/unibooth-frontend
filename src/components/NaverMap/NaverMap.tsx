@@ -1,27 +1,29 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useRouter } from 'next/router';
 import ActionSheet, { ActionSheetRef } from 'actionsheet-react';
-import { BoothListLayout } from './styles';
-import { BoothListOpenButton } from './styles';
-import HeartDefault from '@assets/like-default.svg';
-import HeartActivate from '@assets/like-activated.svg';
-import BottomArrow from '@assets/ic-arrow-top.svg';
+import { useRouter } from 'next/router';
+import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
+
+import Beer from '@assets/beer.svg';
 import HandleStick from '@assets/handle-stick.svg';
-import { CategoryButton } from './styles';
-import Stamp from '@assets/stamp.svg';
+import BottomArrow from '@assets/ic-arrow-top.svg';
+import LeftArrow from '@assets/left-arrow.svg';
+import HeartActivate from '@assets/like-activated.svg';
+import HeartDefault from '@assets/like-default.svg';
 import Market from '@assets/market.svg';
 import Play from '@assets/play.svg';
-import Beer from '@assets/beer.svg';
-import LeftArrow from '@assets/left-arrow.svg';
-import { TopBarLayout } from './styles';
-import { TopBarOpenButton } from './styles';
-import { StampCollectWrapper } from './styles';
 import Sort from '@assets/sort.svg';
-import styled from 'styled-components';
+import Stamp from '@assets/stamp.svg';
+import XIcon from '@assets/x.svg';
 import { BOOTH_DATA } from '@data';
 import { findByWhere, getById } from '@helpers';
 import { Booth, BoothType } from '@interfaces';
-import XIcon from '@assets/x.svg';
+
+import { BoothListLayout, TopBarQuestionButton } from './styles';
+import { BoothListOpenButton } from './styles';
+import { CategoryButton } from './styles';
+import { TopBarLayout } from './styles';
+import { TopBarOpenButton } from './styles';
+import { StampCollectWrapper } from './styles';
 
 let map: any;
 let markers: any = [];
@@ -276,7 +278,7 @@ const NaverMap = () => {
                 });
               }}
             >
-              <LeftArrow />
+              <LeftArrow style={{ width: '50%' }} />
             </TopBarOpenButton>
             <div
               style={{
@@ -314,6 +316,17 @@ const NaverMap = () => {
                 />
               </div>
             </div>
+            <TopBarQuestionButton
+              onClick={() => {
+                setBottomTabType(0);
+                setOpenStampCollect(false);
+                events.map((event: any) => {
+                  naver.maps.Event.removeListener(event);
+                });
+              }}
+            >
+              <LeftArrow style={{ width: '50%' }} />
+            </TopBarQuestionButton>
           </div>
         )}
         <ActionSheet
@@ -419,11 +432,11 @@ const NaverMap = () => {
                               : '#E6D019',
                         }}
                       >
-                        {booth.type} 부스
+                        {booth.type}
                       </span>
 
                       {booth.type !== '술집' ? (
-                        <span style={{ color: '#818798' }}> {booth.location}</span>
+                        <span style={{ color: '#818798' }}> | {booth.location} 부스</span>
                       ) : null}
                       <span style={{ color: '#818798', position: 'absolute', right: 3 }}>
                         {' '}
