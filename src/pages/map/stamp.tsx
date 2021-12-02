@@ -25,15 +25,24 @@ const Stamp: NextPage = () => {
 
   return (
     <Layout title="스탬프 수집" noBottom>
-      <div className="container">
-        <Title>스탬프 코드를 입력하세요</Title>
-        <BoothName>15. 일러스트레이터 한나입니다</BoothName>
-        <Input onChange={onChange} value={text} type="text" placeholder="스탬프 코드 입력" />
-      </div>
+      <main
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '343px',
+          margin: '0 auto',
+        }}
+      >
+        <div className="container">
+          <Title>스탬프 코드를 입력하세요</Title>
+          <BoothName>15. 일러스트레이터 한나입니다</BoothName>
+          <Input onChange={onChange} value={text} type="text" placeholder="스탬프 코드 입력" />
+        </div>
 
-      <Button disabled={usable} activate={usable} onClick={() => router.push('/map')}>
-        완료
-      </Button>
+        <Button disabled={usable} activate={usable} onClick={() => router.push('/map?done=true')}>
+          완료
+        </Button>
+      </main>
     </Layout>
   );
 };
