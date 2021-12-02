@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
@@ -13,14 +14,13 @@ const COLLAPSED_HEIGHT = 88;
 export type HomeHeaderProps = {
   tab: number;
   onTabChange: (tab: number) => void;
+  onOpenUnivBackdrop: () => void;
+  univ: string;
 };
 
 export default function HomeHeader(props: HomeHeaderProps) {
   const scrollY = useScrollY();
   const isExpanded = scrollY === 0;
-
-  const router = useRouter();
-  const univName = router.query.univName ?? '중앙대';
 
   return (
     <>
@@ -35,13 +35,29 @@ export default function HomeHeader(props: HomeHeaderProps) {
         <Header isExpanded={isExpanded}>
           <Col>
             {isExpanded && <Heading>부스를 찾아볼까요?</Heading>}
-            <UnivRow>
-              <Heading>{univName}</Heading>
+            <UnivRow onClick={props.onOpenUnivBackdrop}>
+              <Heading>{props.univ}</Heading>
               <ChevronDownIcon width={24} height={24} style={{ marginLeft: 8 }} fill="#222" />
             </UnivRow>
           </Col>
-          <SearchIcon width={24} height={24} fill="#222" />
+          <Link href="/search">
+            <a>
+              <SearchIcon width={24} height={24} fill="#222" />
+            </a>
+          </Link>
         </Header>
+        <TabRow>
+          {['전체', '마켓', '체험', '술집'].map((label, index) => (
+            <TabButton
+              isSelected={props.tab === index}
+              onClick={() => {
+                props.onTabChange(index);
+              }}
+            >
+              {label}
+            </TabButton>
+          ))}
+        </TabRow>
       </Wrapper>
       <Block isExpanded={isExpanded} />
     </>
@@ -112,11 +128,24 @@ const UnivRow = styled.div`
   align-items: center;
 `;
 
-const TabRow = styled.div`
+const TabRow = styled.nav`
   display: flex;
   flex-direction: row;
 
   width: 100%;
+  padding-bottom: -0.5px;
+  border-bottom: 0.5px solid #d5d7dd;
+`;
+
+const TabButton = styled.a<{ isSelected: boolean }>`
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: ${(props) => (props.isSelected ? '#222' : '#d5d7dd')};
+
+  margin-right: 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid ${(props) => (props.isSelected ? '#FF6433' : 'transparent')};
 `;
 
 const Block = styled.div<{ isExpanded: boolean }>`
