@@ -59,8 +59,8 @@ export const BOOTH_CONTENT_DATA: BoothContent[] = [
         name: '한나메이드 스티커',
         price: 3000,
 
-        positionX: 20,
-        positionY: 50,
+        positionX: 210,
+        positionY: 125,
       },
     ],
   },

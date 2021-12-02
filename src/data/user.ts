@@ -8,5 +8,6 @@ export const USER_DATA: User[] = [
     imageUrl: '/images/01.jpg',
     univercity: '중앙대학교',
     isVerified: true,
+    role: '엔터테이너',
   },
 ];
