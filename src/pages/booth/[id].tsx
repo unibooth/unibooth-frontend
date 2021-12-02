@@ -15,15 +15,15 @@ export default function BoothDetailPage({ id }: { id: number }) {
   return (
     <>
       <Head>
-        <title>{booth?.name} - 유니부스</title>
+        <title>{booth.name} - 유니부스</title>
       </Head>
       <Layout>
         <BoothHeader />
         <main>
           <BoothDetail {...booth} />
-          <BoothComment comments={booth?.comments} />
+          <BoothComment comments={booth.comments} />
         </main>
-        <BoothFooter {...booth} commentCount={booth?.comments.length} />
+        <BoothFooter {...booth} commentCount={booth.comments.length} />
       </Layout>
     </>
   );
@@ -42,6 +42,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: BOOTH_DATA.map((v) => ({
       params: { id: v.id.toString() },
     })),
-    fallback: true,
+    fallback: false,
   };
 };

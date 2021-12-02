@@ -1,13 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import {
-  BellOutlined,
-  CommentOutlined,
-  EnvironmentOutlined,
-  HomeOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
 import Alram from '@assets/alarm.svg';
 import Chat from '@assets/chat.svg';
 import Home from '@assets/home.svg';
