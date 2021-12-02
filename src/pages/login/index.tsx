@@ -1,5 +1,4 @@
-import Image from 'Next/Image';
-import type { NextPage } from 'next';
+ßimport type { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
