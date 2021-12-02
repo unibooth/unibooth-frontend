@@ -6,6 +6,8 @@ export type BoothType = '마켓' | '체험' | '술집';
 
 export interface Booth {
   id: number;
+  /** @example '중앙대' */
+  univ: string;
   /** 부스 분류 */
   type: BoothType;
   /** @example '일러스트레이터 한나입니다' */
@@ -15,6 +17,9 @@ export interface Booth {
   location: string;
   /** @example '2021. 11. 22 월 - 11. 23 화' */
   date: string;
+
+  latitude: number;
+  longitude: number;
 
   user: User;
   contents: BoothContent[];
