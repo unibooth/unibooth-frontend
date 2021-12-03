@@ -22,7 +22,7 @@ export default function AboutStamp() {
       <Title>스탬프를 수집하고 포인트를 받으세요!</Title>
       {step.map((step) => (
         <StepWrapper key={step.id}>
-          <img src={step.imageUrl} />
+          <Image src={step.imageUrl} />
           <div>
             <CircleNumber>{step.id}</CircleNumber>
             <StepContent>{step.content}</StepContent>
@@ -84,7 +84,10 @@ const StepWrapper = styled.div`
   height: 96px;
   margin-bottom: 24px;
 `;
-
+const Image = styled.img`
+  width: 96px;
+  height: 96px;
+`;
 const CircleNumber = styled.div`
   width: 24px;
   height: 24px;
