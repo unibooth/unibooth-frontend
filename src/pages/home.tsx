@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import HomeHeader from '@components/HomeHeader';
-import UnivBackdrop from '@components/UnivBackdrop';
 import BoothCard from '@components/BoothCard';
 import BottomNav from '@components/BottomNav';
+import HomeHeader from '@components/HomeHeader';
 import { Layout } from '@components/Layout/styles';
-
+import UnivBackdrop from '@components/UnivBackdrop';
 import { BOOTH_DATA } from '@data';
 import { shuffle } from '@helpers';
 

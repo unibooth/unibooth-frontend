@@ -46,7 +46,7 @@ export default function HomeHeader(props: HomeHeaderProps) {
           </Link>
         </Header>
         <TabRow>
-          {['전체', '마켓', '체험', '술집'].map((label, index) => (
+          {['전체', '마켓', '체험'].map((label, index) => (
             <TabButton
               key={index}
               isSelected={props.tab === index}
