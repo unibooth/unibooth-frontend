@@ -20,7 +20,7 @@ import RequestStamp from '@components/RequestStamp';
 import { BOOTH_DATA } from '@data';
 import { findByWhere, getById } from '@helpers';
 import { Booth, BoothType } from '@interfaces';
-import { requestStamp } from '@pages/recoil/modal';
+import { requestStamp } from '@recoil/modal';
 
 import { BoothListLayout, TopBarQuestionButton } from './styles';
 import { BoothListOpenButton } from './styles';

@@ -11,7 +11,7 @@ import UnivBackdrop from '@components/UnivBackdrop';
 import { BOOTH_DATA } from '@data';
 import { shuffle } from '@helpers';
 
-import { splashState } from './recoil/modal';
+import { splashState } from '../recoil/modal';
 
 export default function HomePage() {
   const [currentTab, setCurrentTab] = useState(0);

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import AboutStamp from '@components/AboutStamp';
 import { Layout } from '@components/Layout';
 import NaverMap from '@components/NaverMap/NaverMap';
-import { aboutStampState, doneVisible } from '@pages/recoil/modal';
+import { aboutStampState, doneVisible } from '@recoil/modal';
 
 const Map: NextPage = () => {
   const router = useRouter();

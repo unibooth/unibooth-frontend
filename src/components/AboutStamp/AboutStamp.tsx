@@ -2,7 +2,7 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import ErrorIcon from '@assets/error_outline.svg';
-import { aboutStampState } from '@pages/recoil/modal';
+import { aboutStampState } from '@recoil/modal';
 
 const step = [
   { id: 1, imageUrl: '/images/step1.png', content: '스탬프를 받을 수 있는\n 부스를 확인한다.' },
