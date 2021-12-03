@@ -4552,7 +4552,7 @@ readdirp@~3.5.0:
 
 recoil@^0.5.2:
   version "0.5.2"
-  resolved "https://registry.npmjs.org/recoil/-/recoil-0.5.2.tgz"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.5.2.tgz#61fecce3b4dc91127a595586cf7369e2811ba024"
   integrity sha512-Edibzpu3dbUMLy6QRg73WL8dvMl9Xqhp+kU+f2sJtXxsaXvAlxU/GcnDE8HXPkprXrhHF2e6SZozptNvjNF5fw==
   dependencies:
     hamt_plus "1.0.2"
