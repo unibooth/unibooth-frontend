@@ -20,7 +20,7 @@ const BottomNav = () => {
         </a>
       </Link>
 
-      <Link href="/notification" passHref>
+      <Link href="/feed" passHref>
         <a className={`nav-link ${router.asPath === '/feed' ? 'active' : ''}`}>
           <Feed className="svg-paths" style={{ fontSize: '18px' }} />
           <span>축제피드</span>
@@ -34,7 +34,7 @@ const BottomNav = () => {
         </a>
       </Link>
 
-      <Link href="/chat" passHref>
+      <Link href="/message" passHref>
         <a className={`nav-link ${router.asPath === '/message' ? 'active' : ''}`}>
           <Message className="svg-paths" style={{ fontSize: '18px' }} />
           <span>메시지</span>

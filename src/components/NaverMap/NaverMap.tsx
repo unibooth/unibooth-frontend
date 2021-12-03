@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
+import LeftArrow from '@assets/arrow_back.svg';
 import Beer from '@assets/beer.svg';
 import HandleStick from '@assets/handle-stick.svg';
 import BottomArrow from '@assets/ic-arrow-top.svg';
-import LeftArrow from '@assets/left-arrow.svg';
 import HeartActivate from '@assets/like-activated.svg';
 import HeartDefault from '@assets/like-default.svg';
 import Market from '@assets/market.svg';
