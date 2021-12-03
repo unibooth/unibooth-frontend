@@ -303,7 +303,7 @@ const NaverMap = () => {
                 <StampInfo />
               </TopBarQuestionButton>
             </div>
-            <div
+            {/* <div
               style={{
                 width: '100%',
                 height: '10%',
@@ -338,7 +338,7 @@ const NaverMap = () => {
                   }}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         )}
         <ActionSheet
