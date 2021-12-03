@@ -20,7 +20,7 @@ import RequestStamp from '@components/RequestStamp';
 import { BOOTH_DATA } from '@data';
 import { findByWhere, getById } from '@helpers';
 import { Booth, BoothType } from '@interfaces';
-import { requestStamp } from '@recoil/modal';
+import { aboutStampInfo, requestStamp } from '@recoil/modal';
 
 import { BoothListLayout, TopBarQuestionButton } from './styles';
 import { BoothListOpenButton } from './styles';
@@ -47,6 +47,7 @@ const NaverMap = () => {
   const LIKE_ICON = '/icon/ic-map-like.svg';
   const [openStampCollect, setOpenStampCollect] = useState(false);
   const [openRequestStamp, setOpenRequestStamp] = useRecoilState(requestStamp);
+  const [isStampInfoVisible, setStampInfoVisible] = useRecoilState(aboutStampInfo);
 
   const [filter, setFilter] = useState<Partial<Booth>>({});
 
@@ -192,6 +193,7 @@ const NaverMap = () => {
 
     handleClose();
     setBottomTabType(2);
+    setStampInfoVisible(true);
   };
 
   useEffect(() => {
@@ -289,7 +291,7 @@ const NaverMap = () => {
                 });
               }}
             >
-              <LeftArrow style={{ width: '50%' }} />
+              <LeftArrow style={{ width: '18px', height: '18px' }} />
             </TopBarOpenButton>
             <div
               style={{

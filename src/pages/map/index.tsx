@@ -7,12 +7,12 @@ import styled from 'styled-components';
 import AboutStamp from '@components/AboutStamp';
 import { Layout } from '@components/Layout';
 import NaverMap from '@components/NaverMap/NaverMap';
-import { aboutStampState, doneVisible } from '@recoil/modal';
+import { aboutStampInfo, doneVisible } from '@recoil/modal';
 
 const Map: NextPage = () => {
   const router = useRouter();
   const [isDoneVisible, setDoneVisible] = useRecoilState(doneVisible);
-  const [isStampInfoVisible, setStampInfoVisible] = useRecoilState(aboutStampState);
+  const [isStampInfoVisible, setStampInfoVisible] = useRecoilState(aboutStampInfo);
 
   useEffect(() => {
     if (!router.query.done) {

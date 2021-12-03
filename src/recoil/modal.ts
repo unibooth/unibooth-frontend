@@ -1,8 +1,8 @@
 import { atom } from 'recoil';
 
-export const aboutStampState = atom({
-  key: 'aboutStampState',
-  default: true,
+export const aboutStampInfo = atom({
+  key: 'aboutStampInfo',
+  default: false,
 });
 
 export const requestStamp = atom({
