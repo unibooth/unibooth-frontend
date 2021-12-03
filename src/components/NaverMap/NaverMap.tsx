@@ -170,7 +170,7 @@ const NaverMap = () => {
       }
     }
 
-    setRewardVisible(false);
+    setRewardVisible((prev) => !prev);
   };
 
   const handleOpen = () => {
