@@ -75,7 +75,6 @@ const Wrapper = styled.div`
   height: fit-content;
   padding: 0 16px;
   transition: height 0.2s ease-out;
-
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
@@ -87,6 +86,7 @@ const DdayRow = styled.div`
   width: 343px;
   height: 48px;
   padding: 0 16px;
+  margin-top: 16px;
 
   background: #f7f8f9;
   border-radius: 8px;

@@ -35,7 +35,7 @@ export default function UnivRow({ name, starred, soon }: UnivRowProps) {
         </p>
       )}
       {starred ? (
-        <BookmarkFillIcon width={24} height={24} fill="#222" />
+        <BookmarkFillIcon width={24} height={24} fill="#818798" />
       ) : (
         <BookmarkLineIcon width={24} height={24} fill="#D5D7DD" />
       )}

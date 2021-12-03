@@ -72,7 +72,7 @@ export default function UnivBackdrop(props: Pick<BackdropProps, 'isOpen' | 'onCl
         </SearchBar>
         <div
           style={{
-            margin: '16px',
+            margin: '16px 0 0 8px',
             width: 'calc(100% - 32px)',
             height: '1px',
             backgroundColor: '#f1f2f4',
@@ -116,9 +116,9 @@ const Wrapper = styled.div`
 `;
 
 const HeaderRow = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   display: flex;
   flex-direction: row;
@@ -128,6 +128,8 @@ const HeaderRow = styled.div`
   width: 100%;
   height: 44px;
   padding: 0 20px;
+
+  background: white;
 `;
 
 const SearchBar = styled.div`
