@@ -14,3 +14,8 @@ export const doneVisible = atom({
   key: 'doneVisible',
   default: false,
 });
+
+export const splashState = atom({
+  key: 'splashState',
+  default: true,
+});

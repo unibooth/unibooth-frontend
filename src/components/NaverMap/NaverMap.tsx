@@ -534,17 +534,3 @@ export const Modal = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-const RequestStampWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999999999;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100vw;
-  height: 10vh;
-`;

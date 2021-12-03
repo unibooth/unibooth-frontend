@@ -36,10 +36,6 @@ const Map: NextPage = () => {
       )}
       {isStampInfoVisible && (
         <AboutStamp
-        // onClick={() => {
-        //   setStampInfoVisible(false);
-        //   router.replace('/map');
-        // }}
         />
       )}
     </Layout>
