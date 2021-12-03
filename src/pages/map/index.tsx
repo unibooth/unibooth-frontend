@@ -7,11 +7,11 @@ import styled from 'styled-components';
 import AboutStamp from '@components/AboutStamp';
 import { Layout } from '@components/Layout';
 import NaverMap from '@components/NaverMap/NaverMap';
-import { aboutStampState } from '@pages/recoil/modal';
+import { aboutStampState, doneVisible } from '@pages/recoil/modal';
 
 const Map: NextPage = () => {
   const router = useRouter();
-  const [isDoneVisible, setDoneVisible] = useState(false);
+  const [isDoneVisible, setDoneVisible] = useRecoilState(doneVisible);
   const [isStampInfoVisible, setStampInfoVisible] = useRecoilState(aboutStampState);
 
   useEffect(() => {

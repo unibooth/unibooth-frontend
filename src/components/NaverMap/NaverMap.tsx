@@ -2,6 +2,7 @@ import ActionSheet, { ActionSheetRef } from 'actionsheet-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import LeftArrow from '@assets/arrow_back.svg';
@@ -15,9 +16,11 @@ import Play from '@assets/play.svg';
 import Sort from '@assets/sort.svg';
 import Stamp from '@assets/stamp.svg';
 import XIcon from '@assets/x.svg';
+import RequestStamp from '@components/RequestStamp';
 import { BOOTH_DATA } from '@data';
 import { findByWhere, getById } from '@helpers';
 import { Booth, BoothType } from '@interfaces';
+import { requestStamp } from '@pages/recoil/modal';
 
 import { BoothListLayout, TopBarQuestionButton } from './styles';
 import { BoothListOpenButton } from './styles';
@@ -43,7 +46,7 @@ const NaverMap = () => {
   const [currentBooth, setCurrentBooth] = useState<number>(10);
   const LIKE_ICON = '/icon/ic-map-like.svg';
   const [openStampCollect, setOpenStampCollect] = useState(false);
-  const [openRequestStamp, setOpenRequestStamp] = useState(false);
+  const [openRequestStamp, setOpenRequestStamp] = useRecoilState(requestStamp);
 
   const [filter, setFilter] = useState<Partial<Booth>>({});
 
@@ -222,10 +225,10 @@ const NaverMap = () => {
         <button
           onClick={() => {
             setTimeout(() => {
-              alert('엔터테이너에게 스탬프를  요청하고 있어요 ...');
+              //alert('엔터테이너에게 스탬프를  요청하고 있어요 ...');
               setOpenRequestStamp(true);
               router.push('/map?done=true');
-            }, 500);
+            }, 1500);
           }}
           style={{
             alignSelf: 'center',
@@ -472,6 +475,7 @@ const NaverMap = () => {
           </BoothListOpenButton>
         ) : null}
       </div>
+      {openRequestStamp && <RequestStamp />}
     </>
   );
 };
