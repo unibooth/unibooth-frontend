@@ -134,7 +134,7 @@ export const StampCountContainer = styled.div`
   width: 100%;
   height: 246px;
   left: 0;
-  bottom: -100vh;
+  bottom: -818px;
   padding: 30px 16px;
   font-size: 21px;
   background: white;
@@ -154,11 +154,52 @@ export const StampCountContainer = styled.div`
   }
 `;
 
-export const StampCountContent = styled.div`
+export const FloatingLocate = styled.div`
+  position: absolute;
+  left: 315px;
+  bottom: -549px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 13px;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+`;
+
+export const StampCountWrapper = styled.div`
   color: #d5d7dd;
   display: flex;
+  justify-content: space-between;
   text-align: center;
   font-size: 16px;
   margin-top: 8px;
-  justify-content: space-between;
+`;
+
+export const StampCountDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+  .orange {
+    color: #ff6433;
+  }
+  .grey {
+    color: #f1f2f3;
+  }
+`;
+
+export const Dot = styled.div`
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  text-align: center;
+  background: #ff6433;
+  .orange {
+    background: #ff6433;
+  }
+  .grey {
+    background: #f1f2f3;
+  }
 `;

@@ -12,6 +12,7 @@ import HeartActivate from '@assets/like-activated.svg';
 import HeartDefault from '@assets/like-default.svg';
 import MapLeftArrow from '@assets/map-back-arrow.svg';
 import Market from '@assets/market.svg';
+import MyLocation from '@assets/my-location.svg';
 import Play from '@assets/play.svg';
 import Sort from '@assets/sort.svg';
 import StampInfo from '@assets/stamp-info.svg';
@@ -25,8 +26,11 @@ import { aboutStampInfo, requestStamp, rewardState } from '@recoil/modal';
 
 import {
   BoothListLayout,
+  Dot,
+  FloatingLocate,
   StampCountContainer,
-  StampCountContent,
+  StampCountDiv,
+  StampCountWrapper,
   TopBarQuestionButton,
 } from './styles';
 import { BoothListOpenButton } from './styles';
@@ -312,68 +316,76 @@ const NaverMap = () => {
             </div>
 
             {isRewardVisible && (
-              <StampCountContainer>
-                다음 보상까지 <span className="orange">1</span> 개 남았어요!
-                <div
-                  style={{
-                    width: '100%',
-                    height: '10%',
-                    zIndex: 1001,
-                    marginTop: 12,
-                    marginLeft: 21,
-                    display: 'flex',
-                  }}
-                >
-                  {/* <span style={{ fontSize: 16, marginRight: 2 }}>{STAMPPED_BOOTH_IDS.length}</span>
-                <span style={{ fontSize: 16, color: '#818798' }}> / {BOOTH_DATA.length}</span> */}
+              <div>
+                <FloatingLocate>
+                  <MyLocation />
+                </FloatingLocate>
+                <StampCountContainer>
+                  다음 보상까지 <span className="orange">1</span> 개 남았어요!
                   <div
                     style={{
-                      alignSelf: 'center',
-                      position: 'relative',
-                      // marginLeft: 12,
-                      width: '90%',
-                      height: 6,
-                      background: '#F1F2F3',
-                      borderRadius: 4,
+                      width: '100%',
+                      height: '10%',
+                      zIndex: 1001,
+                      marginTop: 12,
+                      marginLeft: 21,
+                      display: 'flex',
                     }}
                   >
+                    {/* <span style={{ fontSize: 16, marginRight: 2 }}>{STAMPPED_BOOTH_IDS.length}</span>
+                <span style={{ fontSize: 16, color: '#818798' }}> / {BOOTH_DATA.length}</span> */}
                     <div
                       style={{
                         alignSelf: 'center',
-                        left: 0,
-                        position: 'absolute',
-                        // width: (STAMPPED_BOOTH_IDS.length / BOOTH_DATA.length) * 100 + '%',
-                        width: '60%',
+                        position: 'relative',
+                        // marginLeft: 12,
+                        width: '90%',
                         height: 6,
-                        background: '#FF6433',
+                        background: '#F1F2F3',
                         borderRadius: 4,
                       }}
-                    />
+                    >
+                      <div
+                        style={{
+                          alignSelf: 'center',
+                          left: 0,
+                          position: 'absolute',
+                          // width: (STAMPPED_BOOTH_IDS.length / BOOTH_DATA.length) * 100 + '%',
+                          width: '60%',
+                          height: 6,
+                          background: '#FF6433',
+                          borderRadius: 4,
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-                <StampCountContent>
-                  <div className="none">
-                    +200P
-                    <br />
-                    <span className="small">5개</span>
-                  </div>
-                  <div>
-                    +200P
-                    <br />
-                    <div className="small">5개</div>
-                  </div>
-                  <div className="orange">
-                    +300P
-                    <br />
-                    <div className="small">10개</div>
-                  </div>
-                  <div className="orange">
-                    +500P
-                    <br />
-                    <div className="small">15개</div>
-                  </div>
-                </StampCountContent>
-              </StampCountContainer>
+                  <StampCountWrapper>
+                    {/* <StampCountDiv>
+                    <Dot /> */}
+                    <div className="none">
+                      +200P
+                      <br />
+                      <span className="small">5개</span>
+                    </div>
+                    {/* </StampCountDiv> */}
+                    <div>
+                      +200P
+                      <br />
+                      <div className="small">5개</div>
+                    </div>
+                    <div className="orange">
+                      +300P
+                      <br />
+                      <div className="small">10개</div>
+                    </div>
+                    <div className="orange">
+                      +500P
+                      <br />
+                      <div className="small">15개</div>
+                    </div>
+                  </StampCountWrapper>
+                </StampCountContainer>
+              </div>
             )}
           </div>
         )}

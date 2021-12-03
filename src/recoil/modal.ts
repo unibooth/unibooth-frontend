@@ -22,5 +22,5 @@ export const splashState = atom({
 
 export const rewardState = atom({
   key: 'rewardState',
-  default: false,
-})
+  default: true,
+});
