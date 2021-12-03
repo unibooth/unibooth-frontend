@@ -1,16 +1,18 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import AboutStamp from '@components/AboutStamp';
 import { Layout } from '@components/Layout';
 import NaverMap from '@components/NaverMap/NaverMap';
+import { aboutStampState } from '@pages/recoil/modal';
 
 const Map: NextPage = () => {
   const router = useRouter();
   const [isDoneVisible, setDoneVisible] = useState(false);
-  const [isStampInfoVisible, setStampInfoVisible] = useState(true);
+  const [isStampInfoVisible, setStampInfoVisible] = useRecoilState(aboutStampState);
 
   useEffect(() => {
     if (!router.query.done) {
@@ -34,10 +36,10 @@ const Map: NextPage = () => {
       )}
       {isStampInfoVisible && (
         <AboutStamp
-          onClick={() => {
-            setStampInfoVisible(false);
-            router.replace('/map');
-          }}
+        // onClick={() => {
+        //   setStampInfoVisible(false);
+        //   router.replace('/map');
+        // }}
         />
       )}
     </Layout>

@@ -1,6 +1,8 @@
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import ErrorIcon from '@assets/error_outline.svg';
+import { aboutStampState } from '@pages/recoil/modal';
 
 const step = [
   { id: 1, imageUrl: '/images/step1.png', content: '스탬프를 받을 수 있는\n 부스를 확인한다.' },
@@ -13,6 +15,8 @@ const step = [
 ];
 
 export default function AboutStamp() {
+  const [isStampInfoVisible, setStampInfoVisible] = useRecoilState(aboutStampState);
+
   return (
     <StampInformationWrapper>
       <Title>스탬프를 수집하고 포인트를 받으세요!</Title>
@@ -34,7 +38,13 @@ export default function AboutStamp() {
           엔터테이너와 떨어져 있으면 스탬프를 받을 수 없어요.
         </ErrorContent>
       </ErrorWrapper>
-      <ConfirmButton>확인</ConfirmButton>
+      <ConfirmButton
+        onClick={() => {
+          setStampInfoVisible(false);
+        }}
+      >
+        확인
+      </ConfirmButton>
     </StampInformationWrapper>
   );
 }
