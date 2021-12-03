@@ -13,8 +13,8 @@ export interface Booth {
   /** @example '일러스트레이터 한나입니다' */
   name: string;
   imageUrl: string;
-  /** @example '20번' */
-  location: string;
+  /** @example 20 */
+  location: number;
   /** @example '2021. 11. 22 월 - 11. 23 화' */
   date: string;
 

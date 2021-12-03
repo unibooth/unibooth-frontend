@@ -1,4 +1,5 @@
 import ActionSheet, { ActionSheetRef } from 'actionsheet-react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
@@ -42,6 +43,7 @@ const NaverMap = () => {
   const [currentBooth, setCurrentBooth] = useState<number>(10);
   const LIKE_ICON = '/icon/ic-map-like.svg';
   const [openStampCollect, setOpenStampCollect] = useState(false);
+  const [openRequestStamp, setOpenRequestStamp] = useState(false);
 
   const [filter, setFilter] = useState<Partial<Booth>>({});
 
@@ -218,7 +220,13 @@ const NaverMap = () => {
           </div>
         </BoothListLayout>
         <button
-          onClick={() => router.push('/map/stamp')}
+          onClick={() => {
+            setTimeout(() => {
+              alert('엔터테이너에게 스탬프를  요청하고 있어요 ...');
+              setOpenRequestStamp(true);
+              router.push('/map?done=true');
+            }, 500);
+          }}
           style={{
             alignSelf: 'center',
             width: 141,
@@ -231,7 +239,7 @@ const NaverMap = () => {
             fontWeight: '600',
           }}
         >
-          스탬프 수집
+          스탬프 요청
         </button>
       </StampCollectWrapper>
     );
@@ -383,7 +391,7 @@ const NaverMap = () => {
                 style={{
                   marginLeft: 6.25,
                   fontSize: 12,
-                  color: '#818798',
+                  color: '#818698',
                 }}
               >
                 찜 많은 순
@@ -406,7 +414,9 @@ const NaverMap = () => {
                         justifyContent: 'center',
                       }}
                     >
-                      {booth.name}
+                      <Link href={`/booth/${booth.id}`} passHref>
+                        <span style={{ textDecoration: 'none' }}>{booth.name}</span>
+                      </Link>
                       {!LIKING_BOOTH_IDS.includes(booth.id) ? (
                         <HeartDefault
                           onClick={heartPress}
@@ -424,21 +434,22 @@ const NaverMap = () => {
                     <div style={{ fontSize: 12, marginTop: 8 }}>
                       <span
                         style={{
-                          color:
-                            booth.type === '체험'
-                              ? '#8833FF'
-                              : booth.type === '마켓'
-                              ? '#5CC7D6'
-                              : '#E6D019',
+                          color: '#818698',
+                          // color:
+                          //   booth.type === '체험'
+                          //     ? '#8833FF'
+                          //     : booth.type === '마켓'
+                          //     ? '#5CC7D6'
+                          //     : '#E6D019',
                         }}
                       >
                         {booth.type}
                       </span>
 
                       {booth.type !== '술집' ? (
-                        <span style={{ color: '#818798' }}> | {booth.location} 부스</span>
+                        <span style={{ color: '#818698' }}> | 부스 번호 {booth.location}</span>
                       ) : null}
-                      <span style={{ color: '#818798', position: 'absolute', right: 3 }}>
+                      <span style={{ color: '#818698', position: 'absolute', right: 3 }}>
                         {' '}
                         {booth.likeCount}
                       </span>
@@ -518,4 +529,18 @@ export const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const RequestStampWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 10vh;
 `;

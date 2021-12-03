@@ -116,7 +116,7 @@ const Wrapper = styled.div`
 `;
 
 const HeaderRow = styled.div`
-    position; fixed;
+    position: fixed;
     top: 0;
     left: 0;
 
