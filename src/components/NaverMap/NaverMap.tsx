@@ -224,10 +224,10 @@ const NaverMap = () => {
         </BoothListLayout>
         <button
           onClick={() => {
+            setOpenRequestStamp(true);
             setTimeout(() => {
-              //alert('엔터테이너에게 스탬프를  요청하고 있어요 ...');
-              setOpenRequestStamp(true);
               router.push('/map?done=true');
+              setOpenRequestStamp(false);
             }, 1500);
           }}
           style={{
