@@ -56,7 +56,7 @@ export default function UnivBackdrop(props: Pick<BackdropProps, 'isOpen' | 'onCl
         </HeaderRow>
         <p
           style={{
-            margin: '56px 0 32px 16px',
+            margin: '100px 0 32px 16px',
             fontWeight: 500,
             fontSize: '24px',
             lineHeight: '30px',
