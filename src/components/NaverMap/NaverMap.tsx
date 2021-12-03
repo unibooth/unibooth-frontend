@@ -5,12 +5,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
-import LeftArrow from '@assets/arrow_back.svg';
 import Beer from '@assets/beer.svg';
 import HandleStick from '@assets/handle-stick.svg';
 import BottomArrow from '@assets/ic-arrow-top.svg';
 import HeartActivate from '@assets/like-activated.svg';
 import HeartDefault from '@assets/like-default.svg';
+import MapLeftArrow from '@assets/map-back-arrow.svg';
 import Market from '@assets/market.svg';
 import Play from '@assets/play.svg';
 import Sort from '@assets/sort.svg';
@@ -292,8 +292,9 @@ const NaverMap = () => {
                     naver.maps.Event.removeListener(event);
                   });
                 }}
+                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
               >
-                <LeftArrow style={{ width: '60%' }} />
+                <MapLeftArrow />
               </TopBarOpenButton>
               <TopBarQuestionButton
                 onClick={() => {
