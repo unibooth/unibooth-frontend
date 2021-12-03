@@ -12,7 +12,7 @@ type SectionProps = {
 export default function Section({ title, description, children, size = 'large' }: SectionProps) {
   return (
     <Wrapper>
-      <Title style={{ fontSize: size === 'large' ? '20px' : '16px' }}>{title}</Title>
+      <Title style={{ fontSize: size === 'large' ? '20px' : '20px' }}>{title}</Title>
       {description != null && <Description>{description}</Description>}
       {children}
     </Wrapper>
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 
   width: 100%;
-  padding: 16px;
+  padding: 24px;
   padding-bottom: 0;
   border-bottom: 8px solid #f1f2f4;
 `;

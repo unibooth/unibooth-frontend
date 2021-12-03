@@ -87,6 +87,9 @@ const DdayRow = styled.div`
   width: 343px;
   height: 48px;
   padding: 0 16px;
+
+  background: #f7f8f9;
+  border-radius: 8px;
 `;
 
 const DdayText = styled.p`
@@ -126,6 +129,11 @@ const UnivRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: Apple SD Gothic Neo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 `;
 
 const TabRow = styled.nav`

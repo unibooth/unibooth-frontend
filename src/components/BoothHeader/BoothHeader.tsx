@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-import LeftArrowIcon from '@assets/left-arrow.svg';
+import LeftArrowIcon from '@assets/arrow_back.svg';
 import PlaceIcon from '@assets/place.svg';
 import ThreeDotIcon from '@assets/three-dot.svg';
-
 import { useScrollY } from '@hooks';
 
 const HEIGHT = 44;

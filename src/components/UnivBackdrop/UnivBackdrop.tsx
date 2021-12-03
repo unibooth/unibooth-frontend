@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-import { BackdropProps } from '../Backdrop/backdrop.types';
-import Backdrop from '../Backdrop';
-import XIcon from '@assets/x.svg';
 import CalendarIcon from '@assets/calendar.svg';
 import SearchIcon from '@assets/search.svg';
+import XIcon from '@assets/x.svg';
+
+import Backdrop from '../Backdrop';
+import { BackdropProps } from '../Backdrop/backdrop.types';
 import Section from '../Section';
 import UnivStarButton, { UnivStarButtonProps } from './star-button';
 import UnivRow, { UnivRowProps } from './univ-row';
@@ -55,7 +56,7 @@ export default function UnivBackdrop(props: Pick<BackdropProps, 'isOpen' | 'onCl
         </HeaderRow>
         <p
           style={{
-            margin: '100px 0 32px 16px',
+            margin: '56px 0 32px 16px',
             fontWeight: 500,
             fontSize: '24px',
             lineHeight: '30px',
@@ -133,7 +134,8 @@ const SearchBar = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  background: rgba(241, 242, 244, 0.55);
+  border-radius: 8px;
   width: calc(100% - 32px);
   height: 48px;
   padding: 0 20px;

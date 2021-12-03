@@ -78,7 +78,8 @@ const Input = styled.input`
 
   font-size: 16px;
   line-height: 24px;
-
+  background: #f7f8f9;
+  border-radius: 8px;
   border: none;
   outline: none;
 `;

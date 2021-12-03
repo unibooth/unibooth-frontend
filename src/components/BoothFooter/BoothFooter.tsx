@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import CommentIcon from '@assets/comment.svg';
-import HeartIcon from '@assets/heart.svg';
+import CommentIcon from '@assets/booth-comment.svg';
+import HeartIcon from '@assets/booth-heart.svg';
 import ShareIcon from '@assets/share.svg';
 import { Booth } from '@interfaces';
 
