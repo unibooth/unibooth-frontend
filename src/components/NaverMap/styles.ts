@@ -128,3 +128,37 @@ export const StampCollectWrapper = styled.div`
   padding-bottom: 12px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 `;
+
+export const StampCountContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 246px;
+  left: 0;
+  bottom: -100vh;
+  padding: 30px 16px;
+  font-size: 21px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.1);
+
+  .orange {
+    color: #ff6433;
+  }
+  .none {
+    color: white;
+  }
+  .small {
+    margin-top: 5px;
+    font-size: 13px !important;
+    font-weight: 400;
+  }
+`;
+
+export const StampCountContent = styled.div`
+  color: #d5d7dd;
+  display: flex;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 8px;
+  justify-content: space-between;
+`;

@@ -19,3 +19,8 @@ export const splashState = atom({
   key: 'splashState',
   default: true,
 });
+
+export const rewardState = atom({
+  key: 'rewardState',
+  default: true,
+})

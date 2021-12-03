@@ -21,9 +21,14 @@ import RequestStamp from '@components/RequestStamp';
 import { BOOTH_DATA } from '@data';
 import { findByWhere, getById } from '@helpers';
 import { Booth, BoothType } from '@interfaces';
-import { aboutStampInfo, requestStamp } from '@recoil/modal';
+import { aboutStampInfo, requestStamp, rewardState } from '@recoil/modal';
 
-import { BoothListLayout, TopBarQuestionButton } from './styles';
+import {
+  BoothListLayout,
+  StampCountContainer,
+  StampCountContent,
+  TopBarQuestionButton,
+} from './styles';
 import { BoothListOpenButton } from './styles';
 import { CategoryButton } from './styles';
 import { TopBarLayout } from './styles';
@@ -36,8 +41,8 @@ let marker;
 
 let events: any = [];
 
-const STAMPPED_BOOTH_IDS = [1];
-const LIKING_BOOTH_IDS = [2];
+const STAMPPED_BOOTH_IDS = [10];
+const LIKING_BOOTH_IDS = [15];
 
 const NaverMap = () => {
   const router = useRouter();
@@ -49,7 +54,7 @@ const NaverMap = () => {
   const [openStampCollect, setOpenStampCollect] = useState(false);
   const [openRequestStamp, setOpenRequestStamp] = useRecoilState(requestStamp);
   const [isStampInfoVisible, setStampInfoVisible] = useRecoilState(aboutStampInfo);
-
+  const [isRewardVisible, setRewardVisible] = useRecoilState(rewardState);
   const [filter, setFilter] = useState<Partial<Booth>>({});
 
   const drawMarker = (map: any, where: Partial<Booth> = {}) => {
@@ -164,6 +169,8 @@ const NaverMap = () => {
         setOpenStampCollect(true);
       }
     }
+
+    setRewardVisible(false);
   };
 
   const handleOpen = () => {
@@ -231,7 +238,7 @@ const NaverMap = () => {
             setTimeout(() => {
               router.push('/map?done=true');
               setOpenRequestStamp(false);
-            }, 1500);
+            }, 3000);
           }}
           style={{
             alignSelf: 'center',
@@ -303,42 +310,71 @@ const NaverMap = () => {
                 <StampInfo />
               </TopBarQuestionButton>
             </div>
-            {/* <div
-              style={{
-                width: '100%',
-                height: '10%',
-                zIndex: 1001,
-                marginTop: 12,
-                marginLeft: 21,
-                display: 'flex',
-              }}
-            >
-              <span style={{ fontSize: 16, marginRight: 2 }}>{STAMPPED_BOOTH_IDS.length}</span>
-              <span style={{ fontSize: 16, color: '#818798' }}> / {BOOTH_DATA.length}</span>
-              <div
-                style={{
-                  alignSelf: 'center',
-                  position: 'relative',
-                  marginLeft: 12,
-                  width: '79%',
-                  height: 6,
-                  background: '#FFECE5',
-                  borderRadius: 4,
-                }}
-              >
+
+            {isRewardVisible && (
+              <StampCountContainer>
+                다음 보상까지 <span className="orange">1</span> 개 남았어요!
                 <div
                   style={{
-                    alignSelf: 'center',
-                    left: 0,
-                    position: 'absolute',
-                    width: (STAMPPED_BOOTH_IDS.length / BOOTH_DATA.length) * 100 + '%',
-                    height: 6,
-                    background: '#FF6433',
-                    borderRadius: 4,
+                    width: '100%',
+                    height: '10%',
+                    zIndex: 1001,
+                    marginTop: 12,
+                    marginLeft: 21,
+                    display: 'flex',
                   }}
-                />
-              </div>
-            </div> */}
+                >
+                  {/* <span style={{ fontSize: 16, marginRight: 2 }}>{STAMPPED_BOOTH_IDS.length}</span>
+                <span style={{ fontSize: 16, color: '#818798' }}> / {BOOTH_DATA.length}</span> */}
+                  <div
+                    style={{
+                      alignSelf: 'center',
+                      position: 'relative',
+                      // marginLeft: 12,
+                      width: '90%',
+                      height: 6,
+                      background: '#F1F2F3',
+                      borderRadius: 4,
+                    }}
+                  >
+                    <div
+                      style={{
+                        alignSelf: 'center',
+                        left: 0,
+                        position: 'absolute',
+                        // width: (STAMPPED_BOOTH_IDS.length / BOOTH_DATA.length) * 100 + '%',
+                        width: '60%',
+                        height: 6,
+                        background: '#FF6433',
+                        borderRadius: 4,
+                      }}
+                    />
+                  </div>
+                </div>
+                <StampCountContent>
+                  <div className="none">
+                    +200P
+                    <br />
+                    <span className="small">5개</span>
+                  </div>
+                  <div>
+                    +200P
+                    <br />
+                    <div className="small">5개</div>
+                  </div>
+                  <div className="orange">
+                    +300P
+                    <br />
+                    <div className="small">10개</div>
+                  </div>
+                  <div className="orange">
+                    +500P
+                    <br />
+                    <div className="small">15개</div>
+                  </div>
+                </StampCountContent>
+              </StampCountContainer>
+            )}
           </div>
         )}
         <ActionSheet
