@@ -292,7 +292,6 @@ const NaverMap = () => {
                     naver.maps.Event.removeListener(event);
                   });
                 }}
-                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
               >
                 <MapLeftArrow />
               </TopBarOpenButton>
@@ -301,7 +300,7 @@ const NaverMap = () => {
                   setStampInfoVisible(true);
                 }}
               >
-                <StampInfo style={{ width: '60%' }} />
+                <StampInfo />
               </TopBarQuestionButton>
             </div>
             <div

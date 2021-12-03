@@ -80,6 +80,9 @@ export const TopBarLayout = styled.div`
 `;
 
 export const TopBarOpenButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 36px;
   height: 36px;
   border: none;
@@ -92,6 +95,9 @@ export const TopBarOpenButton = styled.button`
   animation-name: ${slideRight};
 `;
 export const TopBarQuestionButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 36px;
   height: 36px;
   border: none;
