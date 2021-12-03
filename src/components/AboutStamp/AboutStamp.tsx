@@ -29,7 +29,9 @@ export default function AboutStamp() {
         <ErrorIcon style={{ width: '50px' }} />
         <ErrorContent>
           내가 스탬프를 받은 부스, 전송 가능한 스탬프 횟수를 초과한 부스는 스탬프 지도에 표시되지
-          않아요. 엔터테이너와 떨어져 있으면 스탬프를 받을 수 없어요.
+          않아요. <br />
+          <br />
+          엔터테이너와 떨어져 있으면 스탬프를 받을 수 없어요.
         </ErrorContent>
       </ErrorWrapper>
       <ConfirmButton>확인</ConfirmButton>
@@ -99,7 +101,7 @@ const StepContent = styled.div`
 const ErrorWrapper = styled.div`
   display: flex;
   gap: 8px;
-  margin-top: 76px;
+  margin-top: 56px;
 `;
 
 const ErrorContent = styled.p`
