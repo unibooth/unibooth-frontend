@@ -217,8 +217,8 @@ const NaverMap = () => {
               {booth.name}
             </div>
             <div style={{ fontSize: 12, marginTop: 8 }}>
-              <span style={{ color: '#8833FF' }}>{booth.type} ・ </span>
-              <span style={{ color: '#818798' }}> {booth.location}</span>
+              <span style={{ color: '#818798' }}>{booth.type} | </span>
+              <span style={{ color: '#818798' }}> 부스 번호 {booth.location}</span>
             </div>
           </div>
         </BoothListLayout>
