@@ -1,14 +1,15 @@
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 import { Layout } from '@components/Layout';
 import NaverMap from '@components/NaverMap/NaverMap';
-import { useRouter } from 'next/router';
-import styled from 'styled-components';
 
 const Map: NextPage = () => {
   const router = useRouter();
   const [isDoneVisible, setDoneVisible] = useState(false);
+  const [isStampInfoVisible, setStampInfoVisible] = useState(true);
 
   useEffect(() => {
     if (!router.query.done) {
@@ -30,6 +31,16 @@ const Map: NextPage = () => {
           <img src="/images/stamp-done.png" style={{ width: '343px' }} />
         </DoneImageWrapper>
       )}
+      {isStampInfoVisible && (
+        <StampInformationWrapper
+          onClick={() => {
+            setStampInfoVisible(false);
+            router.replace('/map');
+          }}
+        >
+          <img src="/images/stamp_info.png" style={{ width: '375px' }} />
+        </StampInformationWrapper>
+      )}
     </Layout>
   );
 };
@@ -37,6 +48,20 @@ const Map: NextPage = () => {
 export default Map;
 
 const DoneImageWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+const StampInformationWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
