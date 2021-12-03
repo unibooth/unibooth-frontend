@@ -2,11 +2,29 @@ import styled from 'styled-components';
 
 import ErrorIcon from '@assets/error_outline.svg';
 
+const step = [
+  { id: 1, imageUrl: '/images/step1.png', content: '스탬프를 받을 수 있는\n 부스를 확인한다.' },
+  {
+    id: 2,
+    imageUrl: '/images/step2.png',
+    content: `현장에서 엔터테이너에게 \n 스탬프 요청을 보낸다.`,
+  },
+  { id: 3, imageUrl: '/images/step3.png', content: '엔터테이너가 알려주는\n 코드를 입력하면 끝!' },
+];
+
 export default function AboutStamp() {
   return (
     <StampInformationWrapper>
       <Title>스탬프를 수집하고 포인트를 받으세요!</Title>
-      <p>dd</p>
+      {step.map((step) => (
+        <StepWrapper key={step.id}>
+          <img src={step.imageUrl} />
+          <div>
+            <CircleNumber>{step.id}</CircleNumber>
+            <StepContent>{step.content}</StepContent>
+          </div>
+        </StepWrapper>
+      ))}
       <ErrorWrapper>
         <ErrorIcon style={{ width: '50px' }} />
         <ErrorContent>
@@ -47,11 +65,41 @@ const StampInformationWrapper = styled.div`
   height: 100%;
   background-color: white;
 `;
+const StepWrapper = styled.div`
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  height: 96px;
+  margin-bottom: 24px;
+`;
 
+const CircleNumber = styled.div`
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  padding: 6px 0;
+  margin-bottom: 8px;
+  color: #ff6433;
+  background: #ffece6;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+`;
+
+const StepContent = styled.div`
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #222222;
+  font-size: 20px;
+  word-wrap: break-word;
+`;
 const ErrorWrapper = styled.div`
   display: flex;
   gap: 8px;
-  margin-top: 100px;
+  margin-top: 76px;
 `;
 
 const ErrorContent = styled.p`
