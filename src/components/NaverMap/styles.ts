@@ -95,7 +95,7 @@ export const TopBarQuestionButton = styled.button`
   width: 36px;
   height: 36px;
   border: none;
-  margin-left: 16px;
+  margin-right: 16px;
   margin-top: 8px;
   border-radius: 30px;
   background: white;

@@ -14,6 +14,7 @@ import HeartDefault from '@assets/like-default.svg';
 import Market from '@assets/market.svg';
 import Play from '@assets/play.svg';
 import Sort from '@assets/sort.svg';
+import StampInfo from '@assets/stamp-info.svg';
 import Stamp from '@assets/stamp.svg';
 import XIcon from '@assets/x.svg';
 import RequestStamp from '@components/RequestStamp';
@@ -282,17 +283,26 @@ const NaverMap = () => {
           </TopBarLayout>
         ) : (
           <div style={{ position: 'absolute', zIndex: 1000, width: '100%' }}>
-            <TopBarOpenButton
-              onClick={() => {
-                setBottomTabType(0);
-                setOpenStampCollect(false);
-                events.map((event: any) => {
-                  naver.maps.Event.removeListener(event);
-                });
-              }}
-            >
-              <LeftArrow style={{ width: '18px', height: '18px' }} />
-            </TopBarOpenButton>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <TopBarOpenButton
+                onClick={() => {
+                  setBottomTabType(0);
+                  setOpenStampCollect(false);
+                  events.map((event: any) => {
+                    naver.maps.Event.removeListener(event);
+                  });
+                }}
+              >
+                <LeftArrow style={{ width: '60%' }} />
+              </TopBarOpenButton>
+              <TopBarQuestionButton
+                onClick={() => {
+                  setStampInfoVisible(true);
+                }}
+              >
+                <StampInfo style={{ width: '60%' }} />
+              </TopBarQuestionButton>
+            </div>
             <div
               style={{
                 width: '100%',
@@ -329,17 +339,6 @@ const NaverMap = () => {
                 />
               </div>
             </div>
-            <TopBarQuestionButton
-              onClick={() => {
-                setBottomTabType(0);
-                setOpenStampCollect(false);
-                events.map((event: any) => {
-                  naver.maps.Event.removeListener(event);
-                });
-              }}
-            >
-              <LeftArrow style={{ width: '50%' }} />
-            </TopBarQuestionButton>
           </div>
         )}
         <ActionSheet
