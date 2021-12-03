@@ -262,7 +262,7 @@ const NaverMap = () => {
               <CategoryButton onClick={clickHandler} style={{ marginLeft: 16, width: 98 }}>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                   <Stamp style={{ alignSelf: 'center' }} />
-                  <span style={{ marginLeft: 7.5 }}>스탬프</span>
+                  <span style={{ marginLeft: 7.5, textDecoration: 'none' }}>스탬프</span>
                 </div>
               </CategoryButton>
               {(['마켓', '체험', '술집'] as const).map((v) => (
