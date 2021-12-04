@@ -13,18 +13,20 @@ const Message: NextPage = () => {
   return (
     <Layout title="채팅" noHeader>
       <MessageHeader tab={currentTab} onTabChange={setCurrentTab} />
-      {CHAT_DATA.map((chat) => (
-        <ChatWrapper key={chat.id} style={{ marginTop: '100px' }}>
-          <img src={chat.profileUrl} />
-          <div style={{ marginLeft: '12px', width: '100%' }}>
-            <ChatTop>
-              <div>{chat.name}</div>
-              <div className="date">{chat.createdAt}</div>
-            </ChatTop>
-            <ChatBottom>{chat.content}</ChatBottom>
-          </div>
-        </ChatWrapper>
-      ))}
+      <div style={{ marginTop: '88px' }}>
+        {CHAT_DATA.map((chat) => (
+          <ChatWrapper key={chat.id}>
+            <img src={chat.profileUrl} />
+            <div style={{ marginLeft: '12px', width: '100%' }}>
+              <ChatTop>
+                <div>{chat.name}</div>
+                <div className="date">{chat.createdAt}</div>
+              </ChatTop>
+              <ChatBottom>{chat.content}</ChatBottom>
+            </div>
+          </ChatWrapper>
+        ))}
+      </div>
     </Layout>
   );
 };
