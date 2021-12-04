@@ -207,6 +207,7 @@ const MypageContentWrapper = styled.div`
   align-items: center;
   padding: 16px;
   height: 48px;
+  border-bottom: 0.5px solid #D5D7DD;
 
   font-family: Apple SD Gothic Neo;
   font-style: normal;
