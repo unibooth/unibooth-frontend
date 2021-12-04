@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { Booth } from '@interfaces';
+
 import BoothCard from '@components/BoothCard';
 import BottomNav from '@components/BottomNav';
 import HomeHeader from '@components/HomeHeader';
@@ -10,9 +10,11 @@ import Splash from '@components/Splash';
 import UnivBackdrop from '@components/UnivBackdrop';
 import { BOOTH_DATA } from '@data';
 import { shuffle } from '@helpers';
+import { Booth } from '@interfaces';
+import { requestPostingList } from '@request';
+
 import { splashState } from '../recoil/modal';
 
-import { requestPostingList } from '@request';
 export default function HomePage() {
   const [currentTab, setCurrentTab] = useState(0);
   const [BOOTH_DATA, setBOOTH_DATA] = useState([]);
@@ -57,7 +59,7 @@ export default function HomePage() {
     
     <> {isLoading ? 
       <Layout>
-        <HomeHeader
+        {/* <HomeHeader
           tab={currentTab}
           onTabChange={setCurrentTab}
           onOpenUnivBackdrop={() => {
@@ -71,7 +73,7 @@ export default function HomePage() {
             setIsBackdropOpen(false);
             setCurrentUniv('서울 전 대학');
           }}
-        />
+        /> */}
         <ListWrapper>
           {booths.map((booth) => (
             <BoothCard key={booth.id} {...booth} />
