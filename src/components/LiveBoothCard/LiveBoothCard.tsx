@@ -10,7 +10,7 @@ import { LiveBooth } from '@interfaces';
 export default function LiveBoothCard({ id, name, type, view, like, imageUrl }: LiveBooth) {
   const base64Image = 'data:image/png;base64,' + imageUrl;
   return (
-    <Link href={`/booth/${id}`} passHref>
+
       <Wrapper backgroundImageUrl={base64Image}>
         <LiveButton>LIVE</LiveButton>
         <Header>
@@ -35,7 +35,7 @@ export default function LiveBoothCard({ id, name, type, view, like, imageUrl }: 
           <div>{view}</div>
         </ImageContent>
       </Wrapper>
-    </Link>
+
   );
 }
 
