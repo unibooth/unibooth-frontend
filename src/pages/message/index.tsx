@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { Layout } from '@components/Layout';
 import MessageHeader from '@components/MessageHeader';
+import { CHAT_DATA } from '@data';
+import { NOTIFICATION_DATA } from '@data';
 
 const Message: NextPage = () => {
   const [currentTab, setCurrentTab] = useState(0);
@@ -11,47 +13,55 @@ const Message: NextPage = () => {
   return (
     <Layout title="채팅" noHeader>
       <MessageHeader tab={currentTab} onTabChange={setCurrentTab} />
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id assumenda facilis at commodi
-        corrupti voluptatum ratione hic unde. Mollitia recusandae maiores voluptatem doloremque
-        sapiente consequuntur incidunt ad eum pariatur aliquid!
-      </div>
+      {CHAT_DATA.map((chat) => (
+        <ChatWrapper key={chat.id} style={{ marginTop: '100px' }}>
+          <img src={chat.profileUrl} />
+          <div style={{ marginLeft: '12px', width: '100%' }}>
+            <ChatTop>
+              <div>{chat.name}</div>
+              <div className="date">{chat.createdAt}</div>
+            </ChatTop>
+            <ChatBottom>{chat.content}</ChatBottom>
+          </div>
+        </ChatWrapper>
+      ))}
     </Layout>
   );
 };
 
 export default Message;
 
-const TabRow = styled.nav`
+const ChatWrapper = styled.div`
   display: flex;
   flex-direction: row;
-
-  width: 100%;
-  padding-bottom: -0.5px;
+  height: 78px;
+  padding: 16px;
   border-bottom: 0.5px solid #d5d7dd;
 `;
 
-const TabButton = styled.a<{ isSelected: boolean }>`
+const ChatTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: ${(props) => (props.isSelected ? '#222' : '#d5d7dd')};
 
-  margin-right: 24px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid ${(props) => (props.isSelected ? '#FF6433' : 'transparent')};
+  .date {
+    font-family: Apple SD Gothic Neo;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 12px;
+    color: #818798;
+  }
 `;
-
-const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-  height: fit-content;
-  padding: 0 16px;
-  transition: height 0.2s ease-out;
-  background-color: ${({ theme }) => theme.colors.white};
+const ChatBottom = styled.div`
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
 `;
