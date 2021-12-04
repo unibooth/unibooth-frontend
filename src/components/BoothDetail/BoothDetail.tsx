@@ -1,13 +1,17 @@
-import styled from 'styled-components';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import BookmarkLineIcon from '@assets/bookmark-line.svg';
-import BoothContentImage from '../BoothContentImage';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+
 import { Carousel } from 'react-responsive-carousel';
+import styled from 'styled-components';
+
+import BookmarkLineIcon from '@assets/bookmark-line.svg';
 import { Booth } from '@interfaces';
-import {BoothContent} from '@interfaces'
-const translateByte = (image:any) => {
+import { BoothContent } from '@interfaces';
+
+import BoothContentImage from '../BoothContentImage';
+
+const translateByte = (image: any) => {
   return 'data:image/png;base64,' + image;
-}
+};
 
 type BoothDetailProps = Pick<
   Booth,
@@ -22,44 +26,42 @@ export default function BoothDetail({
   location,
   date,
   contents,
-  image
+  image,
 }: BoothDetailProps) {
-
   const base64Image = 'data:image/png;base64,' + entertainer.image;
 
-
   return (
-
     <article>
-      <Carousel 
-      style={{
-        width : '100%',
-        height: '375px',
-        border: '1px solid'
-      }}
+      <Carousel
+        style={{
+          width: '100%',
+          height: '375px',
+          border: '1px solid',
+        }}
         showIndicators={false}
         showThumbs={false}
       >
-          <div style={{
-                height: '100%',
-                width: '100%'
-              }}>
-              <img src={translateByte(image)} style={{height: 375}}/>
-          </div>
+        <div
+          style={{
+            height: '100%',
+            width: '100%',
+          }}
+        >
+          <img src={translateByte(image)} style={{ height: '375px' }} />
+        </div>
         {contents.map((content: BoothContent) => (
-          <div style={{
-                height: '100%',
-                width: '100%'
-              }} key={content.id}>
-              <img src={translateByte(content.image)} style={{height: 375}}/>
+          <div
+            style={{
+              height: '100%',
+              width: '100%',
+            }}
+            key={content.id}
+          >
+            <img src={translateByte(content.image)} style={{ height: '375px' }} />
           </div>
-         
-      ))}
-    
-    
+        ))}
       </Carousel>
       <IntroWrapper>
-
         <p style={{ color: '#818798', fontSize: '12px', lineHeight: '16px', marginBottom: '10px' }}>
           {university} | {type}
         </p>
@@ -105,7 +107,7 @@ export default function BoothDetail({
           <BookmarkLineIcon width={24} height={24} fill="#222" />
         </BioWrapper>
         <Line />
-       
+
         <Line />
       </IntroWrapper>
       {contents.map((content) => (
@@ -126,70 +128,70 @@ export default function BoothDetail({
       ))}
       <Line />
       <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            width: '100%',
-            height: '94px',
-            alignItems: 'center',
-            paddingLeft: 16,
-            paddingRight: 16
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', marginRight: '16px' }}>
-            <p
-              style={{
-                color: '#818798',
-                fontSize: '14px',
-                lineHeight: '18px',
-                marginBottom: '4px',
-              }}
-            >
-              부스 위치
-            </p>
-            <p
-              style={{
-                color: '#222',
-                fontWeight: 500,
-                fontSize: '20px',
-                lineHeight: '24px',
-              }}
-            >
-              {location}번
-            </p>
-          </div>
-          <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          width: '100%',
+          height: '94px',
+          alignItems: 'center',
+          paddingLeft: 16,
+          paddingRight: 16,
+        }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', marginRight: '16px' }}>
+          <p
             style={{
-              width: '0.5px',
-              height: '48px',
-              marginRight: '16px',
-              backgroundColor: '#d5d7dd',
+              color: '#818798',
+              fontSize: '14px',
+              lineHeight: '18px',
+              marginBottom: '4px',
             }}
-          />
-          <div style={{ display: 'flex', flexDirection: 'column', marginRight: '16px' }}>
-            <p
-              style={{
-                color: '#818798',
-                fontSize: '14px',
-                lineHeight: '18px',
-                marginBottom: '4px',
-              }}
-            >
-              운영 날짜
-            </p>
-            <p
-              style={{
-                color: '#222',
-                fontWeight: 500,
-                fontSize: '20px',
-                lineHeight: '24px',
-              }}
-            >
-              {date}
-            </p>
-          </div>
+          >
+            부스 위치
+          </p>
+          <p
+            style={{
+              color: '#222',
+              fontWeight: 500,
+              fontSize: '20px',
+              lineHeight: '24px',
+            }}
+          >
+            {location}번
+          </p>
         </div>
-        <Line/>
+        <div
+          style={{
+            width: '0.5px',
+            height: '48px',
+            marginRight: '16px',
+            backgroundColor: '#d5d7dd',
+          }}
+        />
+        <div style={{ display: 'flex', flexDirection: 'column', marginRight: '16px' }}>
+          <p
+            style={{
+              color: '#818798',
+              fontSize: '14px',
+              lineHeight: '18px',
+              marginBottom: '4px',
+            }}
+          >
+            운영 날짜
+          </p>
+          <p
+            style={{
+              color: '#222',
+              fontWeight: 500,
+              fontSize: '20px',
+              lineHeight: '24px',
+            }}
+          >
+            {date}
+          </p>
+        </div>
+      </div>
+      <Line />
     </article>
   );
 }

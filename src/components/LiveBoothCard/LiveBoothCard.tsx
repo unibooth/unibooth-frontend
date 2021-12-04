@@ -10,17 +10,16 @@ import { LiveBooth } from '@interfaces';
 export default function LiveBoothCard({ id, name, type, view, like, imageUrl }: LiveBooth) {
   const base64Image = 'data:image/png;base64,' + imageUrl;
   return (
-
-      <Wrapper backgroundImageUrl={base64Image}>
-        <LiveButton>LIVE</LiveButton>
-        <Header>
-          <Name>{name}</Name>
-          <LikeWrapper>
-            <HeartIcon width={26} height={25} style={{ marginBottom: 8 }} fill="#fff" />
-            <LikeCount>{like}</LikeCount>
-          </LikeWrapper>
-        </Header>
-        {/* {comments.length > 0 && (
+    <Wrapper backgroundImageUrl={imageUrl}>
+      <LiveButton>LIVE</LiveButton>
+      <Header>
+        <Name>{name}</Name>
+        <LikeWrapper>
+          <HeartIcon width={26} height={25} style={{ marginBottom: 8 }} fill="#fff" />
+          <LikeCount>{like}</LikeCount>
+        </LikeWrapper>
+      </Header>
+      {/* {comments.length > 0 && (
           <CommentsWrapper>
             {comments.slice(0, 2).map((comment) => (
               <CommentRow key={comment.id}>
@@ -30,12 +29,11 @@ export default function LiveBoothCard({ id, name, type, view, like, imageUrl }: 
             ))}
           </CommentsWrapper>
         )} */}
-        <ImageContent>
-          <View style={{ marginRight: '3px' }} />
-          <div>{view}</div>
-        </ImageContent>
-      </Wrapper>
-
+      <ImageContent>
+        <View style={{ marginRight: '3px' }} />
+        <div>{view}</div>
+      </ImageContent>
+    </Wrapper>
   );
 }
 
