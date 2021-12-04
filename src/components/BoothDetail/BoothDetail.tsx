@@ -13,6 +13,12 @@ const translateByte = (image: any) => {
   return 'data:image/png;base64,' + image;
 };
 
+const CommentImage = [
+  { id: 1, imageUrl: '/images/review1.jpg' },
+  { id: 2, imageUrl: '/images/review2.jpg' },
+  { id: 3, imageUrl: '/images/review3.jpg' },
+];
+
 type BoothDetailProps = Pick<
   Booth,
   'university' | 'type' | 'name' | 'entertainer' | 'location' | 'date' | 'contents' | 'image'
@@ -49,17 +55,16 @@ export default function BoothDetail({
         >
           <img src={translateByte(image)} style={{ height: '375px' }} />
         </div>
-        {contents.map((content: BoothContent) => (
-          <div
-            style={{
-              height: '100%',
-              width: '100%',
-            }}
-            key={content.id}
-          >
-            <img src={translateByte(content.image)} style={{ height: '375px' }} />
-          </div>
-        ))}
+        <div
+          style={{
+            height: '100%',
+            width: '100%',
+          }}
+        >
+          {contents.map((content: BoothContent) => (
+            <img key={content.id} src={translateByte(content.image)} style={{ height: '375px' }} />
+          ))}
+        </div>
       </Carousel>
       <IntroWrapper>
         <p style={{ color: '#818798', fontSize: '12px', lineHeight: '16px', marginBottom: '10px' }}>
@@ -107,8 +112,20 @@ export default function BoothDetail({
           <BookmarkLineIcon width={24} height={24} fill="#222" />
         </BioWrapper>
         <Line />
-
+        <CommentWrapper>
+          <ContentTitle>
+            지금, 축제로 모여!<span style={{ color: '#FF6433', marginLeft: '8px' }}>5</span>
+          </ContentTitle>
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
+            {CommentImage.map((comment) => (
+              <ReviewImage key={comment.id}>
+                <img src={comment.imageUrl} width="120px" height="120px" />
+              </ReviewImage>
+            ))}
+          </div>
+        </CommentWrapper>
         <Line />
+        <ContentTitle>부스 소개</ContentTitle>
       </IntroWrapper>
       {contents.map((content) => (
         <ContentWrapper key={content.id}>
@@ -223,4 +240,24 @@ const ContentWrapper = styled.div`
   align-items: center;
 
   width: 100%;
+`;
+
+const CommentWrapper = styled.div`
+  height: 184px;
+`;
+
+const ContentTitle = styled.div`
+  padding: 16px;
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+`;
+
+const ReviewImage = styled.div`
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
 `;
