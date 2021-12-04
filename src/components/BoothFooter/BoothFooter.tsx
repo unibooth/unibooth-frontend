@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import ImageIcon from '@assets/booth-bottomnav-image.svg';
 import CommentIcon from '@assets/booth-comment.svg';
 import HeartIcon from '@assets/booth-heart.svg';
 import ShareIcon from '@assets/share.svg';
@@ -12,7 +13,7 @@ type BoothFooterProps = Pick<Booth, 'likeCount' | 'shareCount'> & {
 export default function BoothFooter({ likeCount, commentCount, shareCount }: BoothFooterProps) {
   const buttons = [
     { Icon: HeartIcon, count: likeCount },
-    { Icon: CommentIcon, count: commentCount },
+    { Icon: ImageIcon, count: commentCount },
     { Icon: ShareIcon, count: shareCount },
   ];
 
@@ -21,7 +22,13 @@ export default function BoothFooter({ likeCount, commentCount, shareCount }: Boo
       {buttons.map(({ Icon, count }) => (
         <div
           key={count}
-          style={{ display: 'flex', flexDirection: 'column', width: '36px', alignItems: 'center' }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '36px',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
           <Icon width={24} height={24} fill="#222" style={{ marginBottom: '2px' }} />
           <p

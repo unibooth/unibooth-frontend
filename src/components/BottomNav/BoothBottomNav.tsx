@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-import Comment from '@assets/comment.svg';
+import ImageIcon from '@assets/booth-bottomnav-image.svg';
 import Heart from '@assets/heart.svg';
 import HeartLike from '@assets/heart_like.svg';
 import Share from '@assets/share.svg';
@@ -30,7 +30,7 @@ const BoothBottomNav = () => {
         <span>{like}</span>
       </a>
       <a className={`nav-link`}>
-        <Comment className="svg-complicated" style={{ fontSize: '18px' }} />
+        <ImageIcon className="svg-paths" style={{ fontSize: '18px' }} />
         <span>12</span>
       </a>
 
