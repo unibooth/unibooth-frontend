@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import School from '@assets/mypage-school.svg';
+import RightArrow from '@assets/right-arrow.svg';
 import Setting from '@assets/setting.svg';
 import { Layout } from '@components/Layout';
 
@@ -51,6 +52,13 @@ const MyPage: NextPage = () => {
           </p>
         </div>
       </BioWrapper>
+      <PointWrapper>
+        <div className="title">내 포인트</div>
+        <div className="content" style={{ display: 'flex', alignItems: 'center' }}>
+          1,000
+          <RightArrow style={{ marginLeft: '8px' }} />
+        </div>
+      </PointWrapper>
     </Layout>
   );
 };
@@ -76,4 +84,33 @@ const BioWrapper = styled.div`
   /* align-items: center; */
   padding: 16px;
   height: 84px;
+`;
+
+const PointWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  margin: 0 15.5px;
+  border-top: 0.5px solid #d5d7dd;
+  border-bottom: 0.5px solid #d5d7dd;
+  .title {
+    font-size: 14px;
+    font-family: Apple SD Gothic Neo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .content {
+    font-size: 20px;
+    font-family: Apple SD Gothic Neo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    text-align: right;
+  }
 `;
