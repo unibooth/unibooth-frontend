@@ -59,6 +59,7 @@ export default function HomePage() {
       {isLoading ? (
         <Layout>
           <NewHomeHeader />
+          <LiveboothWrapper>d</LiveboothWrapper>
           {/* <HomeHeader
           tab={currentTab}
           onTabChange={setCurrentTab}
@@ -92,4 +93,12 @@ const ListWrapper = styled.main`
   flex-direction: column;
 
   padding: 32px 16px 200px;
+`;
+
+const LiveboothWrapper = styled.div`
+  background-image: url('/images/livebooth1.gif');
+  background-repeat: no-repeat;
+  background-size: 375px 562px;
+  width: 100%;
+  height: 562px;
 `;

@@ -28,7 +28,7 @@ export default function NewHomeHeader() {
         <ThreeDotIcon width={24} height={24} fill="#222" /> */}
         <Search style={{ marginLeft: 'auto' }} />
       </Wrapper>
-      <Block />
+      {/* <Block /> */}
     </>
   );
 }
@@ -47,7 +47,7 @@ const Wrapper = styled.div<{ isScrolled: boolean }>`
   padding: 0 16px;
 
   /* background-color: ${({ theme }) => theme.colors.white}; */
-  background-color: ${(props) => (props.isScrolled ? 'white' : '')};
+  background-color: ${(props) => (props.isScrolled ? 'white' : 'transparent')};
   /* border-bottom: 0.5px solid ${(props) => (props.isScrolled ? '#D5D7DD' : 'transparent')}; */
 `;
 
