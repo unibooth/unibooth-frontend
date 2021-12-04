@@ -9,10 +9,10 @@ import Manage from '@assets/manage.svg';
 import BookMark from '@assets/mypage-bookmark.svg';
 import Like from '@assets/mypage-like.svg';
 import School from '@assets/mypage-school.svg';
+import Setting from '@assets/mypage-setting.svg';
 import MyStamp from '@assets/mystamp.svg';
 import Question from '@assets/question.svg';
 import RightArrow from '@assets/right-arrow.svg';
-import Setting from '@assets/setting.svg';
 import Store from '@assets/store.svg';
 import { Layout } from '@components/Layout';
 
@@ -207,7 +207,7 @@ const MypageContentWrapper = styled.div`
   align-items: center;
   padding: 16px;
   height: 48px;
-  border-bottom: 0.5px solid #D5D7DD;
+  border-bottom: 0.5px solid #d5d7dd;
 
   font-family: Apple SD Gothic Neo;
   font-style: normal;
