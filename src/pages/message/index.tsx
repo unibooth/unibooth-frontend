@@ -87,7 +87,7 @@ const NorificationWrapper = styled.div`
   height: 98px;
   padding: 16px;
 
-  .new {
+  :nth-child(1) {
     background: rgba(255, 236, 230, 0.32);
   }
 `;
