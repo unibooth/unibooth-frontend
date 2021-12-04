@@ -1,4 +1,4 @@
-import { Entertainer } from './entertainer.interface';
+import { User } from './user.interface';
 
 export interface Comment {
   id: number;
@@ -6,7 +6,7 @@ export interface Comment {
   /** 댓글 내용 */
   content: string;
 
-  entertainer: Entertainer;
+  user: User;
 
   boothId: number;
 }

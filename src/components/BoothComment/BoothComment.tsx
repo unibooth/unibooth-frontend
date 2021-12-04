@@ -4,6 +4,7 @@ import SchoolIcon from '@assets/school.svg';
 import { Booth } from '@interfaces';
 
 export default function BoothComment({ comments }: Pick<Booth, 'comments'>) {
+  console.log(comments)
   return (
     <Wrapper>
       {comments.slice(0, 2).map((comment) => (
@@ -12,7 +13,7 @@ export default function BoothComment({ comments }: Pick<Booth, 'comments'>) {
           style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '16px' }}
         >
           <p style={{ color: '#222', fontSize: '14px', lineHeight: '22px' }}>
-            {comment.entertainer.nickname}
+            {comment.user.name}
           </p>
           <div
             style={{
@@ -22,11 +23,11 @@ export default function BoothComment({ comments }: Pick<Booth, 'comments'>) {
               marginBottom: '8px',
             }}
           >
-            {comment.entertainer.isVerified && (
+            {comment.user.isVerified && (
               <SchoolIcon width={18} height={18} fill="#818798" style={{ marginRight: '4px' }} />
             )}
             <p style={{ color: '#818798', fontSize: '12px', lineHeight: '16px' }}>
-              {comment.entertainer.university}
+             중앙대
             </p>
           </div>
           <p style={{ color: '#222', fontSize: '16px', lineHeight: '24px' }}>{comment.content}</p>
