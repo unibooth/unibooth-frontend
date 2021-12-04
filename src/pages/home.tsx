@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import View from '@assets/livebooth-visibility.svg';
 import BoothCard from '@components/BoothCard';
 import BoothHeader from '@components/BoothHeader';
 import BottomNav from '@components/BottomNav';
@@ -59,7 +60,14 @@ export default function HomePage() {
       {isLoading ? (
         <Layout>
           <NewHomeHeader />
-          <LiveboothWrapper>d</LiveboothWrapper>
+          <LiveboothWrapper>
+            <LiveButton>LIVE</LiveButton>
+            <LiveBoothTitle>지금, 축제로 모여!</LiveBoothTitle>
+            <LiveViewDiv>
+              <View style={{ marginRight: '8.75px' }} />
+              199
+            </LiveViewDiv>
+          </LiveboothWrapper>
           {/* <HomeHeader
           tab={currentTab}
           onTabChange={setCurrentTab}
@@ -96,9 +104,58 @@ const ListWrapper = styled.main`
 `;
 
 const LiveboothWrapper = styled.div`
+  position: relative;
   background-image: url('/images/livebooth1.gif');
   background-repeat: no-repeat;
   background-size: 375px 562px;
   width: 100%;
   height: 562px;
+`;
+
+const LiveButton = styled.div`
+  position: absolute;
+  left: 24px;
+  top: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 32px;
+  background: #ff6433;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 22px;
+
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+`;
+
+const LiveBoothTitle = styled.div`
+  position: absolute;
+  left: 24px;
+  top: 490px;
+
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+`;
+
+const LiveViewDiv = styled.div`
+  position: absolute;
+  left: 24px;
+  top: 520px;
+
+  display: flex;
+  align-items: center;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  color: white;
 `;
