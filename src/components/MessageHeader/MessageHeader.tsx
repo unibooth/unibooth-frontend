@@ -54,7 +54,8 @@ const Header = styled.header`
 const TabRow = styled.nav`
   display: flex;
   flex-direction: row;
-
+  /* align-items: center; */
+  height: 44px;
   width: 100%;
   padding-bottom: -0.5px;
   border-bottom: 0.5px solid #d5d7dd;
@@ -65,8 +66,8 @@ const TabButton = styled.a<{ isSelected: boolean }>`
   font-size: 16px;
   line-height: 24px;
   color: ${(props) => (props.isSelected ? '#222' : '#d5d7dd')};
-
   margin-right: 24px;
-  padding-bottom: 10px;
+  padding: 9px 0;
+  /* padding-bottom: 10px; */
   border-bottom: 2px solid ${(props) => (props.isSelected ? '#FF6433' : 'transparent')};
 `;
