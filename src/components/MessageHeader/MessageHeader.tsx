@@ -11,8 +11,8 @@ export default function MessageHeader(props: MessageHeaderProps) {
 
   return (
     <Wrapper>
-      <Header>메시지</Header>
-      <TabRow>
+      <Header>알림</Header>
+      {/* <TabRow>
         {['채팅', '알림'].map((label, index) => (
           <TabButton
             key={index}
@@ -24,7 +24,7 @@ export default function MessageHeader(props: MessageHeaderProps) {
             {label}
           </TabButton>
         ))}
-      </TabRow>
+      </TabRow> */}
     </Wrapper>
   );
 }
