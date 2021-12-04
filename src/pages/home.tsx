@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-
+import { Booth } from '@interfaces';
 import BoothCard from '@components/BoothCard';
 import BottomNav from '@components/BottomNav';
 import HomeHeader from '@components/HomeHeader';
@@ -10,15 +10,30 @@ import Splash from '@components/Splash';
 import UnivBackdrop from '@components/UnivBackdrop';
 import { BOOTH_DATA } from '@data';
 import { shuffle } from '@helpers';
-
 import { splashState } from '../recoil/modal';
 
+import { requestPostingList } from '@request';
 export default function HomePage() {
   const [currentTab, setCurrentTab] = useState(0);
-  const [booths, setBooths] = useState(BOOTH_DATA);
+  const [BOOTH_DATA, setBOOTH_DATA] = useState([]);
+  const [booths, setBooths] = useState([]);
   const [isBackdropOpen, setIsBackdropOpen] = useState(false);
   const [currentUniv, setCurrentUniv] = useState('중앙대');
   const [isSplashOpen, setSplashOpen] = useRecoilState(splashState);
+  const [isLoading, setIsLoading] = useState(false);
+  
+
+  useEffect(()=> {
+    if(!isLoading) {
+        requestPostingList("중앙대")
+        .then(res => {
+          setBOOTH_DATA(res.data);
+          setBooths(res.data);
+          setIsLoading(true);
+        }) 
+        .catch(err => console.log(err));
+    }
+  })
 
   useEffect(() => {
     setBooths(
@@ -30,6 +45,8 @@ export default function HomePage() {
         ? BOOTH_DATA.filter((v) => v.type === '체험')
         : BOOTH_DATA.filter((v) => v.type === '술집'),
     );
+
+
   }, [currentTab]);
 
   setTimeout(() => {
@@ -37,7 +54,8 @@ export default function HomePage() {
   }, 3000);
 
   return (
-    <>
+    
+    <> {isLoading ? 
       <Layout>
         <HomeHeader
           tab={currentTab}
@@ -60,7 +78,7 @@ export default function HomePage() {
           ))}
         </ListWrapper>
         <BottomNav />
-      </Layout>
+      </Layout> : null}
       {isSplashOpen && <Splash />}
     </>
   );

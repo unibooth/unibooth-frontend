@@ -7,23 +7,25 @@ import { Booth } from '@interfaces';
 
 type BoothDetailProps = Pick<
   Booth,
-  'univ' | 'type' | 'name' | 'user' | 'location' | 'date' | 'contents'
+  'university' | 'type' | 'name' | 'entertainer' | 'location' | 'date' | 'contents'
 >;
 
 export default function BoothDetail({
-  univ,
+  university,
   type,
   name,
-  user,
+  entertainer,
   location,
   date,
   contents,
 }: BoothDetailProps) {
+
+  const base64Image = 'data:image/png;base64,' + entertainer.image;
   return (
     <article>
       <IntroWrapper>
         <p style={{ color: '#818798', fontSize: '12px', lineHeight: '16px', marginBottom: '10px' }}>
-          {univ} | {type} 부스
+          {university} | {type} 부스
         </p>
         <p
           style={{
@@ -39,7 +41,7 @@ export default function BoothDetail({
         <Line />
         <BioWrapper>
           <img
-            src={user.imageUrl}
+            src={base64Image}
             style={{ width: '36px', height: '36px', borderRadius: '50%', marginRight: '12px' }}
           />
           <div style={{ display: 'flex', flexDirection: 'column', marginRight: 'auto' }}>
@@ -51,7 +53,7 @@ export default function BoothDetail({
                 marginBottom: '2px',
               }}
             >
-              {user.role}
+              {entertainer.role}
             </p>
             <p
               style={{
@@ -61,7 +63,7 @@ export default function BoothDetail({
                 lineHeight: '24px',
               }}
             >
-              {user.nickname}
+              {entertainer.nickname}
             </p>
           </div>
           <BookmarkLineIcon width={24} height={24} fill="#222" />
