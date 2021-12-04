@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-
+import { requestPostingList } from '@request';
 import Beer from '@assets/beer.svg';
 import HandleStick from '@assets/handle-stick.svg';
 import BottomArrow from '@assets/ic-arrow-top.svg';
@@ -19,7 +19,7 @@ import StampInfo from '@assets/stamp-info.svg';
 import Stamp from '@assets/stamp.svg';
 import XIcon from '@assets/x.svg';
 import RequestStamp from '@components/RequestStamp';
-import { BOOTH_DATA } from '@data';
+//import { BOOTH_DATA }  from '@data';
 import { findByWhere, getById } from '@helpers';
 import { Booth, BoothType } from '@interfaces';
 import { aboutStampInfo, requestStamp, rewardState } from '@recoil/modal';
@@ -46,7 +46,7 @@ let marker;
 let events: any = [];
 
 const STAMPPED_BOOTH_IDS = [10];
-const LIKING_BOOTH_IDS = [15];
+const LIKING_BOOTH_IDS = [1];
 
 const NaverMap = () => {
   const router = useRouter();
@@ -60,10 +60,12 @@ const NaverMap = () => {
   const [isStampInfoVisible, setStampInfoVisible] = useRecoilState(aboutStampInfo);
   const [isRewardVisible, setRewardVisible] = useRecoilState(rewardState);
   const [filter, setFilter] = useState<Partial<Booth>>({});
+  const [BOOTH_DATA, setBOOTH_DATA] = useState([]);
 
   const drawMarker = (map: any, where: Partial<Booth> = {}) => {
     findByWhere(where, BOOTH_DATA).map((booth) => {
       const isLiking = LIKING_BOOTH_IDS.includes(booth.id);
+      const base64Image = 'data:image/png;base64,' + booth.image;
 
       marker = new naver.maps.Marker({
         position: new naver.maps.LatLng(booth.latitude, booth.longitude),
@@ -73,7 +75,7 @@ const NaverMap = () => {
             ? `
             <div style="">
             <img alt="" src="` +
-              booth.imageUrl +
+            base64Image +
               `" 
                 style="
                   width: 50px; 
@@ -97,7 +99,7 @@ const NaverMap = () => {
             : `
             <div style="">
             <img alt="" src="` +
-              booth.imageUrl +
+              base64Image+
               `" 
                 style="
                   width: 50px; 
@@ -209,21 +211,40 @@ const NaverMap = () => {
   };
 
   useEffect(() => {
-    initMap();
+    if(!firstRender) {
+    requestPostingList("중앙대")
+      .then(
+        res => {
+          console.log(res.data);
+          setFirstRender(true);
+          setBOOTH_DATA(res.data);
+          initMap();
+        }
+      )
+      .catch(
+        err => {
+          console.log(err);
+        }
+      )
 
-    if (!firstRender) {
-      setFirstRender(true);
       handleOpen();
     }
+  
+
   }, []);
+
+  useEffect(() => {
+    initMap();
+  
+  }, [BOOTH_DATA]);
 
   const StampCollectView = () => {
     const booth = getById(currentBooth, BOOTH_DATA);
-
+    const base64Image = 'data:image/png;base64,' + booth.image;
     return (
       <StampCollectWrapper>
         <BoothListLayout style={{ border: 'none' }}>
-          <img src={booth.imageUrl} style={{ borderRadius: 8, width: '11vw', height: '11vw' }} />
+          <img src={base64Image} style={{ borderRadius: 8, width: '11vw', height: '11vw' }} />
           <div style={{ marginLeft: 16, width: '75%', position: 'relative' }}>
             <div
               style={{ fontWeight: '600', marginBottom: 4, marginTop: 4, justifyContent: 'center' }}
@@ -451,10 +472,11 @@ const NaverMap = () => {
             </div>
 
             {findByWhere(filter, BOOTH_DATA).map((booth) => {
+                const base64Image = 'data:image/png;base64,' + booth.image;
               return (
                 <BoothListLayout key={booth.id}>
                   <img
-                    src={booth.imageUrl}
+                    src={base64Image}
                     style={{ borderRadius: 8, width: '11vw', height: '11vw' }}
                   />
                   <div style={{ marginLeft: 16, width: '75%', position: 'relative' }}>

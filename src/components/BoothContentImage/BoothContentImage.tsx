@@ -8,18 +8,19 @@ import { addCommaToNumber } from '@helpers';
 import { BoothContent } from '@interfaces';
 
 export default function BoothContentImage({
+  image,
   imageUrl,
   tags,
-}: Pick<BoothContent, 'imageUrl' | 'tags'>) {
+}: Pick<BoothContent, 'imageUrl' | 'tags' | 'image'>) {
   const [isTagsVisible, setIsTagsVisible] = useState(false);
-
+  const base64Image = 'data:image/png;base64,' + image;
   return (
     <Wrapper
       onClick={() => {
         setIsTagsVisible(!isTagsVisible);
       }}
     >
-      <Image src={imageUrl} />
+      <Image src={base64Image} />
       {tags.length > 0 && (
         <TagIconWrapper>
           <TagIcon width={18} height={18} fill="white" />

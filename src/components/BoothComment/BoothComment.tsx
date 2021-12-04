@@ -12,7 +12,7 @@ export default function BoothComment({ comments }: Pick<Booth, 'comments'>) {
           style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '16px' }}
         >
           <p style={{ color: '#222', fontSize: '14px', lineHeight: '22px' }}>
-            {comment.user.nickname}
+            {comment.entertainer.nickname}
           </p>
           <div
             style={{
@@ -22,11 +22,11 @@ export default function BoothComment({ comments }: Pick<Booth, 'comments'>) {
               marginBottom: '8px',
             }}
           >
-            {comment.user.isVerified && (
+            {comment.entertainer.isVerified && (
               <SchoolIcon width={18} height={18} fill="#818798" style={{ marginRight: '4px' }} />
             )}
             <p style={{ color: '#818798', fontSize: '12px', lineHeight: '16px' }}>
-              {comment.user.univercity}
+              {comment.entertainer.university}
             </p>
           </div>
           <p style={{ color: '#222', fontSize: '16px', lineHeight: '24px' }}>{comment.content}</p>

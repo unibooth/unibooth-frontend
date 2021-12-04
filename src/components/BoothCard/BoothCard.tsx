@@ -5,10 +5,11 @@ import HeartIcon from '@assets/heart.svg';
 import CommentIcon from '@assets/comment.svg';
 import { Booth } from '@interfaces';
 
-export default function BoothCard({ id, name, imageUrl, likeCount, comments }: Booth) {
+export default function BoothCard({ id, name, image, likeCount, comments }: Booth) {
+  const base64Image = 'data:image/png;base64,' + image;
   return (
     <Link href={`/booth/${id}`} passHref>
-      <Wrapper backgroundImageUrl={imageUrl}>
+      <Wrapper backgroundImageUrl={base64Image}>
         <Header>
           <Name>{name}</Name>
           <LikeWrapper>

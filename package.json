@@ -17,6 +17,7 @@
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "actionsheet-react": "^1.0.14",
     "antd": "^4.17.1",
+    "axios": "^0.24.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "flatlist-react": "^1.5.0",
