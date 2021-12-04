@@ -5,3 +5,4 @@ export * from './entertainer';
 export * from './feed';
 export * from './chat';
 export * from './notification';
+export * from './live-booth';

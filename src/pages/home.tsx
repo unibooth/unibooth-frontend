@@ -7,12 +7,15 @@ import BoothCard from '@components/BoothCard';
 import BoothHeader from '@components/BoothHeader';
 import BottomNav from '@components/BottomNav';
 import { Layout } from '@components/Layout/styles';
+import LiveBoothCard from '@components/LiveBoothCard';
 import NewHomeHeader from '@components/NewHomeHeader';
 import Splash from '@components/Splash';
 import UnivBackdrop from '@components/UnivBackdrop';
 import { BOOTH_DATA } from '@data';
+import { LIVE_BOOTH_DATA } from '@data';
 import { shuffle } from '@helpers';
 import { Booth } from '@interfaces';
+import { LiveBooth } from '@interfaces';
 import { requestPostingList } from '@request';
 
 import { splashState } from '../recoil/modal';
@@ -86,6 +89,11 @@ export default function HomePage() {
           <ListWrapper>
             {booths.map((booth) => (
               <BoothCard key={booth.id} {...booth} />
+            ))}
+          </ListWrapper>
+          <ListWrapper>
+            {LIVE_BOOTH_DATA.map((booth) => (
+              <LiveBoothCard key={booth.id} {...booth} />
             ))}
           </ListWrapper>
           <BottomNav />

@@ -7,4 +7,4 @@ export * from './feed.interface';
 export * from './chat.interface';
 export * from './notification.interface';
 export * from './user.interface';
-export * from './live-booth-interface';
+export * from './live-booth.interface';
