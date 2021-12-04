@@ -35,31 +35,6 @@ const Feed: NextPage = () => {
           </div>
         </FeedWrapper>
       ))}
-      {/* <FeedWrapper>
-        <div className="grey">공연</div>
-        <div>오늘 중앙대 박재범 오는 날!! 아 내일인가?</div>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div className="grey">1분전 · 중앙대학교</div>
-          <div style={{ color: '#FF8A66', display: 'flex', alignItems: 'center' }}>
-            <Comment />
-            <div style={{ marginLeft: '6px' }}>1</div>
-          </div>
-        </div>
-      </FeedWrapper>
-      <FeedWrapper>
-        <div className="grey">공연</div>
-        <div>
-          홍대 올해 축제 라인업 대박이다 싸이 보고 싶었는데 저번에 놀러갔는데 역시 홍대더라 부스가
-          예술적이고 쾌활해~~! 또 갈까
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div className="grey">1분전 · 중앙대학교</div>
-          <div style={{ color: '#FF8A66', display: 'flex', alignItems: 'center' }}>
-            <Comment />
-            <div style={{ marginLeft: '6px' }}>1</div>
-          </div>
-        </div>
-      </FeedWrapper> */}
     </Layout>
   );
 };
@@ -67,6 +42,10 @@ const Feed: NextPage = () => {
 export default Feed;
 
 const Header = styled.div`
+  position: fixed;
+  top: 0;
+  background: white;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,6 +65,7 @@ const CategoryWrapper = styled.div`
   padding: 0 16px;
   height: 52px;
   background: #f1f2f3;
+  margin-top: 44px;
 
   .tab {
     font-family: Apple SD Gothic Neo;
