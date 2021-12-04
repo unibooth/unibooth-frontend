@@ -120,7 +120,8 @@ const LiveboothWrapper = styled.div`
   position: relative;
   background-image: url('/images/livebooth1.gif');
   background-repeat: no-repeat;
-  background-size: 375px 562px;
+  /* background-size: 375px 562px; */
+  background-size: cover;
   width: 100%;
   height: 562px;
 `;
