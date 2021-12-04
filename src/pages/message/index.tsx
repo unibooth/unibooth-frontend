@@ -27,6 +27,17 @@ const Message: NextPage = () => {
           </ChatWrapper>
         ))}
       </div>
+      <div>
+        {NOTIFICATION_DATA.map((noti) => (
+          <NorificationWrapper key={noti.id}>
+            <img src={noti.categoryIcon} width="36px" height="36px" />
+            <NotiContent>
+              <div>{noti.content}</div>
+              <div className="time">{noti.createdAt}</div>
+            </NotiContent>
+          </NorificationWrapper>
+        ))}
+      </div>
     </Layout>
   );
 };
@@ -66,4 +77,33 @@ const ChatBottom = styled.div`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
+`;
+const NorificationWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 98px;
+  padding: 16px;
+
+  .new {
+    background: rgba(255, 236, 230, 0.32);
+  }
+`;
+
+const NotiContent = styled.div`
+  margin-left: 12px;
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  
+  .time {
+    margin-top: 6px;
+    font-family: Apple SD Gothic Neo;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 12px;
+    color: #818798;
+  }
 `;
