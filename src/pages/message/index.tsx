@@ -17,7 +17,7 @@ const Message: NextPage = () => {
         <div style={{ marginTop: '88px' }}>
           {CHAT_DATA.map((chat) => (
             <ChatWrapper key={chat.id}>
-              <img src={chat.profileUrl} />
+              <img src={chat.profileUrl} width="36px" height="36px" />
               <div style={{ marginLeft: '12px', width: '100%' }}>
                 <ChatTop>
                   <div>{chat.name}</div>
@@ -50,7 +50,7 @@ export default Message;
 const ChatWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  height: 78px;
+  height: fit-content;
   padding: 16px;
   border-bottom: 0.5px solid #d5d7dd;
 `;
