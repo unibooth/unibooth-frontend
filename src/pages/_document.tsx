@@ -31,6 +31,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
           <script
             type="text/javascript"
             src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8rgu5jqpbb"
