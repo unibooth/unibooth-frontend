@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import HeartIcon from '@assets/heart.svg';
 import CommentIcon from '@assets/comment.svg';
+import HeartIcon from '@assets/heart.svg';
+import ImageIcon from '@assets/image-icon.svg';
 import { Booth } from '@interfaces';
 
 export default function BoothCard({ id, name, image, likeCount, comments }: Booth) {
@@ -17,7 +18,7 @@ export default function BoothCard({ id, name, image, likeCount, comments }: Boot
             <LikeCount>{likeCount}</LikeCount>
           </LikeWrapper>
         </Header>
-        {comments.length > 0 && (
+        {/* {comments.length > 0 && (
           <CommentsWrapper>
             {comments.slice(0, 2).map((comment) => (
               <CommentRow key={comment.id}>
@@ -26,7 +27,11 @@ export default function BoothCard({ id, name, image, likeCount, comments }: Boot
               </CommentRow>
             ))}
           </CommentsWrapper>
-        )}
+        )} */}
+        <ImageContent>
+          <ImageIcon style={{ marginRight: '3px' }} />
+          <div>{comments.length}</div>
+        </ImageContent>
       </Wrapper>
     </Link>
   );
@@ -65,7 +70,7 @@ const Name = styled.h3`
   width: 247px;
 
   font-weight: 500;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 44px;
   color: ${({ theme }) => theme.colors.white};
 `;
@@ -115,4 +120,11 @@ const CommentContent = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+`;
+
+const ImageContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
 `;

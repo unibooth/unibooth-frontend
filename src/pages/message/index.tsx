@@ -13,7 +13,7 @@ const Message: NextPage = () => {
   return (
     <Layout title="채팅" noHeader>
       <MessageHeader tab={currentTab} onTabChange={setCurrentTab} />
-      {currentTab === 0 ? (
+      {/* {currentTab === 0 ? (
         <div style={{ marginTop: '88px' }}>
           {CHAT_DATA.map((chat) => (
             <ChatWrapper key={chat.id}>
@@ -28,19 +28,19 @@ const Message: NextPage = () => {
             </ChatWrapper>
           ))}
         </div>
-      ) : (
-        <div style={{ marginTop: '88px' }}>
-          {NOTIFICATION_DATA.map((noti) => (
-            <NorificationWrapper key={noti.id}>
-              <img src={noti.categoryIcon} width="36px" height="36px" />
-              <NotiContent>
-                <div>{noti.content}</div>
-                <div className="time">{noti.createdAt}</div>
-              </NotiContent>
-            </NorificationWrapper>
-          ))}
-        </div>
-      )}
+      ) : ( */}
+      <div style={{ marginTop: '44px' }}>
+        {NOTIFICATION_DATA.map((noti) => (
+          <NorificationWrapper key={noti.id}>
+            <img src={noti.categoryIcon} width="36px" height="36px" />
+            <NotiContent>
+              <div>{noti.content}</div>
+              <div className="time">{noti.createdAt}</div>
+            </NotiContent>
+          </NorificationWrapper>
+        ))}
+      </div>
+      {/* )} */}
     </Layout>
   );
 };
