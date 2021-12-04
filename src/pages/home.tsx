@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import Add from '@assets/home-add.svg';
 import View from '@assets/livebooth-visibility.svg';
 import BoothCard from '@components/BoothCard';
 import BoothHeader from '@components/BoothHeader';
@@ -86,16 +87,20 @@ export default function HomePage() {
             setCurrentUniv('서울 전 대학');
           }}
         /> */}
-          <ListWrapper>
-            {booths.map((booth) => (
-              <BoothCard key={booth.id} {...booth} />
-            ))}
-          </ListWrapper>
+          <HomeTitle>부스를 찾아볼까요?</HomeTitle>
           <ListWrapper>
             {LIVE_BOOTH_DATA.map((booth) => (
               <LiveBoothCard key={booth.id} {...booth} />
             ))}
           </ListWrapper>
+          <ListWrapper>
+            {booths.map((booth) => (
+              <BoothCard key={booth.id} {...booth} />
+            ))}
+          </ListWrapper>
+          <AddFloatButton>
+            <Add />
+          </AddFloatButton>
           <BottomNav />
         </Layout>
       ) : null}
@@ -166,4 +171,31 @@ const LiveViewDiv = styled.div`
   font-size: 14px;
   line-height: 22px;
   color: white;
+`;
+
+const HomeTitle = styled.div`
+  margin-top: 40px;
+  padding: 16px;
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+`;
+
+const AddFloatButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  position: fixed;
+  top: 690px;
+  right: 10px;
+
+  background: #ff6433;
+  border-radius: 12px;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
 `;
