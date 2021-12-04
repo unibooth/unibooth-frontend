@@ -26,7 +26,7 @@ export default function NewHomeHeader() {
         />
         <PlaceIcon width={24} height={24} fill="#222" style={{ marginRight: '24px' }} />
         <ThreeDotIcon width={24} height={24} fill="#222" /> */}
-        <Search style={{ marginLeft: 'auto' }} />
+        <SearchIcon style={{ marginLeft: 'auto' }} />
       </Wrapper>
       {/* <Block /> */}
     </>
@@ -53,4 +53,8 @@ const Wrapper = styled.div<{ isScrolled: boolean }>`
 
 const Block = styled.div`
   height: ${HEIGHT}px;
+`;
+
+const SearchIcon = styled(Search)<{ isScrolled: boolean }>`
+  filter: ${(props) => (props.isScrolled ? 'none' : 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2))')};
 `;
