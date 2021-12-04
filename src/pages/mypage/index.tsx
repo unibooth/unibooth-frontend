@@ -2,9 +2,18 @@ import type { NextPage } from 'next';
 import React from 'react';
 import styled from 'styled-components';
 
+import Announcement from '@assets/announcement.svg';
+import BigSchool from '@assets/bigschool.svg';
+import Inventory from '@assets/inventory.svg';
+import Manage from '@assets/manage.svg';
+import BookMark from '@assets/mypage-bookmark.svg';
+import Like from '@assets/mypage-like.svg';
 import School from '@assets/mypage-school.svg';
+import Setting from '@assets/mypage-setting.svg';
+import MyStamp from '@assets/mystamp.svg';
+import Question from '@assets/question.svg';
 import RightArrow from '@assets/right-arrow.svg';
-import Setting from '@assets/setting.svg';
+import Store from '@assets/store.svg';
 import { Layout } from '@components/Layout';
 
 const MyPage: NextPage = () => {
@@ -59,6 +68,51 @@ const MyPage: NextPage = () => {
           <RightArrow style={{ marginLeft: '8px' }} />
         </div>
       </PointWrapper>
+      <LikeWrapper>
+        <LikeColumnDiv>
+          <Like style={{ margin: '0 auto', marginBottom: '4px' }} />
+          <div>찜</div>
+        </LikeColumnDiv>
+        <LikeColumnDiv>
+          <BookMark style={{ margin: '0 auto', marginBottom: '4px' }} />
+          <div>즐겨찾기</div>
+        </LikeColumnDiv>
+      </LikeWrapper>
+      <GreyBorder />
+      <MypageContentWrapper>
+        <Store className="icon" />
+        <div>엔터테이너 프로필 관리</div>
+      </MypageContentWrapper>
+      <MypageContentWrapper>
+        <MyStamp className="icon" />
+        <div>내 스탬프 관리</div>
+      </MypageContentWrapper>
+      <MypageContentWrapper>
+        <BigSchool className="icon" />
+        <div>대학교 인증</div>
+      </MypageContentWrapper>
+      <MypageContentWrapper>
+        <Inventory className="icon" />
+        <div>부스 신청 현황</div>
+      </MypageContentWrapper>
+      <MypageContentWrapper>
+        <Manage className="icon" />
+        <div>학생회 계정 생성</div>
+      </MypageContentWrapper>
+      <GreyBorder />
+      <MypageContentWrapper>
+        <Announcement className="icon" />
+        <div>공지사항</div>
+      </MypageContentWrapper>
+      <MypageContentWrapper>
+        <Question className="icon" />
+        <div>자주 묻는 질문</div>
+      </MypageContentWrapper>
+      <MypageContentWrapper>
+        <Setting className="icon" />
+        <div>앱 설정</div>
+      </MypageContentWrapper>
+      <BigGreyBorder />
     </Layout>
   );
 };
@@ -112,5 +166,56 @@ const PointWrapper = styled.div`
     /* identical to box height, or 120% */
 
     text-align: right;
+  }
+`;
+
+const LikeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 84px;
+`;
+
+const LikeColumnDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100px;
+
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+`;
+
+const GreyBorder = styled.div`
+  height: 8px;
+  width: 100%;
+  background: #f1f2f3;
+`;
+const BigGreyBorder = styled.div`
+  height: 96px;
+  width: 100%;
+  background: #f1f2f3;
+`;
+
+const MypageContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  height: 48px;
+  border-bottom: 0.5px solid #d5d7dd;
+
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+
+  .icon {
+    margin-right: 16px;
   }
 `;

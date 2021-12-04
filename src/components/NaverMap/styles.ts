@@ -49,7 +49,7 @@ export const CategoryButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  /* overflow: scroll hidden; */
   width: fit-content;
   height: 36px;
   padding: 0 16px;

@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const withPWA = require('next-pwa');
+
 module.exports = {
   
   webpack(config) {
@@ -16,4 +18,5 @@ module.exports = {
   images: {
     domains: ['c2.poing.co.kr'],
   },
+  
 };
