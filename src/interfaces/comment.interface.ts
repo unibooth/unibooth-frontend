@@ -7,6 +7,7 @@ export interface Comment {
   content: string;
 
   user: User;
-
+  image: string;
+  imageUrl: string;
   boothId: number;
 }

@@ -18,15 +18,15 @@ export default function BoothHeader() {
       <Wrapper isScrolled={scrollY > 0}>
         <LeftArrowIcon
           onClick={router.back}
-          width={24}
-          height={24}
+          width={40}
+          height={40}
           fill="#222"
           style={{ marginRight: 'auto' }}
         />
-        <PlaceIcon width={24} height={24} fill="#222" style={{ marginRight: '24px' }} />
-        <ThreeDotIcon width={24} height={24} fill="#222" />
+
+        <ThreeDotIcon width={40} height={40} fill="#222" />
       </Wrapper>
-      <Block />
+      {/* <Block /> */}
     </>
   );
 }
@@ -44,9 +44,9 @@ const Wrapper = styled.div<{ isScrolled: boolean }>`
   height: ${HEIGHT}px;
   padding: 0 16px;
 
-  background-color: ${({ theme }) => theme.colors.white};
-
-  border-bottom: 0.5px solid ${(props) => (props.isScrolled ? '#D5D7DD' : 'transparent')};
+  // background-color: ${({ theme }) => theme.colors.white};
+background-color: ${(props) => (props.isScrolled ? 'white' : 'transparent')};
+  // border-bottom: 0.5px solid ${(props) => (props.isScrolled ? '#D5D7DD' : 'transparent')};
 `;
 
 const Block = styled.div`

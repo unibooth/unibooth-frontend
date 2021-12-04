@@ -1,13 +1,17 @@
 import styled from 'styled-components';
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import BookmarkLineIcon from '@assets/bookmark-line.svg';
 import BoothContentImage from '../BoothContentImage';
-
+import { Carousel } from 'react-responsive-carousel';
 import { Booth } from '@interfaces';
+import {BoothContent} from '@interfaces'
+const translateByte = (image:any) => {
+  return 'data:image/png;base64,' + image;
+}
 
 type BoothDetailProps = Pick<
   Booth,
-  'university' | 'type' | 'name' | 'entertainer' | 'location' | 'date' | 'contents'
+  'university' | 'type' | 'name' | 'entertainer' | 'location' | 'date' | 'contents' | 'image'
 >;
 
 export default function BoothDetail({
@@ -18,14 +22,46 @@ export default function BoothDetail({
   location,
   date,
   contents,
+  image
 }: BoothDetailProps) {
 
   const base64Image = 'data:image/png;base64,' + entertainer.image;
+
+
   return (
+
     <article>
+      <Carousel 
+      style={{
+        width : '100%',
+        height: '375px',
+        border: '1px solid'
+      }}
+        showIndicators={false}
+        showThumbs={false}
+      >
+          <div style={{
+                height: '100%',
+                width: '100%'
+              }}>
+              <img src={translateByte(image)} style={{height: 375}}/>
+          </div>
+        {contents.map((content: BoothContent) => (
+          <div style={{
+                height: '100%',
+                width: '100%'
+              }} key={content.id}>
+              <img src={translateByte(content.image)} style={{height: 375}}/>
+          </div>
+         
+      ))}
+    
+    
+      </Carousel>
       <IntroWrapper>
+
         <p style={{ color: '#818798', fontSize: '12px', lineHeight: '16px', marginBottom: '10px' }}>
-          {university} | {type} 부스
+          {university} | {type}
         </p>
         <p
           style={{
@@ -69,13 +105,35 @@ export default function BoothDetail({
           <BookmarkLineIcon width={24} height={24} fill="#222" />
         </BioWrapper>
         <Line />
-        <div
+       
+        <Line />
+      </IntroWrapper>
+      {contents.map((content) => (
+        <ContentWrapper key={content.id}>
+          <BoothContentImage {...content} />
+          <p
+            style={{
+              width: '343px',
+              marginBottom: '48px',
+              color: '#222',
+              fontSize: '16px',
+              lineHeight: '24px',
+            }}
+          >
+            {content.description}
+          </p>
+        </ContentWrapper>
+      ))}
+      <Line />
+      <div
           style={{
             display: 'flex',
             flexDirection: 'row',
             width: '100%',
             height: '94px',
             alignItems: 'center',
+            paddingLeft: 16,
+            paddingRight: 16
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', marginRight: '16px' }}>
@@ -97,7 +155,7 @@ export default function BoothDetail({
                 lineHeight: '24px',
               }}
             >
-              {location}
+              {location}번
             </p>
           </div>
           <div
@@ -131,25 +189,7 @@ export default function BoothDetail({
             </p>
           </div>
         </div>
-        <Line />
-      </IntroWrapper>
-      {contents.map((content) => (
-        <ContentWrapper key={content.id}>
-          <BoothContentImage {...content} />
-          <p
-            style={{
-              width: '343px',
-              marginBottom: '48px',
-              color: '#222',
-              fontSize: '16px',
-              lineHeight: '24px',
-            }}
-          >
-            {content.description}
-          </p>
-        </ContentWrapper>
-      ))}
-      <Line />
+        <Line/>
     </article>
   );
 }
