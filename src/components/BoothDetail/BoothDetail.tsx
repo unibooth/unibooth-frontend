@@ -49,7 +49,7 @@ export default function BoothDetail({
       >
         <div
           style={{
-            height: '100%',
+            height: '375px',
             width: '100%',
           }}
         >
@@ -57,7 +57,7 @@ export default function BoothDetail({
         </div>
         <div
           style={{
-            height: '100%',
+            height: '375px',
             width: '100%',
           }}
         >
