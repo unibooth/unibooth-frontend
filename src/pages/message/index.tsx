@@ -13,31 +13,34 @@ const Message: NextPage = () => {
   return (
     <Layout title="채팅" noHeader>
       <MessageHeader tab={currentTab} onTabChange={setCurrentTab} />
-      <div style={{ marginTop: '88px' }}>
-        {CHAT_DATA.map((chat) => (
-          <ChatWrapper key={chat.id}>
-            <img src={chat.profileUrl} />
-            <div style={{ marginLeft: '12px', width: '100%' }}>
-              <ChatTop>
-                <div>{chat.name}</div>
-                <div className="date">{chat.createdAt}</div>
-              </ChatTop>
-              <ChatBottom>{chat.content}</ChatBottom>
-            </div>
-          </ChatWrapper>
-        ))}
-      </div>
-      <div>
-        {NOTIFICATION_DATA.map((noti) => (
-          <NorificationWrapper key={noti.id}>
-            <img src={noti.categoryIcon} width="36px" height="36px" />
-            <NotiContent>
-              <div>{noti.content}</div>
-              <div className="time">{noti.createdAt}</div>
-            </NotiContent>
-          </NorificationWrapper>
-        ))}
-      </div>
+      {currentTab === 0 ? (
+        <div style={{ marginTop: '88px' }}>
+          {CHAT_DATA.map((chat) => (
+            <ChatWrapper key={chat.id}>
+              <img src={chat.profileUrl} />
+              <div style={{ marginLeft: '12px', width: '100%' }}>
+                <ChatTop>
+                  <div>{chat.name}</div>
+                  <div className="date">{chat.createdAt}</div>
+                </ChatTop>
+                <ChatBottom>{chat.content}</ChatBottom>
+              </div>
+            </ChatWrapper>
+          ))}
+        </div>
+      ) : (
+        <div style={{ marginTop: '88px' }}>
+          {NOTIFICATION_DATA.map((noti) => (
+            <NorificationWrapper key={noti.id}>
+              <img src={noti.categoryIcon} width="36px" height="36px" />
+              <NotiContent>
+                <div>{noti.content}</div>
+                <div className="time">{noti.createdAt}</div>
+              </NotiContent>
+            </NorificationWrapper>
+          ))}
+        </div>
+      )}
     </Layout>
   );
 };
@@ -96,7 +99,7 @@ const NotiContent = styled.div`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  
+
   .time {
     margin-top: 6px;
     font-family: Apple SD Gothic Neo;
