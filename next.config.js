@@ -18,5 +18,6 @@ module.exports = {
   images: {
     domains: ['c2.poing.co.kr'],
   },
-  
+  poweredByHeader: process.env.API_ENDPOINT === 'development',
+  reactStrictMode: process.env.API_ENDPOINT === 'development',
 };
