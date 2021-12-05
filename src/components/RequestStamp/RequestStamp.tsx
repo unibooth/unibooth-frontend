@@ -46,7 +46,7 @@ const Title = styled.div`
 const SpinWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 56px;
+  margin: 56px auto 0;
   width: 56px;
   height: 56px;
 `;
