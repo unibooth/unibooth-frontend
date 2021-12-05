@@ -24,6 +24,7 @@ export const BoothListLayout = styled.div`
   width: 100vw;
   height: 7vh;
   display: flex;
+  align-items: center;
   flex-direction: row;
   border-bottom: solid 1px;
   border-bottom-color: #f1f2f4;

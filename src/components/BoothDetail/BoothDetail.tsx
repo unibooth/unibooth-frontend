@@ -112,11 +112,15 @@ export default function BoothDetail({
           <BookmarkLineIcon width={24} height={24} fill="#222" />
         </BioWrapper>
         <Line />
-        <CommentWrapper>
+ 
+        <Line />
+     
+      </IntroWrapper>
+      <CommentWrapper>
           <ContentTitle>
-            지금, 축제로 모여!<span style={{ color: '#FF6433', marginLeft: '8px' }}>5</span>
+            지금, 축제로 모여!<span style={{ color: '#FF6433', marginLeft: '8px' }}>3</span>
           </ContentTitle>
-          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', marginLeft: '8px',marginRight: '8px' }}>
             {CommentImage.map((comment) => (
               <ReviewImage key={comment.id}>
                 <img src={comment.imageUrl} width="120px" height="120px" />
@@ -124,9 +128,7 @@ export default function BoothDetail({
             ))}
           </div>
         </CommentWrapper>
-        <Line />
-        <ContentTitle>부스 소개</ContentTitle>
-      </IntroWrapper>
+      <ContentTitle>부스 소개</ContentTitle>
       {contents.map((content) => (
         <ContentWrapper key={content.id}>
           <BoothContentImage {...content} />
@@ -209,6 +211,7 @@ export default function BoothDetail({
         </div>
       </div>
       <Line />
+      <div style={{marginBottom: '80px'}}></div>
     </article>
   );
 }

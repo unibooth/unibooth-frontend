@@ -98,6 +98,7 @@ export default function HomePage() {
               <BoothCard key={booth.id} {...booth} />
             ))}
           </ListWrapper>
+          <div style={{paddingTop: '200px'}}/>
           <AddFloatButton>
             <Add />
           </AddFloatButton>
@@ -113,7 +114,7 @@ const ListWrapper = styled.main`
   display: flex;
   flex-direction: column;
 
-  padding: 32px 16px 200px;
+  padding: 0px 16px 0px;
 `;
 
 const LiveboothWrapper = styled.div`

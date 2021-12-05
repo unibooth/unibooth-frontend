@@ -192,7 +192,8 @@ const NaverMap = () => {
       ref.current.close();
     }
   };
-  const heartPress = () => {
+  const heartPress = (id) => {
+    if(id)
     drawMarker(map);
   };
 
@@ -489,7 +490,7 @@ const NaverMap = () => {
                       }}
                     >
                       <Link href={`/booth/${booth.id}`} passHref>
-                        <span style={{ textDecoration: 'none' }}>{booth.name}</span>
+                        <span style={{textDecoration: 'none' }}>{booth.name}</span>
                       </Link>
                       {!LIKING_BOOTH_IDS.includes(booth.id) ? (
                         <HeartDefault

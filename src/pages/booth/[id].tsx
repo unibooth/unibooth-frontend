@@ -36,7 +36,7 @@ export default function BoothDetailPage({ id }: { id: number }) {
             <BoothHeader />
             <main>
               <BoothDetail {...booth} />
-              <BoothComment comments={booth.comments} />
+              {/* <BoothComment comments={booth.comments} /> */}
             </main>
             <BoothFooter {...booth} commentCount={booth.comments.length} />
           </Layout>
