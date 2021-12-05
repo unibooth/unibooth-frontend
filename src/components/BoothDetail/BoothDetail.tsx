@@ -39,11 +39,11 @@ export default function BoothDetail({
   return (
     <article>
       <Carousel
-        style={{
-          width: '100%',
-          height: '375px',
-          border: '1px solid',
-        }}
+        // style={{
+        //   width: '100%',
+        //   height: '375px',
+        //   border: '1px solid',
+        // }}
         showIndicators={false}
         showThumbs={false}
       >

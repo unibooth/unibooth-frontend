@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { requestPostingList } from '@request';
+
 import Beer from '@assets/beer.svg';
 import HandleStick from '@assets/handle-stick.svg';
 import BottomArrow from '@assets/ic-arrow-top.svg';
@@ -23,6 +23,7 @@ import RequestStamp from '@components/RequestStamp';
 import { findByWhere, getById } from '@helpers';
 import { Booth, BoothType } from '@interfaces';
 import { aboutStampInfo, requestStamp, rewardState } from '@recoil/modal';
+import { requestPostingList } from '@request';
 
 import {
   BoothListLayout,
@@ -75,7 +76,7 @@ const NaverMap = () => {
             ? `
             <div style="">
             <img alt="" src="` +
-            base64Image +
+              base64Image +
               `" 
                 style="
                   width: 50px; 
@@ -99,7 +100,7 @@ const NaverMap = () => {
             : `
             <div style="">
             <img alt="" src="` +
-              base64Image+
+              base64Image +
               `" 
                 style="
                   width: 50px; 
@@ -192,8 +193,7 @@ const NaverMap = () => {
       ref.current.close();
     }
   };
-  const heartPress = (id) => {
-    if(id)
+  const heartPress = () => {
     drawMarker(map);
   };
 
@@ -212,31 +212,24 @@ const NaverMap = () => {
   };
 
   useEffect(() => {
-    if(!firstRender) {
-    requestPostingList("중앙대")
-      .then(
-        res => {
+    if (!firstRender) {
+      requestPostingList('중앙대')
+        .then((res) => {
           console.log(res.data);
           setFirstRender(true);
           setBOOTH_DATA(res.data);
           initMap();
-        }
-      )
-      .catch(
-        err => {
+        })
+        .catch((err) => {
           console.log(err);
-        }
-      )
+        });
 
       handleOpen();
     }
-  
-
   }, []);
 
   useEffect(() => {
     initMap();
-  
   }, [BOOTH_DATA]);
 
   const StampCollectView = () => {
@@ -473,7 +466,7 @@ const NaverMap = () => {
             </div>
 
             {findByWhere(filter, BOOTH_DATA).map((booth) => {
-                const base64Image = 'data:image/png;base64,' + booth.image;
+              const base64Image = 'data:image/png;base64,' + booth.image;
               return (
                 <BoothListLayout key={booth.id}>
                   <img
@@ -490,7 +483,7 @@ const NaverMap = () => {
                       }}
                     >
                       <Link href={`/booth/${booth.id}`} passHref>
-                        <span style={{textDecoration: 'none' }}>{booth.name}</span>
+                        <span style={{ textDecoration: 'none' }}>{booth.name}</span>
                       </Link>
                       {!LIKING_BOOTH_IDS.includes(booth.id) ? (
                         <HeartDefault
