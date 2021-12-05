@@ -8,7 +8,10 @@ const antIcon = <LoadingOutlined style={{ fontSize: 124, color: '#FF6433' }} spi
 export default function ReqeustStamp() {
   return (
     <ReqeustStampWrapper>
-      <Title>엔터테이너에게 스탬프를 요청하고 있어요...</Title>
+      <Title>
+        내 위치를 <br />
+        확인하고 있어요...
+      </Title>
       <SpinWrapper>
         <Spin indicator={antIcon} />
       </SpinWrapper>
@@ -36,13 +39,14 @@ const Title = styled.div`
   font-family: Apple SD Gothic Neo;
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 30px;
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 24px;
 `;
 
 const SpinWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 56px;
+  width: 56px;
+  height: 56px;
 `;

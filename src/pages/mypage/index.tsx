@@ -61,13 +61,13 @@ const MyPage: NextPage = () => {
           </p>
         </div>
       </BioWrapper>
-      <PointWrapper>
+      {/* <PointWrapper>
         <div className="title">내 포인트</div>
         <div className="content" style={{ display: 'flex', alignItems: 'center' }}>
           1,000
           <RightArrow style={{ marginLeft: '8px' }} />
         </div>
-      </PointWrapper>
+      </PointWrapper> */}
       <LikeWrapper>
         <LikeColumnDiv>
           <Like style={{ margin: '0 auto', marginBottom: '4px' }} />

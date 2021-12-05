@@ -9,9 +9,9 @@ const step = [
   {
     id: 2,
     imageUrl: '/images/step2.png',
-    content: `현장에서 엔터테이너에게 \n 스탬프 요청을 보낸다.`,
+    content: `내가 참여한 부스의\n 스탬프 받기를 누른다.`,
   },
-  { id: 3, imageUrl: '/images/step3.png', content: '엔터테이너가 알려주는\n 코드를 입력하면 끝!' },
+  { id: 3, imageUrl: '/images/step3.png', content: '내 위치가 부스에 있는지\n 확인되면 끝!' },
 ];
 
 export default function AboutStamp() {
@@ -19,7 +19,7 @@ export default function AboutStamp() {
 
   return (
     <StampInformationWrapper>
-      <Title>스탬프를 수집하고 포인트를 받으세요!</Title>
+      <Title>스탬프를 수집하고 굿즈를 받으세요!</Title>
       {step.map((step) => (
         <StepWrapper key={step.id}>
           <Image src={step.imageUrl} />
@@ -29,7 +29,7 @@ export default function AboutStamp() {
           </div>
         </StepWrapper>
       ))}
-      <ErrorWrapper>
+      {/* <ErrorWrapper>
         <ErrorIcon style={{ width: '50px' }} />
         <ErrorContent>
           내가 스탬프를 받은 부스, 전송 가능한 스탬프 횟수를 초과한 부스는 스탬프 지도에 표시되지
@@ -37,7 +37,7 @@ export default function AboutStamp() {
           <br />
           엔터테이너와 떨어져 있으면 스탬프를 받을 수 없어요.
         </ErrorContent>
-      </ErrorWrapper>
+      </ErrorWrapper> */}
       <ConfirmButton
         onClick={() => {
           setStampInfoVisible(false);
@@ -134,7 +134,7 @@ const ConfirmButton = styled.button`
   width: 343px;
   height: 56px;
 
-  margin-top: 24px;
+  margin-top: 154px;
   color: #ffffff;
   font-family: Apple SD Gothic Neo;
   font-style: normal;

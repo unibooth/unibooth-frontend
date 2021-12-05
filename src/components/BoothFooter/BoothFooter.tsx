@@ -30,7 +30,12 @@ export default function BoothFooter({ likeCount, commentCount, shareCount }: Boo
             justifyContent: 'center',
           }}
         >
-          <Icon width={24} height={24} fill="#222" style={{ marginBottom: '2px' }} />
+          <Icon
+            width={24}
+            height={24}
+            fill="#222"
+            style={{ marginBottom: '2px', padding: 'auto' }}
+          />
           <p
             style={{
               color: '#222',
@@ -42,7 +47,7 @@ export default function BoothFooter({ likeCount, commentCount, shareCount }: Boo
           </p>
         </div>
       ))}
-      <Button onClick={()=>alert('문의하기')}>문의하기</Button>
+      <Button onClick={() => alert('문의하기')}>문의하기</Button>
     </Wrapper>
   );
 }
