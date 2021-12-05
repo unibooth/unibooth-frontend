@@ -482,7 +482,7 @@ const NaverMap = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         textOverflow: 'ellipsis',
-                        width: '263px',
+                        width: '235px',
                         whiteSpace: 'nowrap',
                         overflow: 'hidden',
                       }}
