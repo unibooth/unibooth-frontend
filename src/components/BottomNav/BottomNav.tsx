@@ -37,7 +37,7 @@ const BottomNav = () => {
       <Link href="/message" passHref>
         <a className={`nav-link ${router.asPath === '/message' ? 'active' : ''}`}>
           <Notification className="svg-paths" style={{ fontSize: '18px' }} />
-          <span>메시지</span>
+          <span>알림</span>
         </a>
       </Link>
       <Link href="/mypage" passHref>
