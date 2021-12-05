@@ -241,7 +241,16 @@ const NaverMap = () => {
           <img src={base64Image} style={{ borderRadius: 8, width: '11vw', height: '11vw' }} />
           <div style={{ marginLeft: 16, width: '75%', position: 'relative' }}>
             <div
-              style={{ fontWeight: '600', marginBottom: 4, marginTop: 4, justifyContent: 'center' }}
+              style={{
+                fontWeight: '600',
+                marginBottom: 4,
+                marginTop: 4,
+                justifyContent: 'center',
+                textOverflow: 'ellipsis',
+                width: '235px',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+              }}
             >
               {booth.name}
             </div>

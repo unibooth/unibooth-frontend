@@ -42,7 +42,7 @@ export default function BoothFooter({ likeCount, commentCount, shareCount }: Boo
           </p>
         </div>
       ))}
-      <Button>문의하기</Button>
+      <Button onClick={()=>alert('문의하기')}>문의하기</Button>
     </Wrapper>
   );
 }
