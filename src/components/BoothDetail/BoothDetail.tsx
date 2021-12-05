@@ -247,6 +247,7 @@ const ContentWrapper = styled.div`
 
 const CommentWrapper = styled.div`
   height: 184px;
+  margin-bottom: 32px;
 `;
 
 const ContentTitle = styled.div`

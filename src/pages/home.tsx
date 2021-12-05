@@ -56,7 +56,7 @@ export default function HomePage() {
 
   setTimeout(() => {
     setSplashOpen(false);
-  }, 3000);
+  }, 1500);
 
   return (
     <>
@@ -98,7 +98,7 @@ export default function HomePage() {
               <BoothCard key={booth.id} {...booth} />
             ))}
           </ListWrapper>
-          <div style={{paddingTop: '200px'}}/>
+          <div style={{ paddingTop: '200px' }} />
           <AddFloatButton>
             <Add />
           </AddFloatButton>
