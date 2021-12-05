@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const API_BASE  = ' https://d92a-211-58-89-49.ngrok.io';
+const API_BASE  = 'http://211.58.89.49:8080';
 
 export const requestPostingDetail = (id:number) => axios.get(`${API_BASE}/api/posting/detail/` + id);
 
