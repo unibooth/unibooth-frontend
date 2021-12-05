@@ -92,6 +92,13 @@ const FeedWrapper = styled.div`
   gap: 8px;
   padding: 16px;
   border-bottom: 0.5px solid #d5d7dd;
+
+  font-family: Apple SD Gothic Neo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+
   .grey {
     font-family: Apple SD Gothic Neo;
     font-style: normal;

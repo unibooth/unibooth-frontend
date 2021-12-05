@@ -71,7 +71,7 @@ const Name = styled.h3`
 
   font-weight: 500;
   font-size: 24px;
-  line-height: 44px;
+  line-height: 30px;
   color: ${({ theme }) => theme.colors.white};
 `;
 
