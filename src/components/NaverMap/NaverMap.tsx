@@ -124,7 +124,7 @@ const NaverMap = () => {
   const initMap = () => {
     map = new naver.maps.Map('map', {
       center: new naver.maps.LatLng(37.504603, 126.955206),
-      minZoom: 20,
+      minZoom: 19,
       scaleControl: true,
       logoControl: false,
       mapDataControl: false,
