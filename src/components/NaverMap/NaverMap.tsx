@@ -297,7 +297,7 @@ const NaverMap = () => {
                   <span style={{ marginLeft: 7.5, textDecoration: 'none' }}>스탬프</span>
                 </div>
               </CategoryButton>
-              {(['마켓', '체험', '술집'] as const).map((v) => (
+              {(['마켓', '체험'] as const).map((v) => (
                 <TypeButton
                   key={v}
                   type={v}
@@ -480,6 +480,7 @@ const NaverMap = () => {
                         marginBottom: 4,
                         marginTop: 4,
                         justifyContent: 'center',
+                        alignItems: 'center',
                         textOverflow: 'ellipsis',
                         width: '263px',
                         whiteSpace: 'nowrap',
