@@ -480,6 +480,10 @@ const NaverMap = () => {
                         marginBottom: 4,
                         marginTop: 4,
                         justifyContent: 'center',
+                        textOverflow: 'ellipsis',
+                        width: '263px',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
                       }}
                     >
                       <Link href={`/booth/${booth.id}`} passHref>
