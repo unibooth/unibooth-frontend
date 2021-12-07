@@ -37,7 +37,7 @@ yarn dev
 
 ## 3. Demo
 |home|booth|map|
-|-|-|-|
+|:-:|:-:|:-:|
 |<img alt="" src="/public/images/home.gif" width="100%"/>|<img alt="" src="" width="100%"/>|
 |feed|notification|mypage|
 |<img alt="" src="/public/images/축제피드.png" />|<img alt="" src="/public/images/메시지.png" />|<img alt="" src="/public/images/마이페이지.png"/>|
