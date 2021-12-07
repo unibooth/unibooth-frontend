@@ -17,9 +17,11 @@ import { LIVE_BOOTH_DATA } from '@data';
 import { shuffle } from '@helpers';
 import { Booth } from '@interfaces';
 import { LiveBooth } from '@interfaces';
-import { requestPostingList } from '@request';
 
 import { splashState } from '../recoil/modal';
+
+// import { requestPostingList } from '@request';
+
 
 export default function HomePage() {
   const [currentTab, setCurrentTab] = useState(0);
@@ -30,17 +32,17 @@ export default function HomePage() {
   const [isSplashOpen, setSplashOpen] = useRecoilState(splashState);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    if (!isLoading) {
-      requestPostingList('중앙대')
-        .then((res) => {
-          setBOOTH_DATA(res.data);
-          setBooths(res.data);
-          setIsLoading(true);
-        })
-        .catch((err) => console.log(err));
-    }
-  });
+  // useEffect(() => {
+  //   if (!isLoading) {
+  //     requestPostingList('중앙대')
+  //       .then((res) => {
+  //         setBOOTH_DATA(res.data);
+  //         setBooths(res.data);
+  //         setIsLoading(true);
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+  // });
 
   useEffect(() => {
     setBooths(
@@ -61,18 +63,18 @@ export default function HomePage() {
   return (
     <>
       {' '}
-      {isLoading ? (
-        <Layout>
-          <NewHomeHeader />
-          <LiveboothWrapper>
-            <LiveButton>LIVE</LiveButton>
-            <LiveBoothTitle>지금, 축제로 모여!</LiveBoothTitle>
-            <LiveViewDiv>
-              <View style={{ marginRight: '8.75px' }} />
-              199
-            </LiveViewDiv>
-          </LiveboothWrapper>
-          {/* <HomeHeader
+      {/* {isLoading ? ( */}
+      <Layout>
+        <NewHomeHeader />
+        <LiveboothWrapper>
+          <LiveButton>LIVE</LiveButton>
+          <LiveBoothTitle>지금, 축제로 모여!</LiveBoothTitle>
+          <LiveViewDiv>
+            <View style={{ marginRight: '8.75px' }} />
+            199
+          </LiveViewDiv>
+        </LiveboothWrapper>
+        {/* <HomeHeader
           tab={currentTab}
           onTabChange={setCurrentTab}
           onOpenUnivBackdrop={() => {
@@ -87,24 +89,24 @@ export default function HomePage() {
             setCurrentUniv('서울 전 대학');
           }}
         /> */}
-          <HomeTitle>부스를 찾아볼까요?</HomeTitle>
-          <ListWrapper>
-            {LIVE_BOOTH_DATA.map((booth) => (
-              <LiveBoothCard key={booth.id} {...booth} />
-            ))}
-          </ListWrapper>
-          <ListWrapper>
-            {booths.map((booth) => (
-              <BoothCard key={booth.id} {...booth} />
-            ))}
-          </ListWrapper>
-          <div style={{ paddingTop: '200px' }} />
-          <AddFloatButton>
-            <Add />
-          </AddFloatButton>
-          <BottomNav />
-        </Layout>
-      ) : null}
+        <HomeTitle>부스를 찾아볼까요?</HomeTitle>
+        <ListWrapper>
+          {LIVE_BOOTH_DATA.map((booth) => (
+            <LiveBoothCard key={booth.id} {...booth} />
+          ))}
+        </ListWrapper>
+        <ListWrapper>
+          {booths.map((booth) => (
+            <BoothCard key={booth.id} {...booth} />
+          ))}
+        </ListWrapper>
+        <div style={{ paddingTop: '200px' }} />
+        <AddFloatButton>
+          <Add />
+        </AddFloatButton>
+        <BottomNav />
+      </Layout>
+      {/* ) : null} */}
       {isSplashOpen && <Splash />}
     </>
   );

@@ -10,7 +10,7 @@ export default function BoothCard({ id, name, image, likeCount, comments }: Boot
   const base64Image = 'data:image/png;base64,' + image;
   return (
     <Link href={`/booth/${id}`} passHref>
-      <Wrapper backgroundImageUrl={base64Image}>
+      <Wrapper backgroundImageUrl={image}>
         <Header>
           <Name>{name}</Name>
           <LikeWrapper>

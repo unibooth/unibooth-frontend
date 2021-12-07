@@ -23,7 +23,6 @@ import RequestStamp from '@components/RequestStamp';
 import { findByWhere, getById } from '@helpers';
 import { Booth, BoothType } from '@interfaces';
 import { aboutStampInfo, requestStamp, rewardState } from '@recoil/modal';
-import { requestPostingList } from '@request';
 
 import {
   BoothListLayout,
@@ -39,6 +38,8 @@ import { CategoryButton } from './styles';
 import { TopBarLayout } from './styles';
 import { TopBarOpenButton } from './styles';
 import { StampCollectWrapper } from './styles';
+
+// import { requestPostingList } from '@request';
 
 let map: any;
 let markers: any = [];
@@ -100,7 +101,7 @@ const NaverMap = () => {
             : `
             <div style="">
             <img alt="" src="` +
-              base64Image +
+              booth.image +
               `" 
                 style="
                   width: 50px; 
@@ -211,22 +212,22 @@ const NaverMap = () => {
     setStampInfoVisible(true);
   };
 
-  useEffect(() => {
-    if (!firstRender) {
-      requestPostingList('중앙대')
-        .then((res) => {
-          console.log(res.data);
-          setFirstRender(true);
-          setBOOTH_DATA(res.data);
-          initMap();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+  // useEffect(() => {
+  //   if (!firstRender) {
+  //     requestPostingList('중앙대')
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         setFirstRender(true);
+  //         setBOOTH_DATA(res.data);
+  //         initMap();
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
 
-      handleOpen();
-    }
-  }, []);
+  //     handleOpen();
+  //   }
+  // }, []);
 
   useEffect(() => {
     initMap();
@@ -238,7 +239,7 @@ const NaverMap = () => {
     return (
       <StampCollectWrapper>
         <BoothListLayout style={{ border: 'none' }}>
-          <img src={base64Image} style={{ borderRadius: 8, width: '11vw', height: '11vw' }} />
+          <img src={booth.image} style={{ borderRadius: 8, width: '11vw', height: '11vw' }} />
           <div style={{ marginLeft: 16, width: '75%', position: 'relative' }}>
             <div
               style={{
@@ -479,7 +480,7 @@ const NaverMap = () => {
               return (
                 <BoothListLayout key={booth.id}>
                   <img
-                    src={base64Image}
+                    src={booth.image}
                     style={{ borderRadius: 8, width: '11vw', height: '11vw' }}
                   />
                   <div style={{ marginLeft: 16, width: '75%', position: 'relative' }}>

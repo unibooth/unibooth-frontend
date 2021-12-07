@@ -53,7 +53,8 @@ export default function BoothDetail({
             width: '100%',
           }}
         >
-          <img src={translateByte(image)} style={{ height: '375px' }} />
+          {/* <img src={translateByte(image)} style={{ height: '375px' }} /> */}
+          <img src={image} style={{ height: '375px' }} />
         </div>
         <div
           style={{
@@ -62,7 +63,8 @@ export default function BoothDetail({
           }}
         >
           {contents.map((content: BoothContent) => (
-            <img key={content.id} src={translateByte(content.image)} style={{ height: '375px' }} />
+            // <img key={content.id} src={translateByte(content.image)} style={{ height: '375px' }} />
+            <img key={content.id} src={content.image} style={{ height: '375px' }} />
           ))}
         </div>
       </Carousel>
@@ -84,7 +86,7 @@ export default function BoothDetail({
         <Line />
         <BioWrapper>
           <img
-            src={base64Image}
+            src={image}
             style={{ width: '36px', height: '36px', borderRadius: '50%', marginRight: '12px' }}
           />
           <div style={{ display: 'flex', flexDirection: 'column', marginRight: 'auto' }}>
