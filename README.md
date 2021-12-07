@@ -19,28 +19,32 @@
   </a>
 </p>
 
->  원티드 주최 [[해,커리어]](http://wntd.co/f4119ca3) 해커톤 최종 2등 수상
+> 원티드 주최 [[해,커리어]](http://wntd.co/f4119ca3) 해커톤 최종 2등 수상
 
 - ⚡️ 해커톤을 위한 빠른 개발 (6일만에 예선 진출을 위한 Product 개발, 5일만에 결선 진출을 위한 Product 개발, 4시간만에 수정된 기획 및 디자인 반영)
 - 💙 `recoil`을 이용한 전역상태 관리
 - 🏃 Currently maintaining
 
 ## 1. Getting Started
+
 ```shell
 npm run dev
 # or
 yarn dev
 ```
+
 ## 2. Architecture
 
 ## 3. Demo
+
 #### home
-<img alt="" src="/public/images/home.gif" height="70%"/>
+
+<img alt="" src="/public/images/home.gif" width="50%"/>
 #### booth
 #### feed
-<img alt="" src="/public/images/축제피드.png" height="70%"/>
+<img alt="" src="/public/images/축제피드.png" width="50%"/>
 #### map
 #### notification
-<img alt="" src="/public/images/메시지.png" height="70%"/>
+<img alt="" src="/public/images/메시지.png" width="50%"/>
 #### mypage
-<img alt="" src="/public/images/마이페이지.png" height="70%"/>
+<img alt="" src="/public/images/마이페이지.png" width="50%"/>
