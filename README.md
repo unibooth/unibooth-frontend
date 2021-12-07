@@ -40,11 +40,16 @@ yarn dev
 #### home
 
 <img alt="" src="/public/images/home.gif" width="50%"/>
-#### booth
+
+#### booth  
+
 #### feed
 <img alt="" src="/public/images/축제피드.png" width="50%"/>
-#### map
-#### notification
+
+#### map  
+
+#### notification  
 <img alt="" src="/public/images/메시지.png" width="50%"/>
-#### mypage
+
+#### mypage  
 <img alt="" src="/public/images/마이페이지.png" width="50%"/>
