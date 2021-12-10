@@ -35,6 +35,9 @@ yarn dev
 
 ## 2. Architecture
 
+<div align="center">
+<img src="public/images/PPT/Architecture.png" width="90%" />
+</div>
 ## 3. Demo
 
 |                           home                           |                     booth                      |                        map                        |
@@ -44,6 +47,7 @@ yarn dev
 |     <img alt="" src="/public/images/축제피드.png" />     | <img alt="" src="/public/images/메시지.png" /> | <img alt="" src="/public/images/마이페이지.png"/> |
 
 ## 4. PT
+
 <div align="center">
 <img src="public/images/PPT/슬라이드1.png" width="90%" />
 <img src="public/images/PPT/슬라이드2.png" width="90%" />
