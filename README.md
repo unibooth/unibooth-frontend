@@ -36,8 +36,36 @@ yarn dev
 ## 2. Architecture
 
 ## 3. Demo
-|home|booth|map|
-|:-:|:-:|:-:|
-|<img alt="" src="/public/images/home.gif" width="100%"/>|<img alt="" src="" width="100%"/>|
-|feed|notification|mypage|
-|<img alt="" src="/public/images/축제피드.png" />|<img alt="" src="/public/images/메시지.png" />|<img alt="" src="/public/images/마이페이지.png"/>|
+
+|                           home                           |                     booth                      |                        map                        |
+| :------------------------------------------------------: | :--------------------------------------------: | :-----------------------------------------------: |
+| <img alt="" src="/public/images/home.gif" width="100%"/> |       <img alt="" src="" width="100%"/>        |
+|                           feed                           |                  notification                  |                      mypage                       |
+|     <img alt="" src="/public/images/축제피드.png" />     | <img alt="" src="/public/images/메시지.png" /> | <img alt="" src="/public/images/마이페이지.png"/> |
+
+## 4. PT
+<div align="center">
+<img src="public/images/PPT/슬라이드1.png" width="90%" />
+<img src="public/images/PPT/슬라이드2.png" width="90%" />
+<img src="public/images/PPT/슬라이드3.png" width="90%" />
+<img src="public/images/PPT/슬라이드4.png" width="90%" />
+<img src="public/images/PPT/슬라이드5.png" width="90%" />
+<img src="public/images/PPT/슬라이드6.png" width="90%" />
+<img src="public/images/PPT/슬라이드7.png" width="90%" />
+<img src="public/images/PPT/슬라이드8.png" width="90%" />
+<img src="public/images/PPT/슬라이드9.png" width="90%" />
+<img src="public/images/PPT/슬라이드10.png" width="90%" />
+<img src="public/images/PPT/슬라이드11.png" width="90%" />
+<img src="public/images/PPT/슬라이드12.png" width="90%" />
+<img src="public/images/PPT/슬라이드13.png" width="90%" />
+<img src="public/images/PPT/슬라이드14.png" width="90%" />
+<img src="public/images/PPT/슬라이드15.png" width="90%" />
+<img src="public/images/PPT/슬라이드16.png" width="90%" />
+<img src="public/images/PPT/슬라이드17.png" width="90%" />
+<img src="public/images/PPT/슬라이드18.png" width="90%" />
+<img src="public/images/PPT/슬라이드19.png" width="90%" />
+<img src="public/images/PPT/슬라이드20.png" width="90%" />
+<img src="public/images/PPT/슬라이드21.png" width="90%" />
+<img src="public/images/PPT/슬라이드22.png" width="90%" />
+<img src="public/images/PPT/슬라이드23.png" width="90%" />
+</div>
