@@ -25,6 +25,15 @@
 - 💙 `recoil`을 이용한 전역상태 관리
 - 🏃 Currently maintaining
 
+## Youtube
+[주어진 시간은 단, 100초! 취업 준비생들의 첫 정면 승부! | 결선 1라운드 : 100초 피칭 [해, 커리어] EP 01
+](https://www.youtube.com/watch?v=MFAn8PvxpPA&t=42s)
+
+[20시간 앞으로 다가 온 최종 발표를 위한 마지막 관문 | 결선 2라운드 : 중간평가 [해, 커리어] EP 02](https://www.youtube.com/watch?v=VLiACiB2lXw&t=593s)
+
+[참가자도 울고 심사위원도 울었다...! 최종 PT에서 대체 무슨일이? | 결선 3라운드 : 파이널 피칭 [해, 커리어] EP 03](https://www.youtube.com/watch?v=-j_PynTi358&t=1364s)
+
+
 ## 1. Getting Started
 
 ```shell
